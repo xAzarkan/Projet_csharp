@@ -1,0 +1,50 @@
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
+D:\HEFF_HELB\1. Enseignement\2. Cours\1. IG\2. DotNet\4. Soft\Interface\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
+C:\Users\Sofiane\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Graphique.resources
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Mesure.resources
+C:\Users\Sofiane\Desktop\Q4\C# (.NET)\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Alarme.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.AssemblyReference.cache
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.SuggestedBindingRedirects.cache
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Mesure.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Graphique.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Alarme.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Properties.Resources.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.MainForm.resources
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.GenerateResource.cache
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
+\\Mac\Home\Desktop\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
