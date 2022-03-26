@@ -36,10 +36,12 @@
             this.Connexion_Label = new System.Windows.Forms.Label();
             this.ConnexionStatus_Label = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btAmpoule = new System.Windows.Forms.ToolStripButton();
-            this.btThermometre = new System.Windows.Forms.ToolStripButton();
+            this.btMesure = new System.Windows.Forms.ToolStripButton();
+            this.btAlarme = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.btGraphics = new System.Windows.Forms.ToolStripButton();
+            this.btUsers = new System.Windows.Forms.ToolStripButton();
+            this.btSettings = new System.Windows.Forms.ToolStripButton();
             this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.StopDataTreatment_Button = new System.Windows.Forms.Button();
             this.CLOSE_COM_Button = new System.Windows.Forms.Button();
@@ -93,12 +95,13 @@
             // 
             this.ConnexionStatus_Label.AutoSize = true;
             this.ConnexionStatus_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
             this.ConnexionStatus_Label.Location = new System.Drawing.Point(225, 783);
             this.ConnexionStatus_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ConnexionStatus_Label.Name = "ConnexionStatus_Label";
-            this.ConnexionStatus_Label.Size = new System.Drawing.Size(68, 25);
+            this.ConnexionStatus_Label.Size = new System.Drawing.Size(86, 25);
             this.ConnexionStatus_Label.TabIndex = 4;
-            this.ConnexionStatus_Label.Text = "Close";
+            this.ConnexionStatus_Label.Text = "CLOSE";
             // 
             // toolStrip1
             // 
@@ -106,35 +109,37 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btAmpoule,
-            this.btThermometre,
+            this.btMesure,
+            this.btAlarme,
             this.toolStripButton3,
-            this.btGraphics});
+            this.btGraphics,
+            this.btUsers,
+            this.btSettings});
             this.toolStrip1.Location = new System.Drawing.Point(45, 9);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(197, 50);
+            this.toolStrip1.Size = new System.Drawing.Size(285, 50);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btAmpoule
+            // btMesure
             // 
-            this.btAmpoule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btAmpoule.Image = ((System.Drawing.Image)(resources.GetObject("btAmpoule.Image")));
-            this.btAmpoule.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btAmpoule.Name = "btAmpoule";
-            this.btAmpoule.Size = new System.Drawing.Size(44, 44);
-            this.btAmpoule.Text = "Ampoule";
-            this.btAmpoule.Click += new System.EventHandler(this.btMesure_Click);
+            this.btMesure.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btMesure.Image = ((System.Drawing.Image)(resources.GetObject("btMesure.Image")));
+            this.btMesure.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btMesure.Name = "btMesure";
+            this.btMesure.Size = new System.Drawing.Size(44, 44);
+            this.btMesure.Text = "Mesure";
+            this.btMesure.Click += new System.EventHandler(this.btMesure_Click);
             // 
-            // btThermometre
+            // btAlarme
             // 
-            this.btThermometre.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btThermometre.Image = ((System.Drawing.Image)(resources.GetObject("btThermometre.Image")));
-            this.btThermometre.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btThermometre.Name = "btThermometre";
-            this.btThermometre.Size = new System.Drawing.Size(44, 44);
-            this.btThermometre.Text = "Thermometre";
-            this.btThermometre.Click += new System.EventHandler(this.btAlarme_Click);
+            this.btAlarme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btAlarme.Image = ((System.Drawing.Image)(resources.GetObject("btAlarme.Image")));
+            this.btAlarme.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btAlarme.Name = "btAlarme";
+            this.btAlarme.Size = new System.Drawing.Size(44, 44);
+            this.btAlarme.Text = "Alarme";
+            this.btAlarme.Click += new System.EventHandler(this.btAlarme_Click);
             // 
             // toolStripButton3
             // 
@@ -154,6 +159,26 @@
             this.btGraphics.Size = new System.Drawing.Size(44, 44);
             this.btGraphics.Text = "Graphics";
             this.btGraphics.Click += new System.EventHandler(this.btGraphics_Click);
+            // 
+            // btUsers
+            // 
+            this.btUsers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btUsers.Image = ((System.Drawing.Image)(resources.GetObject("btUsers.Image")));
+            this.btUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btUsers.Name = "btUsers";
+            this.btUsers.Size = new System.Drawing.Size(44, 44);
+            this.btUsers.Text = "Users";
+            this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
+            // 
+            // btSettings
+            // 
+            this.btSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btSettings.Image = ((System.Drawing.Image)(resources.GetObject("btSettings.Image")));
+            this.btSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btSettings.Name = "btSettings";
+            this.btSettings.Size = new System.Drawing.Size(44, 44);
+            this.btSettings.Text = "toolStripButton1";
+            this.btSettings.Click += new System.EventHandler(this.btSettings_Click);
             // 
             // MyContainer
             // 
@@ -224,6 +249,7 @@
             this.Controls.Add(this.DataTreatmen_Button);
             this.Controls.Add(this.COM_Button);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = " CO2 interface";
@@ -242,8 +268,8 @@
         private System.Windows.Forms.Label Connexion_Label;
         private System.Windows.Forms.Label ConnexionStatus_Label;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btAmpoule;
-        private System.Windows.Forms.ToolStripButton btThermometre;
+        private System.Windows.Forms.ToolStripButton btMesure;
+        private System.Windows.Forms.ToolStripButton btAlarme;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.FlowLayoutPanel MyContainer;
         private System.Windows.Forms.Button StopDataTreatment_Button;
@@ -251,6 +277,8 @@
         private System.Windows.Forms.ToolStripButton btGraphics;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_ID;
+        private System.Windows.Forms.ToolStripButton btUsers;
+        private System.Windows.Forms.ToolStripButton btSettings;
     }
 }
 

@@ -11,6 +11,8 @@ namespace CO2_Interface
         private Controls.Mesure MesurePage; //création d'une ampoule (sur base de UserControl)
         private Controls.Alarme AlarmePage;
         private Controls.Graphique GraphiquePage;
+        private Controls.Users UsersPage;
+        private Controls.Settings SettingsPage;
         private Timer timer;
 
         private int counter = 0;
@@ -22,37 +24,21 @@ namespace CO2_Interface
 
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ID); //associer des colonnes à la table que j'ai créer dans la classe Tables
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ConfigStatus);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.DataType);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.BinaryData);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.LastUpdate);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.Type);
-
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.ID);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Type);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.CriticalMin);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.WarningMin);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.CriticalMax);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.WarningMax);
-            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Status);
-
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Serial);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.ID);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Type);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Data);
-            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.CheckSum);
-
-
+            initTables();
 
             //j'instancie l'ampoulepage et le thermopage
             this.MesurePage = new Controls.Mesure();
             this.AlarmePage = new Controls.Alarme();
             this.GraphiquePage = new Controls.Graphique();
+            this.UsersPage = new Controls.Users();
+            this.SettingsPage = new Controls.Settings();
 
             //this.AmpoulePage.ButtonClick += new EventHandler(btMesureInside_Click); //si je clique sur le boutton dans l'ampoule, j'effectue ce qu'il y'a dans la fonction en paramètre
             //this.ThermoPage.ButtonClick += new EventHandler(btThermometreInside_Click);
             //this.GraphiquePage.ButtonClick += new EventHandler(btGraphicsInside_Click);
+
+            ConnexionStatus_Label.Text = "CLOSE"; //sinon
+            ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
         }            
         private void button_COM_Click(object sender, EventArgs e)
         {
@@ -94,8 +80,6 @@ namespace CO2_Interface
             MesurePage.ObjectsGrid.FirstDisplayedScrollingRowIndex = MesurePage.ObjectsGrid.RowCount - 1;
         }
 
-
-
         private void btMesure_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
@@ -106,6 +90,31 @@ namespace CO2_Interface
         {
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(AlarmePage);
+        }
+
+        private void initTables()
+        {
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ID); //associer des colonnes à la table que j'ai créer dans la classe Tables
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ConfigStatus);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.DataType);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.BinaryData);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.LastUpdate);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.Type);
+
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.ID);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Type);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.CriticalMin);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.WarningMin);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.CriticalMax);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.WarningMax);
+            Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Status);
+
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Serial);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.ID);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Type);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Data);
+            Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.CheckSum);
+
         }
 
         /*
@@ -141,6 +150,18 @@ namespace CO2_Interface
         private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
         {
             Data.FromSensor.graphListSecond.Clear();
+        }
+
+        private void btUsers_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(UsersPage);
+        }
+
+        private void btSettings_Click(object sender, EventArgs e)
+        {
+            MyContainer.Controls.Clear();
+            MyContainer.Controls.Add(SettingsPage);
         }
     }
 }
