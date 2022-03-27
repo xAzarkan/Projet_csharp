@@ -65,6 +65,18 @@
     <Compile Include="Controls\Alarme.Designer.cs">
       <DependentUpon>Alarme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Tables.cs" />
     <Compile Include="Data\FromSensor.cs" />
     <Compile Include="Data\Collections.cs" />
@@ -86,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Alarme.resx">
       <DependentUpon>Alarme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

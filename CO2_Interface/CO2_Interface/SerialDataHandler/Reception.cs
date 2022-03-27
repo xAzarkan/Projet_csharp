@@ -87,8 +87,6 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
         }
         internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
         {
-           
-
             if (dataInObjectList(newObj))
             {
                 foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
@@ -101,6 +99,9 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                         row["Data"] = newObj.Data;
                     }
                 }
+
+                Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);
+
             }
             else //pas dans l'ObjectList
             {
@@ -108,6 +109,9 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
                 Data.Collections.ObjectList.Add(newObj);
                 dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, 0/*newObj.CheckSum*/ });
+                
+
+                Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
             }
     
             dgv.ObjectsGrid.DataSource = dt;
@@ -121,14 +125,23 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
         internal static void updateGraph(ComboBox comboBoxID)
         {
-            foreach(Data.FromSensor.Base obj in Data.Collections.ObjectList)
+            if(comboBoxID.Text != "")
             {
-                if(obj.ID.ToString() == comboBoxID.Text)
+                Data.FromSensor.graphListSecond.Clear();
+
+                foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
                 {
-                    Controls.Graphique.GraphUpdate(obj.Data);
+                    Data.Collections.HistoryList[obj.ID].Add(obj.Data);
+                }
+
+                foreach (UInt16 data in Data.Collections.HistoryList[byte.Parse(comboBoxID.Text)])
+                {
+                    Controls.Graphique.GraphUpdate(data);
                 }
             }
+            
         }
+
         internal static bool dataInObjectList(Data.FromSensor.Base newObj)
         {
             foreach(Data.FromSensor.Base oldObj in Data.Collections.ObjectList)

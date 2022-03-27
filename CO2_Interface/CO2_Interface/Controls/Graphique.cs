@@ -19,9 +19,21 @@ namespace CO2_Interface.Controls
         static Title GraphTitle;
         static ChartArea Area;
 
+        static int WarningMin = 3000;
+        static int WarningMax = 60000;
+        static int CriticalMin = 1000;
+        static int CriticalMax = 70000;
+
+        static StripLine criticalMaxStrip = new StripLine();
+        static StripLine warningMaxStrip = new StripLine();
+        static StripLine criticalMinStrip = new StripLine();
+        static StripLine warningMinStrip = new StripLine();
+
+
         public Graphique()
         {
             InitializeComponent();
+                
 
             GraphBuilder();
         }
@@ -32,8 +44,7 @@ namespace CO2_Interface.Controls
             
             if (MyList.Count > 99) MyList.Dequeue();
             MyList.Enqueue(rnd.Next(0, 1000)); 
-           
-            
+   
             //GraphUpdate();
         }
 
@@ -45,7 +56,7 @@ namespace CO2_Interface.Controls
             Area = new ChartArea("MyChartArea");
 
             GraphPoints.ChartType = SeriesChartType.Spline;
-            GraphPoints.Color = System.Drawing.Color.DarkRed;
+            GraphPoints.Color = System.Drawing.Color.Black;
 
             Area.AxisX.InterlacedColor = System.Drawing.Color.White;
             Area.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
@@ -55,16 +66,49 @@ namespace CO2_Interface.Controls
             Area.BorderColor = System.Drawing.Color.DarkGray;
             Area.AxisY.IsStartedFromZero = false;
             Area.AxisY.Minimum = 0;
-            Area.AxisY.Maximum = 70000;
+            Area.AxisY.Maximum = 80000;
             Area.AxisX.Minimum = 0;
 
             Chart.Titles.Add(GraphTitle);
             Chart.ChartAreas.Add(Area);
+
+            criticalMaxStrip.Interval = 0;
+            criticalMaxStrip.IntervalOffset = CriticalMax;
+            criticalMaxStrip.StripWidth = 0.0;
+            criticalMaxStrip.BorderColor = Color.FromArgb(100, Color.Red);
+            criticalMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
+            criticalMaxStrip.BorderWidth = 5; // say
+            Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMaxStrip);
+
+            warningMaxStrip.Interval = 0;
+            warningMaxStrip.IntervalOffset = WarningMax;
+            warningMaxStrip.StripWidth = 0.0;
+            warningMaxStrip.BorderColor = Color.FromArgb(100, Color.Orange);
+            warningMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
+            warningMaxStrip.BorderWidth = 5; // say
+            Chart.ChartAreas[0].AxisY.StripLines.Add(warningMaxStrip);
+
+            warningMinStrip.Interval = 0;
+            warningMinStrip.IntervalOffset = WarningMin;
+            warningMinStrip.StripWidth = 0.0;
+            warningMinStrip.BorderColor = Color.FromArgb(100, Color.Yellow);
+            warningMinStrip.BorderDashStyle = ChartDashStyle.Solid;
+            warningMinStrip.BorderWidth = 5; // say
+            Chart.ChartAreas[0].AxisY.StripLines.Add(warningMinStrip);
+
+            criticalMinStrip.Interval = 0;
+            criticalMinStrip.IntervalOffset = CriticalMin;
+            criticalMinStrip.StripWidth = 0.0;
+            criticalMinStrip.BorderColor = Color.FromArgb(100, Color.Coral);
+            criticalMinStrip.BorderDashStyle = ChartDashStyle.Solid;
+            criticalMinStrip.BorderWidth = 5; // say
+            Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMinStrip);
+
+
             Chart.Series.Add(GraphPoints);
         }
         internal static void GraphUpdate(int value)
         {
-
             GraphPoints.Points.Clear();
 
             if (Data.FromSensor.graphListSecond.Count >= 60) Data.FromSensor.graphListSecond.Dequeue();
@@ -75,7 +119,20 @@ namespace CO2_Interface.Controls
                 GraphPoints.Points.AddXY(i, Data.FromSensor.graphListSecond.ElementAt(i));
             }
 
-            
+        }
+
+        internal static void setGraphLimits(int WMin, int WMax, int CMin, int CMax)
+        {
+            WarningMin = WMin;
+            WarningMax = WMax;
+            CriticalMin = CMin;
+            CriticalMax = CMax;
+
+            criticalMaxStrip.IntervalOffset = CriticalMax; //on "replace" les lignes
+            warningMaxStrip.IntervalOffset = WarningMax;
+            criticalMinStrip.IntervalOffset = CriticalMin;
+            warningMinStrip.IntervalOffset = WarningMin;
+
         }
     }
 }
