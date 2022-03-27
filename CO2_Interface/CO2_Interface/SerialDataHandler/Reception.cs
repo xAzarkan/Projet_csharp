@@ -100,7 +100,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     }
                 }
 
-                Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);
+                //Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);
 
             }
             else //pas dans l'ObjectList
@@ -111,7 +111,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, 0/*newObj.CheckSum*/ });
                 
 
-                Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
+                //Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
             }
     
             dgv.ObjectsGrid.DataSource = dt;
