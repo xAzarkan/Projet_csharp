@@ -24,10 +24,10 @@ namespace CO2_Interface
 
             Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ID); //associer des colonnes à la table que j'ai créer dans la classe Tables
             Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.ConfigStatus);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.DataType);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.Type);
             Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.BinaryData);
             Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.LastUpdate);
-            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.Type);
+            Data.Tables.MesureDataFromSensor.Columns.Add(Data.Tables.ColumnsMesure.Alarm);
 
             Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.ID);
             Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Type);

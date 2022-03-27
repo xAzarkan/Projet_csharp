@@ -27,10 +27,10 @@ namespace CO2_Interface.Data
         {
             internal static DataColumn ID = new DataColumn("ID");
             internal static DataColumn ConfigStatus = new DataColumn("Config Status");
-            internal static DataColumn DataType = new DataColumn("Type");
+            internal static DataColumn Type = new DataColumn("Type");
             internal static DataColumn BinaryData = new DataColumn("Data");
             internal static DataColumn LastUpdate = new DataColumn("Last Update");
-            internal static DataColumn Type = new DataColumn("Alarm");
+            internal static DataColumn Alarm = new DataColumn("Alarm");
         }
 
         internal class ColumnsAlarme

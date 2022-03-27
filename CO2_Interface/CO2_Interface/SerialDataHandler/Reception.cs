@@ -82,6 +82,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 }
 
             ObjToList(dataBrut, dt, dgv, comboBoxID);
+            updateDataColumn(dt);
 
         }
         internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
@@ -106,13 +107,16 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 comboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox
 
                 Data.Collections.ObjectList.Add(newObj);
-                dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.CheckSum });
+                dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, 0/*newObj.CheckSum*/ });
             }
     
             dgv.ObjectsGrid.DataSource = dt;
 
+           
             updateGraph(comboBoxID);
            
+
+
         }
 
         internal static void updateGraph(ComboBox comboBoxID)
@@ -137,6 +141,46 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
             return false;
 
+        }
+
+        internal static void updateDataColumn(DataTable dt)
+        {
+            int TypeColumn = 2;
+            string valeur;
+            int cpt=1;
+            //Afficher texte colonne type
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //mise à jour texte
+                if (dt.Rows[i][TypeColumn].Equals("0"))
+                {
+                    dt.Rows[i][TypeColumn] = "Alarme";
+                }
+                else if (dt.Rows[i][TypeColumn].Equals("1"))
+                {
+                    dt.Rows[i][TypeColumn] = "CO2";
+                }
+                else if (dt.Rows[i][TypeColumn].Equals("2"))
+                {
+                    dt.Rows[i][TypeColumn] = "Température";
+                }
+                else if (dt.Rows[i][TypeColumn].Equals("3"))
+                {
+                    dt.Rows[i][TypeColumn] = "Humidité";
+                }
+
+
+                //mise a jour données
+                if (dt.Rows[i][TypeColumn].Equals("Température"))
+                {
+                    valeur = dt.Rows[i][TypeColumn + 1].ToString();
+                    dt.Rows[i][TypeColumn + 1] = Math.Round((Convert.ToDouble(valeur) / 65535) * (30 + 10) - 10,2);
+                }
+
+                dt.Rows[i][4] = cpt++;
+
+
+            }
         }
     }
 }
