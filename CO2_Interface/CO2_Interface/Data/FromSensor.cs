@@ -19,7 +19,7 @@ namespace CO2_Interface.Data
             internal UInt16 Data; //sur 2 octets
             internal byte CheckSum; //somme de tous les octets
                                     //internal Boolean IsConverted; // si IsConverted vaut faux alors ça veut dire qu'on ne sait pas encore son type, sinon on connait son type
-
+            internal int Time;
             internal Base(UInt16 serial, byte id, byte type, UInt16 data, byte checksum)
             {
                 Serial = serial; 
@@ -27,6 +27,7 @@ namespace CO2_Interface.Data
                 Type = type;
                 Data = data;
                 CheckSum = checksum;
+                Time = 0;
                 //IsConverted = false;
             }
         }
