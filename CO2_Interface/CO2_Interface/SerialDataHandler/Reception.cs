@@ -114,8 +114,6 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
                 Data.Collections.ObjectList.Add(newObj);
                 dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.Time + " secondes"/*newObj.CheckSum*/ });
-
-
                 Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
             }
 
@@ -168,8 +166,10 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             const double maxTemp = 80;
             const double minTemp = 40;
             const double maxBit = 65535;
+
+            
             //Afficher texte colonne type
-            for (int i = 0; i < dt.Rows.Count; i++)
+            /*for (int i = 0; i < dt.Rows.Count; i++)
             {
                 //mise à jour texte
                 if (dt.Rows[i][TypeColumn].Equals("0"))
@@ -192,7 +192,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
                 //mise a jour données
                 if (dt.Rows[i][TypeColumn].Equals("Température"))
-                {
+                {*/
                     /*valeurString = dt.Rows[i][DataColumn].ToString();
                     valeurString = valeurString.Replace(" °C", "");
                     valeurDouble = double.Parse(valeurString);
