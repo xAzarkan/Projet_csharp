@@ -190,12 +190,31 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 if (dt.Rows[i][TypeColumn].Equals("Température"))
                 {
                     valeurString = dt.Rows[i][DataColumn].ToString();
-                    valeurDouble = Math.Round((Convert.ToDouble(valeurString) / 65535) * (30 + 10) - 10, 2);
-                    dt.Rows[i][DataColumn] = valeurDouble; //+" °C";
-                    
+                    valeurString = valeurString.Replace(" °C", "");
+                    valeurDouble = double.Parse(valeurString);
+                    //MessageBox.Show("double : " + valeurDouble);
+                    valeurDouble = (valeurDouble / 65535) * (30 + 10) -10;
+                    valeurDouble = Math.Round(valeurDouble, 2);
+                    //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
+
+                    valeurString = valeurDouble.ToString() + " °C";
+                    dt.Rows[i][DataColumn] = valeurString;// +" °C";
+                }
+                else if (dt.Rows[i][TypeColumn].Equals("CO2"))
+                {
+                    valeurString = dt.Rows[i][DataColumn].ToString();
+                    valeurString = valeurString.Replace(" PPM", "");
+                    valeurDouble = double.Parse(valeurString);
+                    //MessageBox.Show("double : " + valeurDouble);
+                    valeurDouble = (valeurDouble / 65535) * (1000 - 0) +0;
+                    valeurDouble = Math.Round(valeurDouble);
+                    //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
+
+                    valeurString = valeurDouble.ToString() + " PPM";
+                    dt.Rows[i][DataColumn] = valeurString;// +" °C";
                 }
 
-              
+
             }
            
         }
