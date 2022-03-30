@@ -49,7 +49,7 @@ namespace CO2_Interface.Data
                 internal static Int32 Warning;         //User Alarm
                 internal static Int32 Critical;         //User Alarm
             }
-            internal Measure() : base(0, 0, 0, 0, 0) 
+            internal Measure() : base(0, 0, 0, 0, 0)
             {
                 LowLimit = 0;
                 HighLimit = 0;

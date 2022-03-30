@@ -162,8 +162,8 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
         internal static void updateDataColumn(DataTable dt)
         {
-            int TypeColumn = 2;
-            int DataColumn = 3;
+            const int TypeColumn = 2;
+            const int DataColumn = 3;
             string valeurString;
             double valeurDouble;
 
