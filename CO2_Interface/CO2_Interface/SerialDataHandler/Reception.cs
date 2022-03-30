@@ -160,10 +160,14 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
         internal static void updateDataColumn(DataTable dt)
         {
-            int TypeColumn = 2;
-            int DataColumn = 3;
+            const int TypeColumn = 2;
+            const int DataColumn = 3;
             string valeurString;
             double valeurDouble;
+
+            const double maxTemp = 80;
+            const double minTemp = 40;
+            const double maxBit = 65535;
             //Afficher texte colonne type
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -189,16 +193,21 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 //mise a jour données
                 if (dt.Rows[i][TypeColumn].Equals("Température"))
                 {
-                    valeurString = dt.Rows[i][DataColumn].ToString();
+                    /*valeurString = dt.Rows[i][DataColumn].ToString();
                     valeurString = valeurString.Replace(" °C", "");
                     valeurDouble = double.Parse(valeurString);
                     //MessageBox.Show("double : " + valeurDouble);
-                    valeurDouble = (valeurDouble / 65535) * (30 + 10) -10;
+                    valeurDouble = (valeurDouble / maxBit) * (maxTemp + minTemp) - minTemp;
+                    Console.WriteLine("----- DEBUT DU CALCUL ------");
+                    Console.WriteLine("valeurString"+valeurString);
+                    Console.WriteLine("valeurDouble" + valeurDouble);
+                    Console.WriteLine("----- FIN DU CALCUL ------");
+
                     valeurDouble = Math.Round(valeurDouble, 2);
                     //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
 
                     valeurString = valeurDouble.ToString() + " °C";
-                    dt.Rows[i][DataColumn] = valeurString;// +" °C";
+                    dt.Rows[i][DataColumn] = valeurString;// +" °C";*/
                 }
                 else if (dt.Rows[i][TypeColumn].Equals("CO2"))
                 {
@@ -206,7 +215,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     valeurString = valeurString.Replace(" PPM", "");
                     valeurDouble = double.Parse(valeurString);
                     //MessageBox.Show("double : " + valeurDouble);
-                    valeurDouble = (valeurDouble / 65535) * (1000 - 0) +0;
+                    valeurDouble = (valeurDouble * (1000 - 0) / 65535) + 0;
                     valeurDouble = Math.Round(valeurDouble);
                     //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
 
