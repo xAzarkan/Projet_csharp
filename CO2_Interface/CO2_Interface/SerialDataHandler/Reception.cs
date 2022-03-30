@@ -101,7 +101,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                         obj.Time = 0;
                         row["Data"] = newObj.Data;
                     }
-                    row["Checksum"] = obj.Time+" secondes";
+                    row["Last Update"] = obj.Time + " secondes";
                     obj.Time++;
                 }
 
@@ -113,7 +113,9 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 comboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox
 
                 Data.Collections.ObjectList.Add(newObj);
-                dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.Time + " secondes"/*newObj.CheckSum*/ });
+
+               // dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.Time + " secondes"/*newObj.CheckSum*/ });
+                dt.Rows.Add(new object[] { newObj.ID, "None", newObj.Type, newObj.Data, newObj.Time + " secondes", "Pas d'alarme"});
 
 
                 Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
@@ -164,59 +166,51 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             int DataColumn = 3;
             string valeurString;
             double valeurDouble;
-            //Afficher texte colonne type
-            for (int i = 0; i < dt.Rows.Count; i++)
+
+            int posRow = 0;
+
+            foreach(Data.FromSensor.Base obj in Data.Collections.ObjectList)
             {
-                //mise à jour texte
-                if (dt.Rows[i][TypeColumn].Equals("0"))
+                if(obj.Type == 0)
                 {
-                    dt.Rows[i][TypeColumn] = "Alarme";
+                    dt.Rows[posRow][TypeColumn] = "Alarme"; 
                 }
-                else if (dt.Rows[i][TypeColumn].Equals("1"))
+                else if(obj.Type == 1)
                 {
-                    dt.Rows[i][TypeColumn] = "CO2";
-                }
-                else if (dt.Rows[i][TypeColumn].Equals("2"))
-                {
-                    dt.Rows[i][TypeColumn] = "Température";
-                }
-                else if (dt.Rows[i][TypeColumn].Equals("3"))
-                {
-                    dt.Rows[i][TypeColumn] = "Humidité";
-                }
-
-
-                //mise a jour données
-                if (dt.Rows[i][TypeColumn].Equals("Température"))
-                {
-                    valeurString = dt.Rows[i][DataColumn].ToString();
-                    valeurString = valeurString.Replace(" °C", "");
-                    valeurDouble = double.Parse(valeurString);
-                    //MessageBox.Show("double : " + valeurDouble);
-                    valeurDouble = (valeurDouble / 65535) * (30 + 10) -10;
-                    valeurDouble = Math.Round(valeurDouble, 2);
-                    //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
-
-                    valeurString = valeurDouble.ToString() + " °C";
-                    dt.Rows[i][DataColumn] = valeurString;// +" °C";
-                }
-                else if (dt.Rows[i][TypeColumn].Equals("CO2"))
-                {
-                    valeurString = dt.Rows[i][DataColumn].ToString();
-                    valeurString = valeurString.Replace(" PPM", "");
-                    valeurDouble = double.Parse(valeurString);
-                    //MessageBox.Show("double : " + valeurDouble);
-                    valeurDouble = (valeurDouble / 65535) * (1000 - 0) +0;
+                    dt.Rows[posRow][TypeColumn] = "CO²";
+                    valeurDouble = obj.Data;
+                    valeurDouble = (valeurDouble / 65535) * (1000 - 0) + 0;
                     valeurDouble = Math.Round(valeurDouble);
-                    //valeurDouble = Math.Round((((Convert.ToDouble(valeurString) / 65535) * (30 + 10)) - 10), 2);
-
                     valeurString = valeurDouble.ToString() + " PPM";
-                    dt.Rows[i][DataColumn] = valeurString;// +" °C";
+
+                    dt.Rows[posRow][DataColumn] = valeurString;
+
+                }
+                else if (obj.Type == 2)
+                {
+                    dt.Rows[posRow][TypeColumn] = "Température";
+
+                    //Conversion de la data
+                    
+                    valeurDouble = obj.Data;
+                    valeurDouble = (valeurDouble / 65535) * (30 + 10) - 10;
+                    valeurDouble = Math.Round(valeurDouble, 2);
+                    valeurString = valeurDouble.ToString() + " °C";
+                    
+                    dt.Rows[posRow][DataColumn] = valeurString;
+                }
+                else if (obj.Type == 3)
+                {
+                    dt.Rows[posRow][TypeColumn] = "Humidité";
+                    dt.Rows[posRow][DataColumn] = "0 %";
                 }
 
-
+                posRow += 1;
             }
            
         }
+
+        
+        
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 }
