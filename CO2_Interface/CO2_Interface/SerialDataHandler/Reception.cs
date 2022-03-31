@@ -32,7 +32,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
         internal static void DataTreatment(DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
         { //traitement de la donnée
 
-            Data.FromSensor.Base dataBrut = new Data.FromSensor.Base(0, 0, 0, 0, 0); //ici, ça ne sert pas encore à grand chose car on ne sait pas si l'objet est une Mesure ou une Alarme
+            Data.FromSensor.Measure dataBrut = new Data.FromSensor.Measure(); //ici, ça ne sert pas encore à grand chose car on ne sait pas si l'objet est une Mesure ou une Alarme
             int cpt = 1;
             //Décrassage du SerialBuffer si les données ne nous interessent pas
 
@@ -79,30 +79,30 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 Console.WriteLine("CheckSum : " + dataBrut.CheckSum);
 
                 Console.WriteLine("----- FIN DE TRAME ------");
-            }
 
+            }
             ObjToList(dataBrut, dt, dgv, comboBoxID);
+
             updateDataColumn(dt);
 
 
         }
         internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
         {
-           
-
             if (dataInObjectList(newObj))
             {
                 foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
                 {
-                    DataRow row = dt.Select("ID='" + obj.ID + "'").FirstOrDefault();
-                    if (obj.ID == newObj.ID)
-                    {
-                        obj.Data = newObj.Data;
-                        obj.Time = 0;
-                        row["Data"] = newObj.Data;
-                    }
-                    row["Last Update"] = obj.Time + " secondes";
-                    obj.Time++;
+                   DataRow row = dt.Select("ID='" + obj.ID + "'").FirstOrDefault();
+                     if (obj.ID == newObj.ID)
+                     {
+                         obj.Data = newObj.Data;
+                         obj.Time = 0;
+                         row["Data"] = newObj.Data;
+
+                     }
+                     row["Last Update"] = obj.Time + " secondes";
+                     obj.Time++;
                 }
 
                 Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);
