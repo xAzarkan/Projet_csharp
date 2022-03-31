@@ -65,6 +65,12 @@
     <Compile Include="Controls\Alarme.Designer.cs">
       <DependentUpon>Alarme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MesureConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MesureConfig.Designer.cs">
+      <DependentUpon>MesureConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Settings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Alarme.resx">
       <DependentUpon>Alarme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MesureConfig.resx">
+      <DependentUpon>MesureConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

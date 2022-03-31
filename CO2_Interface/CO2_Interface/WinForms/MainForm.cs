@@ -26,12 +26,16 @@ namespace CO2_Interface
 
             initTables();
 
+
+
             //j'instancie l'ampoulepage et le thermopage
             this.MesurePage = new Controls.Mesure();
             this.AlarmePage = new Controls.Alarme();
             this.GraphiquePage = new Controls.Graphique();
             this.UsersPage = new Controls.Users();
             this.SettingsPage = new Controls.Settings();
+
+            AlarmePage.ObjectsGrid.DataSource = Data.Tables.AlarmeDataFromSensor;
 
             //this.AmpoulePage.ButtonClick += new EventHandler(btMesureInside_Click); //si je clique sur le boutton dans l'ampoule, j'effectue ce qu'il y'a dans la fonction en paramètre
             //this.ThermoPage.ButtonClick += new EventHandler(btThermometreInside_Click);
@@ -74,11 +78,10 @@ namespace CO2_Interface
 
         private void timer_Tick(object sender, EventArgs e)
         {
-
             //SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
             SerialDataHandler.Reception.DataTreatment(Data.Tables.MesureDataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
             MesurePage.ObjectsGrid.FirstDisplayedScrollingRowIndex = MesurePage.ObjectsGrid.RowCount - 1;
-        }
+        } 
 
         private void btMesure_Click(object sender, EventArgs e)
         {
@@ -108,6 +111,7 @@ namespace CO2_Interface
             Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.CriticalMax);
             Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.WarningMax);
             Data.Tables.AlarmeDataFromSensor.Columns.Add(Data.Tables.ColumnsAlarme.Status);
+
 
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.Serial);
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.ID);
@@ -150,6 +154,31 @@ namespace CO2_Interface
         private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
         {
             Data.FromSensor.graphListSecond.Clear();
+            
+            foreach(Data.FromSensor.Base obj in Data.Collections.ObjectList)
+            {
+                if(obj.ID.ToString() == comboBox_ID.Text)
+                {
+                    if(obj.Type == 0)
+                    {
+                        typeData_label.Text = "Alarme";
+                    }
+                    else if(obj.Type == 1)
+                    {
+                        typeData_label.Text = "CO²";
+                    }
+                    else if (obj.Type == 2)
+                    {
+                        typeData_label.Text = "Température";
+                    }
+                    else if(obj.Type == 3)
+                    {
+                        typeData_label.Text = "Humidité";
+                    }
+                }
+            }
+
+            
         }
 
         private void btUsers_Click(object sender, EventArgs e)
@@ -162,6 +191,11 @@ namespace CO2_Interface
         {
             MyContainer.Controls.Clear();
             MyContainer.Controls.Add(SettingsPage);
+        }
+
+        private void saveConfig_Button_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
