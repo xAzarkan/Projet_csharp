@@ -32,7 +32,6 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
         internal static void DataTreatment(DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
         { //traitement de la donnée
 
-            Data.FromSensor.Measure dataBrut = new Data.FromSensor.Measure(); //ici, ça ne sert pas encore à grand chose car on ne sait pas si l'objet est une Mesure ou une Alarme
             int cpt = 1;
             //Décrassage du SerialBuffer si les données ne nous interessent pas
 
@@ -48,6 +47,8 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
             while (Data.Collections.SerialBuffer.Count > 13)
             {
+                Data.FromSensor.Measure dataBrut = new Data.FromSensor.Measure(); //ici, ça ne sert pas encore à grand chose car on ne sait pas si l'objet est une Mesure ou une Alarme
+
                 Data.Collections.SerialBuffer.Dequeue(); // on dequeue les 3 premiers octets qui sont le début de trame
                 Data.Collections.SerialBuffer.Dequeue();
                 Data.Collections.SerialBuffer.Dequeue();
@@ -79,9 +80,10 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 Console.WriteLine("CheckSum : " + dataBrut.CheckSum);
 
                 Console.WriteLine("----- FIN DE TRAME ------");
+                ObjToList(dataBrut, dt, dgv, comboBoxID);
+
 
             }
-            ObjToList(dataBrut, dt, dgv, comboBoxID);
 
             updateDataColumn(dt);
 
@@ -102,7 +104,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
                      }
                      row["Last Update"] = obj.Time + " secondes";
-                     obj.Time++;
+                     //obj.Time++;
                 }
 
                 Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);

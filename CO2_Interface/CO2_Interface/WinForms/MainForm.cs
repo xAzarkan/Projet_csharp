@@ -77,7 +77,11 @@ namespace CO2_Interface
 
             //SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
             SerialDataHandler.Reception.DataTreatment(Data.Tables.MesureDataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
-            MesurePage.ObjectsGrid.FirstDisplayedScrollingRowIndex = MesurePage.ObjectsGrid.RowCount - 1;
+            //MesurePage.ObjectsGrid.FirstDisplayedScrollingRowIndex = MesurePage.ObjectsGrid.RowCount - 1;
+            foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
+            {
+                obj.Time++;
+            }
         }
 
         private void btMesure_Click(object sender, EventArgs e)
