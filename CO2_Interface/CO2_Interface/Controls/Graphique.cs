@@ -15,9 +15,9 @@ namespace CO2_Interface.Controls
     {
         static Queue<int> MyList;
 
-        static Series GraphPoints;
-        static Title GraphTitle;
-        static ChartArea Area;
+        public static Series GraphPoints;
+        public static Title GraphTitle;
+        public static ChartArea Area;
 
         static int WarningMin = 0;
         static int WarningMax = 0;
@@ -30,8 +30,15 @@ namespace CO2_Interface.Controls
         static StripLine warningMinStrip = new StripLine();
 
         static int maxPPM = 1500;
+        static int minPPM = 0;
+
+
         static int maxTemp = 50;
+        static int minTemp = -10;
+
         static int maxHum = 100;
+        static int minHum = 0;
+
 
 
         public Graphique()
@@ -52,7 +59,7 @@ namespace CO2_Interface.Controls
             //GraphUpdate();
         }
 
-        private void GraphBuilder()
+        public void GraphBuilder()
         {
             MyList = new Queue<int>();
             GraphPoints = new Series("MySerie");
@@ -113,11 +120,11 @@ namespace CO2_Interface.Controls
         internal static void GraphUpdate(int value)
         {
             GraphPoints.Points.Clear();
-
+            
             if (Data.FromSensor.graphListSecond.Count >= 60) Data.FromSensor.graphListSecond.Dequeue();
             Data.FromSensor.graphListSecond.Enqueue(value);
 
-            for(int i = 0; i < Data.FromSensor.graphListSecond.Count; i++)
+            for (int i = 0; i < Data.FromSensor.graphListSecond.Count; i++)
             {
                 GraphPoints.Points.AddXY(i, Data.FromSensor.graphListSecond.ElementAt(i));
             }
@@ -139,14 +146,17 @@ namespace CO2_Interface.Controls
             if(typeData == 1) //CO2
             {
                 Area.AxisY.Maximum = maxPPM;
+                Area.AxisY.Minimum = minPPM;
             }
             else if(typeData == 2) //température
             {
                 Area.AxisY.Maximum = maxTemp;
+                Area.AxisY.Minimum = minTemp;
             }
             else if(typeData == 3) //humidité
             {
                 Area.AxisY.Maximum = maxHum;
+                Area.AxisY.Minimum = minHum;
             }
             
 

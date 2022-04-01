@@ -67,7 +67,9 @@ namespace CO2_Interface.Controls
                     }
 
                     
+
                 }
+                
             }
         }
 
@@ -85,6 +87,27 @@ namespace CO2_Interface.Controls
         private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkTypeOfData(comboBox_ID);
+            checkIfConfigured(comboBox_ID);
+        }
+
+        internal void checkIfConfigured(ComboBox comboBox)
+        {
+            foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
+            {
+                if (obj.ID.ToString() == comboBox_ID.Text)
+                {
+                    if(obj.ConfigStatus == "Done")
+                    {
+                        configStatus_label.Text = "Configured";
+                        configStatus_label.ForeColor = Color.Green; 
+                    }
+                    else
+                    {
+                        configStatus_label.Text = "Not configured";
+                        configStatus_label.ForeColor = Color.Red;
+                    }
+                }
+            }
         }
 
         private void checkTypeOfData(ComboBox comboBox)

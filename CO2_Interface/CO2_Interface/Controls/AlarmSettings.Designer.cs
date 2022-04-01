@@ -42,13 +42,15 @@
             this.typeData_label1 = new System.Windows.Forms.Label();
             this.comboBox_ID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.configStatus_label = new System.Windows.Forms.Label();
+            this.configStatus_label1 = new System.Windows.Forms.Label();
             this.groupBox_Config.SuspendLayout();
             this.SuspendLayout();
             // 
             // WarningMin_textBox
             // 
             this.WarningMin_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningMin_textBox.Location = new System.Drawing.Point(204, 183);
+            this.WarningMin_textBox.Location = new System.Drawing.Point(204, 203);
             this.WarningMin_textBox.Name = "WarningMin_textBox";
             this.WarningMin_textBox.Size = new System.Drawing.Size(258, 26);
             this.WarningMin_textBox.TabIndex = 5;
@@ -59,7 +61,7 @@
             this.WarningMin_Label.AutoSize = true;
             this.WarningMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMin_Label.ForeColor = System.Drawing.Color.Gold;
-            this.WarningMin_Label.Location = new System.Drawing.Point(21, 189);
+            this.WarningMin_Label.Location = new System.Drawing.Point(21, 209);
             this.WarningMin_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMin_Label.Name = "WarningMin_Label";
             this.WarningMin_Label.Size = new System.Drawing.Size(100, 16);
@@ -71,7 +73,7 @@
             this.WarningMax_Label.AutoSize = true;
             this.WarningMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMax_Label.ForeColor = System.Drawing.Color.Gold;
-            this.WarningMax_Label.Location = new System.Drawing.Point(21, 243);
+            this.WarningMax_Label.Location = new System.Drawing.Point(21, 263);
             this.WarningMax_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMax_Label.Name = "WarningMax_Label";
             this.WarningMax_Label.Size = new System.Drawing.Size(104, 16);
@@ -81,7 +83,7 @@
             // WarningMax_textBox
             // 
             this.WarningMax_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningMax_textBox.Location = new System.Drawing.Point(204, 237);
+            this.WarningMax_textBox.Location = new System.Drawing.Point(204, 257);
             this.WarningMax_textBox.Name = "WarningMax_textBox";
             this.WarningMax_textBox.Size = new System.Drawing.Size(258, 26);
             this.WarningMax_textBox.TabIndex = 7;
@@ -131,7 +133,9 @@
             // 
             // groupBox_Config
             // 
-            this.groupBox_Config.BackColor = System.Drawing.Color.White;
+            this.groupBox_Config.BackColor = System.Drawing.Color.OldLace;
+            this.groupBox_Config.Controls.Add(this.configStatus_label);
+            this.groupBox_Config.Controls.Add(this.configStatus_label1);
             this.groupBox_Config.Controls.Add(this.saveAlarmConfig_Button);
             this.groupBox_Config.Controls.Add(this.CriticalMax_textBox);
             this.groupBox_Config.Controls.Add(this.CriticalMax_Label);
@@ -170,7 +174,7 @@
             // 
             this.typeData_label.AutoSize = true;
             this.typeData_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeData_label.Location = new System.Drawing.Point(229, 111);
+            this.typeData_label.Location = new System.Drawing.Point(254, 111);
             this.typeData_label.Name = "typeData_label";
             this.typeData_label.Size = new System.Drawing.Size(23, 17);
             this.typeData_label.TabIndex = 13;
@@ -205,6 +209,26 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Select ID :";
             // 
+            // configStatus_label
+            // 
+            this.configStatus_label.AutoSize = true;
+            this.configStatus_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configStatus_label.Location = new System.Drawing.Point(254, 144);
+            this.configStatus_label.Name = "configStatus_label";
+            this.configStatus_label.Size = new System.Drawing.Size(23, 17);
+            this.configStatus_label.TabIndex = 20;
+            this.configStatus_label.Text = "...";
+            // 
+            // configStatus_label1
+            // 
+            this.configStatus_label1.AutoSize = true;
+            this.configStatus_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configStatus_label1.Location = new System.Drawing.Point(21, 144);
+            this.configStatus_label1.Name = "configStatus_label1";
+            this.configStatus_label1.Size = new System.Drawing.Size(120, 17);
+            this.configStatus_label1.TabIndex = 19;
+            this.configStatus_label1.Text = "Config Status : ";
+            // 
             // AlarmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -234,5 +258,7 @@
         private System.Windows.Forms.Label typeData_label1;
         public System.Windows.Forms.ComboBox comboBox_ID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label configStatus_label;
+        private System.Windows.Forms.Label configStatus_label1;
     }
 }

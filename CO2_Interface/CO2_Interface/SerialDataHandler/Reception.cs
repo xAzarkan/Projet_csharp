@@ -89,11 +89,11 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
 
         }
-        internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox measureComboBoxID, ComboBox alarmComboBoxID)
+        internal static void ObjToList(Data.FromSensor.Measure newObj, DataTable dt, Controls.Mesure dgv, ComboBox measureComboBoxID, ComboBox alarmComboBoxID)
         {
             if (dataInObjectList(newObj))
             {
-                foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
+                foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
                 {
                    DataRow row = dt.Select("ID='" + obj.ID + "'").FirstOrDefault();
                      if (obj.ID == newObj.ID)
@@ -102,12 +102,13 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                          obj.Time = 0;
                          row["Data"] = newObj.Data;
 
-                     }
+                        if (obj.ConfigStatus == "Done")
+                            Data.Collections.HistoryList[obj.ID].Add(obj.ConvertedData);
+
+                    }
                      row["Last Update"] = obj.Time + " secondes";
                      //obj.Time++;
                 }
-
-                Data.Collections.HistoryList[newObj.ID].Add(newObj.Data);
 
             }
             else //pas dans l'ObjectList
@@ -121,7 +122,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 dt.Rows.Add(new object[] { newObj.ID, newObj.ConfigStatus, newObj.Type, newObj.Data, newObj.Time + " secondes", "Pas d'alarme"});
 
 
-                Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
+                Data.Collections.HistoryList.Add(newObj.ID, new List<Int32>());
             }
 
             dgv.ObjectsGrid.DataSource = dt;
@@ -136,22 +137,34 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             {
                 Data.FromSensor.graphListSecond.Clear();
 
-                foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
+                foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
                 {
-                    Data.Collections.HistoryList[obj.ID].Add(obj.Data);
+                    if(obj.ConfigStatus == "Done")
+                    {
+                        Data.Collections.HistoryList[obj.ID].Add(obj.ConvertedData);
+                    }
+                    //on ajoute les données dans l'HistoryList seulement si la donnée est configurée
+                        
                 }
 
-                foreach (UInt16 data in Data.Collections.HistoryList[byte.Parse(comboBoxID.Text)])
+                if(Data.Collections.HistoryList[byte.Parse(comboBoxID.Text)].Count == 0)
                 {
-                    Controls.Graphique.GraphUpdate(data);
+                    Controls.Graphique.GraphPoints.Points.Clear();
+                }
+                else
+                {
+                    foreach (Int32 data in Data.Collections.HistoryList[byte.Parse(comboBoxID.Text)])
+                    {
+                        Controls.Graphique.GraphUpdate(data);
+                    }
                 }
             }
 
         }
 
-        internal static bool dataInObjectList(Data.FromSensor.Base newObj)
+        internal static bool dataInObjectList(Data.FromSensor.Measure newObj)
         {
-            foreach (Data.FromSensor.Base oldObj in Data.Collections.ObjectList)
+            foreach (Data.FromSensor.Measure oldObj in Data.Collections.ObjectList)
             {
                 if (oldObj.ID == newObj.ID)
                 {

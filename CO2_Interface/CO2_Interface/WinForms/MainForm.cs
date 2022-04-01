@@ -105,6 +105,8 @@ namespace CO2_Interface
 
             MyContainer.Controls.Add(AlarmePage);
             MyConfigContainer.Controls.Add(AlarmSettingsPage);
+
+            AlarmSettingsPage.checkIfConfigured(AlarmSettingsPage.comboBox_ID);
         }
 
         private void initTables()
@@ -164,6 +166,8 @@ namespace CO2_Interface
 
             MyContainer.Controls.Add(GraphiquePage);
             MyConfigContainer.Controls.Add(AlarmSettingsPage);
+
+            AlarmSettingsPage.checkIfConfigured(AlarmSettingsPage.comboBox_ID);
         }
 
        

@@ -11,6 +11,8 @@ namespace CO2_Interface.Data
 
         internal static Queue<byte> SerialBuffer = new Queue<byte>();
 
-        internal static Dictionary<byte, List<UInt16>> HistoryList = new Dictionary<byte, List<UInt16>>();   //dictionnaire qui lie les ID à des listes de données (UInt16 car les données sont reçus sur 2 octets)
+        internal static Dictionary<byte, List<Int32>> HistoryList = new Dictionary<byte, List<Int32>>();   //dictionnaire qui lie les ID à des listes de données (UInt16 car les données sont reçus sur 2 octets)
+
+        //internal static Dictionary<byte, List<UInt16>> HistoryList = new Dictionary<byte, List<UInt16>>();   //dictionnaire qui lie les ID à des listes de données (UInt16 car les données sont reçus sur 2 octets)
     }
 }
