@@ -29,10 +29,10 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             }
         }
 
-        internal static void DataTreatment(DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
+        internal static void DataTreatment(DataTable dt, Controls.Mesure dgv, ComboBox measureComboBoxID, TextBox lowLimit, TextBox highLimit, ComboBox alarmComboBoxID)
         { //traitement de la donnée
 
-            int cpt = 1;
+
             //Décrassage du SerialBuffer si les données ne nous interessent pas
 
             while ((Data.Collections.SerialBuffer.Count > 3) && (
@@ -80,16 +80,16 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 Console.WriteLine("CheckSum : " + dataBrut.CheckSum);
 
                 Console.WriteLine("----- FIN DE TRAME ------");
-                ObjToList(dataBrut, dt, dgv, comboBoxID);
+                ObjToList(dataBrut, dt, dgv, measureComboBoxID, alarmComboBoxID);
 
 
             }
 
-            updateDataColumn(dt);
+            updateDataColumn(dt, lowLimit, highLimit);
 
 
         }
-        internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox comboBoxID)
+        internal static void ObjToList(Data.FromSensor.Base newObj, DataTable dt, Controls.Mesure dgv, ComboBox measureComboBoxID, ComboBox alarmComboBoxID)
         {
             if (dataInObjectList(newObj))
             {
@@ -112,12 +112,13 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             }
             else //pas dans l'ObjectList
             {
-                comboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox
+                measureComboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox Mesure
+                alarmComboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox Alarme
 
                 Data.Collections.ObjectList.Add(newObj);
 
                // dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.Time + " secondes"/*newObj.CheckSum*/ });
-                dt.Rows.Add(new object[] { newObj.ID, "None", newObj.Type, newObj.Data, newObj.Time + " secondes", "Pas d'alarme"});
+                dt.Rows.Add(new object[] { newObj.ID, newObj.ConfigStatus, newObj.Type, newObj.Data, newObj.Time + " secondes", "Pas d'alarme"});
 
 
                 Data.Collections.HistoryList.Add(newObj.ID, new List<UInt16>());
@@ -125,7 +126,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
             dgv.ObjectsGrid.DataSource = dt;
 
-            updateGraph(comboBoxID);
+            updateGraph(alarmComboBoxID);
 
         }
 
@@ -162,16 +163,18 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
         }
 
-        internal static void updateDataColumn(DataTable dt)
+        internal static void updateDataColumn(DataTable dt, TextBox lowLimit, TextBox highLimit)
         {
             const int TypeColumn = 2;
             const int DataColumn = 3;
             string valeurString;
-            double valeurDouble;
+            double valeurDataBrut;
+
+            Int32 lengthOfBits = 65535;
 
             int posRow = 0;
 
-            foreach(Data.FromSensor.Base obj in Data.Collections.ObjectList)
+            foreach(Data.FromSensor.Measure obj in Data.Collections.ObjectList)
             {
                 if(obj.Type == 0)
                 {
@@ -180,10 +183,10 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                 else if(obj.Type == 1)
                 {
                     dt.Rows[posRow][TypeColumn] = "CO²";
-                    valeurDouble = obj.Data;
-                    valeurDouble = (valeurDouble / 65535) * (1000 - 0) + 0;
-                    valeurDouble = Math.Round(valeurDouble);
-                    valeurString = valeurDouble.ToString() + " PPM";
+                    valeurDataBrut = obj.Data;
+                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) + obj.LowLimit);
+                    //valeurDouble = Math.Round(valeurDouble);
+                    valeurString = obj.ConvertedData.ToString() + " PPM";
 
                     dt.Rows[posRow][DataColumn] = valeurString;
 
@@ -193,18 +196,24 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     dt.Rows[posRow][TypeColumn] = "Température";
 
                     //Conversion de la data
-                    
-                    valeurDouble = obj.Data;
-                    valeurDouble = (valeurDouble / 65535) * (30 + 10) - 10;
-                    valeurDouble = Math.Round(valeurDouble, 2);
-                    valeurString = valeurDouble.ToString() + " °C";
+
+                    valeurDataBrut = obj.Data;
+                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) - obj.LowLimit);
+                    valeurDataBrut = Math.Round(valeurDataBrut, 2);
+                    valeurString = obj.ConvertedData.ToString() + " °C";
                     
                     dt.Rows[posRow][DataColumn] = valeurString;
                 }
                 else if (obj.Type == 3)
                 {
                     dt.Rows[posRow][TypeColumn] = "Humidité";
-                    dt.Rows[posRow][DataColumn] = "0 %";
+
+                    valeurDataBrut = obj.Data;
+                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) - obj.LowLimit);
+                    valeurDataBrut = Math.Round(valeurDataBrut, 2);
+                    valeurString = obj.ConvertedData.ToString() + " %";
+
+                    dt.Rows[posRow][DataColumn] = valeurString;
                 }
 
                 posRow += 1;

@@ -71,11 +71,11 @@
     <Compile Include="Controls\MesureConfig.Designer.cs">
       <DependentUpon>MesureConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Settings.cs">
+    <Compile Include="Controls\AlarmSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="Controls\AlarmSettings.Designer.cs">
+      <DependentUpon>AlarmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Users.cs">
       <SubType>UserControl</SubType>
@@ -108,8 +108,8 @@
     <EmbeddedResource Include="Controls\MesureConfig.resx">
       <DependentUpon>MesureConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\AlarmSettings.resx">
+      <DependentUpon>AlarmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>

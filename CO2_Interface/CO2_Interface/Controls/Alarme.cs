@@ -12,7 +12,7 @@ namespace CO2_Interface.Controls
 {
     public partial class Alarme : UserControl
     {
-        internal event EventHandler ButtonClick;
+        //internal event EventHandler ButtonClick;
 
         public Alarme()
         {

@@ -19,15 +19,19 @@ namespace CO2_Interface.Controls
         static Title GraphTitle;
         static ChartArea Area;
 
-        static int WarningMin = 3000;
-        static int WarningMax = 60000;
-        static int CriticalMin = 1000;
-        static int CriticalMax = 70000;
+        static int WarningMin = 0;
+        static int WarningMax = 0;
+        static int CriticalMin = 0;
+        static int CriticalMax = 0;
 
         static StripLine criticalMaxStrip = new StripLine();
         static StripLine warningMaxStrip = new StripLine();
         static StripLine criticalMinStrip = new StripLine();
         static StripLine warningMinStrip = new StripLine();
+
+        static int maxPPM = 1500;
+        static int maxTemp = 50;
+        static int maxHum = 100;
 
 
         public Graphique()
@@ -52,7 +56,7 @@ namespace CO2_Interface.Controls
         {
             MyList = new Queue<int>();
             GraphPoints = new Series("MySerie");
-            GraphTitle = new Title("Taux de CO2");
+            GraphTitle = new Title("Graphique");
             Area = new ChartArea("MyChartArea");
 
             GraphPoints.ChartType = SeriesChartType.Spline;
@@ -77,7 +81,7 @@ namespace CO2_Interface.Controls
             criticalMaxStrip.StripWidth = 0.0;
             criticalMaxStrip.BorderColor = Color.FromArgb(100, Color.Red);
             criticalMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
-            criticalMaxStrip.BorderWidth = 5; // say
+            criticalMaxStrip.BorderWidth = 5; 
             Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMaxStrip);
 
             warningMaxStrip.Interval = 0;
@@ -85,25 +89,24 @@ namespace CO2_Interface.Controls
             warningMaxStrip.StripWidth = 0.0;
             warningMaxStrip.BorderColor = Color.FromArgb(100, Color.Orange);
             warningMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
-            warningMaxStrip.BorderWidth = 5; // say
+            warningMaxStrip.BorderWidth = 5; 
             Chart.ChartAreas[0].AxisY.StripLines.Add(warningMaxStrip);
 
             warningMinStrip.Interval = 0;
             warningMinStrip.IntervalOffset = WarningMin;
             warningMinStrip.StripWidth = 0.0;
-            warningMinStrip.BorderColor = Color.FromArgb(100, Color.Yellow);
+            warningMinStrip.BorderColor = Color.FromArgb(100, Color.Orange);
             warningMinStrip.BorderDashStyle = ChartDashStyle.Solid;
-            warningMinStrip.BorderWidth = 5; // say
+            warningMinStrip.BorderWidth = 5; 
             Chart.ChartAreas[0].AxisY.StripLines.Add(warningMinStrip);
 
             criticalMinStrip.Interval = 0;
             criticalMinStrip.IntervalOffset = CriticalMin;
             criticalMinStrip.StripWidth = 0.0;
-            criticalMinStrip.BorderColor = Color.FromArgb(100, Color.Coral);
+            criticalMinStrip.BorderColor = Color.FromArgb(100, Color.Red);
             criticalMinStrip.BorderDashStyle = ChartDashStyle.Solid;
-            criticalMinStrip.BorderWidth = 5; // say
+            criticalMinStrip.BorderWidth = 5; 
             Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMinStrip);
-
 
             Chart.Series.Add(GraphPoints);
         }
@@ -121,7 +124,7 @@ namespace CO2_Interface.Controls
 
         }
 
-        internal static void setGraphLimits(int WMin, int WMax, int CMin, int CMax)
+        internal static void setGraphLimits(Int32 WMin, Int32 WMax, Int32 CMin, Int32 CMax, byte typeData)
         {
             WarningMin = WMin;
             WarningMax = WMax;
@@ -132,6 +135,20 @@ namespace CO2_Interface.Controls
             warningMaxStrip.IntervalOffset = WarningMax;
             criticalMinStrip.IntervalOffset = CriticalMin;
             warningMinStrip.IntervalOffset = WarningMin;
+
+            if(typeData == 1) //CO2
+            {
+                Area.AxisY.Maximum = maxPPM;
+            }
+            else if(typeData == 2) //température
+            {
+                Area.AxisY.Maximum = maxTemp;
+            }
+            else if(typeData == 3) //humidité
+            {
+                Area.AxisY.Maximum = maxHum;
+            }
+            
 
         }
     }

@@ -12,10 +12,11 @@ namespace CO2_Interface
         private Controls.Alarme AlarmePage;
         private Controls.Graphique GraphiquePage;
         private Controls.Users UsersPage;
-        private Controls.Settings SettingsPage;
+        private Controls.AlarmSettings AlarmSettingsPage;
+        private Controls.MesureConfig MesureConfigPage;
         private Timer timer;
 
-        private int counter = 0;
+        //private int counter = 0;
 
         //TOUT CE QUI CONCERNE LA PARTIE GRAPHIQUE
         public MainForm()
@@ -26,16 +27,15 @@ namespace CO2_Interface
 
             initTables();
 
-
-
             //j'instancie l'ampoulepage et le thermopage
             this.MesurePage = new Controls.Mesure();
             this.AlarmePage = new Controls.Alarme();
             this.GraphiquePage = new Controls.Graphique();
             this.UsersPage = new Controls.Users();
-            this.SettingsPage = new Controls.Settings();
+            this.AlarmSettingsPage = new Controls.AlarmSettings();
+            this.MesureConfigPage = new Controls.MesureConfig();
 
-            AlarmePage.ObjectsGrid.DataSource = Data.Tables.AlarmeDataFromSensor;
+            AlarmePage.ObjectsGrid.DataSource = Data.Tables.AlarmeDataFromSensor; //dgv qui se trouve dans le UserControl Alarme
 
             //this.AmpoulePage.ButtonClick += new EventHandler(btMesureInside_Click); //si je clique sur le boutton dans l'ampoule, j'effectue ce qu'il y'a dans la fonction en paramètre
             //this.ThermoPage.ButtonClick += new EventHandler(btThermometreInside_Click);
@@ -74,13 +74,15 @@ namespace CO2_Interface
 
             timer.Interval = 1000;
             timer.Start();
-        }
+        } 
 
         private void timer_Tick(object sender, EventArgs e)
         {
             //SerialDataHandler.Reception.DataTreatment(Data.Tables.DataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
-            SerialDataHandler.Reception.DataTreatment(Data.Tables.MesureDataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
+            //SerialDataHandler.Reception.DataTreatment(Data.Tables.MesureDataFromSensor, MesurePage, comboBox_ID); //va à la classe Reception, et puis, va dans la méthode DataTreatment
+            SerialDataHandler.Reception.DataTreatment(Data.Tables.MesureDataFromSensor, MesurePage, MesureConfigPage.comboBox_ID, MesureConfigPage.LowLimit_textBox, MesureConfigPage.HighLimit_textBox, AlarmSettingsPage.comboBox_ID);
             //MesurePage.ObjectsGrid.FirstDisplayedScrollingRowIndex = MesurePage.ObjectsGrid.RowCount - 1;
+
             foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
             {
                 obj.Time++;
@@ -90,13 +92,19 @@ namespace CO2_Interface
         private void btMesure_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
+            MyConfigContainer.Controls.Clear();
+
             MyContainer.Controls.Add(MesurePage);
+            MyConfigContainer.Controls.Add(MesureConfigPage);
         }
 
         private void btAlarme_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
+            MyConfigContainer.Controls.Clear();
+
             MyContainer.Controls.Add(AlarmePage);
+            MyConfigContainer.Controls.Add(AlarmSettingsPage);
         }
 
         private void initTables()
@@ -152,54 +160,29 @@ namespace CO2_Interface
         private void btGraphics_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
+            MyConfigContainer.Controls.Clear();
+
             MyContainer.Controls.Add(GraphiquePage);
+            MyConfigContainer.Controls.Add(AlarmSettingsPage);
         }
 
-        private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Data.FromSensor.graphListSecond.Clear();
-            
-            foreach(Data.FromSensor.Base obj in Data.Collections.ObjectList)
-            {
-                if(obj.ID.ToString() == comboBox_ID.Text)
-                {
-                    if(obj.Type == 0)
-                    {
-                        typeData_label.Text = "Alarme";
-                    }
-                    else if(obj.Type == 1)
-                    {
-                        typeData_label.Text = "CO²";
-                    }
-                    else if (obj.Type == 2)
-                    {
-                        typeData_label.Text = "Température";
-                    }
-                    else if(obj.Type == 3)
-                    {
-                        typeData_label.Text = "Humidité";
-                    }
-                }
-            }
-
-            
-        }
+       
 
         private void btUsers_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
+            MyConfigContainer.Controls.Clear();
+
             MyContainer.Controls.Add(UsersPage);
         }
 
         private void btSettings_Click(object sender, EventArgs e)
         {
             MyContainer.Controls.Clear();
-            MyContainer.Controls.Add(SettingsPage);
+            MyConfigContainer.Controls.Clear();
+
+            //MyConfigContainer.Controls.Add(AlarmSettingsPage);
         }
 
-        private void saveConfig_Button_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

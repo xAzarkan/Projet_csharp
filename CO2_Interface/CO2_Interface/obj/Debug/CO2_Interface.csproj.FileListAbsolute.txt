@@ -63,7 +63,6 @@ C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2
 C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
 C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
 C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Users.resources
-C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.Settings.resources
 D:\Projet_csharp\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe.config
 D:\Projet_csharp\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.exe
 D:\Projet_csharp\CO2_Interface\CO2_Interface\bin\Debug\CO2_Interface.pdb
@@ -80,3 +79,5 @@ D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.Gene
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.csproj.CoreCompileInputs.cache
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.exe
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.pdb
+C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.MesureConfig.resources
+C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmSettings.resources
