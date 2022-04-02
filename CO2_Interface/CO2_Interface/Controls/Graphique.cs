@@ -19,10 +19,10 @@ namespace CO2_Interface.Controls
         public static Title GraphTitle;
         public static ChartArea Area;
 
-        static int WarningMin = 0;
-        static int WarningMax = 0;
-        static int CriticalMin = 0;
-        static int CriticalMax = 0;
+        static int WarningMin = 10000;
+        static int WarningMax = 10000;
+        static int CriticalMin = 10000;
+        static int CriticalMax = 10000;
 
         static StripLine criticalMaxStrip = new StripLine();
         static StripLine warningMaxStrip = new StripLine();
@@ -38,7 +38,6 @@ namespace CO2_Interface.Controls
 
         static int maxHum = 100;
         static int minHum = 0;
-
 
 
         public Graphique()

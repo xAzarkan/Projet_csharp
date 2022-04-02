@@ -33,8 +33,21 @@ namespace CO2_Interface.Controls
                         obj.WarningMax = Int32.Parse(WarningMax_textBox.Text);
                         obj.CriticalMin = Int32.Parse(CriticalMin_textBox.Text);
                         obj.CriticalMax = Int32.Parse(CriticalMax_textBox.Text);
+                        obj.AlarmIsSet = true;
 
-                        if(alreadyInAlarmList(obj))
+                        if (obj.ConvertedData < obj.CriticalMin)
+                            obj.AlarmStatus = "Too low";
+                        else if (obj.ConvertedData > obj.CriticalMax)
+                            obj.AlarmStatus = "Too high";
+                        else if (obj.ConvertedData < obj.WarningMin)
+                            obj.AlarmStatus = "Low";
+                        else if (obj.ConvertedData > obj.WarningMax)
+                            obj.AlarmStatus = "High";
+                        else
+                            obj.AlarmStatus = "OK";
+
+
+                        if (alreadyInAlarmList(obj))
                         {
                             DataRow row = Data.Tables.AlarmeDataFromSensor.Select("ID='" + obj.ID + "'").FirstOrDefault();
 
@@ -44,7 +57,7 @@ namespace CO2_Interface.Controls
                             row["Critical Min"] = obj.CriticalMin + typeOfData;
                             row["Warning Max"] = obj.WarningMax + typeOfData;
                             row["Critical Max"] = obj.CriticalMax + typeOfData;
-                            row["Status"] = "None";
+                            row["Status"] = obj.AlarmStatus;
 
                             foreach(Data.FromSensor.Measure alarmObj in Data.Collections.AlarmList)
                             {
@@ -60,13 +73,11 @@ namespace CO2_Interface.Controls
                         else
                         {
                             Data.Collections.AlarmList.Add(obj);
-                            Data.Tables.AlarmeDataFromSensor.Rows.Add(new object[] { obj.ID, typeData_label.Text, obj.CriticalMin + typeOfData, obj.WarningMin + typeOfData, obj.CriticalMax + typeOfData, obj.WarningMax + typeOfData, "None" });
+                            Data.Tables.AlarmeDataFromSensor.Rows.Add(new object[] { obj.ID, typeData_label.Text, obj.CriticalMin + typeOfData, obj.WarningMin + typeOfData, obj.CriticalMax + typeOfData, obj.WarningMax + typeOfData, obj.AlarmStatus });
                         }
 
                         Graphique.setGraphLimits(obj.WarningMin, obj.WarningMax, obj.CriticalMin, obj.CriticalMax, obj.Type);
                     }
-
-                    
 
                 }
                 
@@ -84,7 +95,7 @@ namespace CO2_Interface.Controls
             return false;
         }
 
-        private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
+        internal void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkTypeOfData(comboBox_ID);
             checkIfConfigured(comboBox_ID);
@@ -110,7 +121,7 @@ namespace CO2_Interface.Controls
             }
         }
 
-        private void checkTypeOfData(ComboBox comboBox)
+        internal void checkTypeOfData(ComboBox comboBox)
         {
             foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
             {

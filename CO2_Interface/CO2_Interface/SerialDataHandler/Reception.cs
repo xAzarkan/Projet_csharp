@@ -102,12 +102,24 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                          obj.Time = 0;
                          row["Data"] = newObj.Data;
 
-                        if (obj.ConfigStatus == "Done")
-                            Data.Collections.HistoryList[obj.ID].Add(obj.ConvertedData);
-
                     }
                      row["Last Update"] = obj.Time + " secondes";
-                     //obj.Time++;
+                     
+                    if(obj.AlarmIsSet == true)
+                    {
+                        if (obj.ConvertedData < obj.CriticalMin)
+                            obj.AlarmStatus = "Too low";
+                        else if (obj.ConvertedData > obj.CriticalMax)
+                            obj.AlarmStatus = "Too high";
+                        else if (obj.ConvertedData < obj.WarningMin)
+                            obj.AlarmStatus = "Low";
+                        else if (obj.ConvertedData > obj.WarningMax)
+                            obj.AlarmStatus = "High";
+                        else
+                            obj.AlarmStatus = "OK";
+
+                        row["Alarm"] = obj.AlarmStatus;
+                    }
                 }
 
             }
@@ -118,8 +130,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
                 Data.Collections.ObjectList.Add(newObj);
 
-               // dt.Rows.Add(new object[] { newObj.Serial, newObj.ID, newObj.Type, newObj.Data, newObj.Time + " secondes"/*newObj.CheckSum*/ });
-                dt.Rows.Add(new object[] { newObj.ID, newObj.ConfigStatus, newObj.Type, newObj.Data, newObj.Time + " secondes", "Pas d'alarme"});
+                dt.Rows.Add(new object[] { newObj.ID, newObj.ConfigStatus, newObj.Type, newObj.Data, newObj.Time + " secondes", newObj.AlarmStatus});
 
 
                 Data.Collections.HistoryList.Add(newObj.ID, new List<Int32>());
@@ -137,19 +148,9 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             {
                 Data.FromSensor.graphListSecond.Clear();
 
-                foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
-                {
-                    if(obj.ConfigStatus == "Done")
-                    {
-                        Data.Collections.HistoryList[obj.ID].Add(obj.ConvertedData);
-                    }
-                    //on ajoute les données dans l'HistoryList seulement si la donnée est configurée
-                        
-                }
-
                 if(Data.Collections.HistoryList[byte.Parse(comboBoxID.Text)].Count == 0)
                 {
-                    Controls.Graphique.GraphPoints.Points.Clear();
+                    Controls.Graphique.GraphPoints.Points.Clear(); //si aucune donnée à afficher pour cet ID alors on clear le graph 
                 }
                 else
                 {
@@ -214,7 +215,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) - obj.LowLimit);
                     valeurDataBrut = Math.Round(valeurDataBrut, 2);
                     valeurString = obj.ConvertedData.ToString() + " °C";
-                    
+
                     dt.Rows[posRow][DataColumn] = valeurString;
                 }
                 else if (obj.Type == 3)
@@ -227,6 +228,25 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     valeurString = obj.ConvertedData.ToString() + " %";
 
                     dt.Rows[posRow][DataColumn] = valeurString;
+                }
+
+                if (obj.ConfigStatus == "Done")
+                {
+                    Data.Collections.HistoryList[obj.ID].Add(obj.ConvertedData);
+
+                    if(obj.AlarmIsSet == true)
+                    {
+                        if (obj.ConvertedData < obj.CriticalMin)
+                            obj.AlarmStatus = "Too low";
+                        else if (obj.ConvertedData > obj.CriticalMax)
+                            obj.AlarmStatus = "Too high";
+                        else if (obj.ConvertedData < obj.WarningMin)
+                            obj.AlarmStatus = "Low";
+                        else if (obj.ConvertedData > obj.WarningMax)
+                            obj.AlarmStatus = "High";
+                        else
+                            obj.AlarmStatus = "OK";
+                    }
                 }
 
                 posRow += 1;

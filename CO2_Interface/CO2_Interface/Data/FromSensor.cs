@@ -21,6 +21,8 @@ namespace CO2_Interface.Data
                                     //internal Boolean IsConverted; // si IsConverted vaut faux alors ça veut dire qu'on ne sait pas encore son type, sinon on connait son type
             internal int Time;
             internal string ConfigStatus;
+            internal string AlarmStatus;
+            internal bool AlarmIsSet;
 
             internal Base(UInt16 serial, byte id, byte type, UInt16 data, byte checksum)
             {
@@ -30,8 +32,9 @@ namespace CO2_Interface.Data
                 Data = data;
                 CheckSum = checksum;
                 Time = 0;
-                ConfigStatus = "Not done";
-                //IsConverted = false;
+                ConfigStatus = "Not done"; //à la récéption, pas configuré
+                AlarmStatus = "Not configured";
+                AlarmIsSet = false;
             }
         }
 
@@ -47,18 +50,6 @@ namespace CO2_Interface.Data
             internal Int32 CriticalMin;
             internal Int32 CriticalMax;
 
-            /*
-            internal static class AlarmMin
-            {
-                internal static Int32 Warning;         //User Alarm
-                internal static Int32 Critical;         //User Alarm
-            }
-            internal static class AlarmMax
-            {
-                internal static Int32 Warning;         //User Alarm
-                internal static Int32 Critical;         //User Alarm
-            }
-            */
             internal Measure() : base(0, 0, 0, 0, 0)
             {
                 LowLimit = 0;
@@ -66,15 +57,10 @@ namespace CO2_Interface.Data
                 ConvertedData = 0;
                 AlarmMaxPeriod = 0;
 
-                WarningMin = 0;
-                WarningMax = 0;
-                CriticalMin = 0;
-                CriticalMax = 0;
-
-              /*AlarmMin.Warning = 0;
-                AlarmMin.Critical = 0;
-                AlarmMax.Warning = 0;
-                AlarmMax.Critical = 0; */
+                WarningMin = 10000; //pour ne pas voir les limites tant qu'elles ne sont pas définies (invisibles sur le graphiques au début)
+                WarningMax = 10000;
+                CriticalMin = 10000;
+                CriticalMax = 10000;
             }
         }
     }
