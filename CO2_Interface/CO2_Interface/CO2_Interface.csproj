@@ -77,6 +77,12 @@
     <Compile Include="Controls\AlarmSettings.Designer.cs">
       <DependentUpon>AlarmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UsersConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UsersConfig.Designer.cs">
+      <DependentUpon>UsersConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Users.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UsersConfig.resx">
+      <DependentUpon>UsersConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

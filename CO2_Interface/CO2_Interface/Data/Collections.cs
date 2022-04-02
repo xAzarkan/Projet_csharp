@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 
 namespace CO2_Interface.Data
 {
@@ -13,6 +14,6 @@ namespace CO2_Interface.Data
 
         internal static Dictionary<byte, List<Int32>> HistoryList = new Dictionary<byte, List<Int32>>();   //dictionnaire qui lie les ID à des listes de données (Int32 car les données converties sont définies en Int32)
 
-        //internal static Dictionary<byte, List<UInt16>> HistoryList = new Dictionary<byte, List<UInt16>>();   //dictionnaire qui lie les ID à des listes de données (UInt16 car les données sont reçus sur 2 octets)
+        internal static DataSet UserAccess = new DataSet();
     }
 }

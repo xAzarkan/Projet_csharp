@@ -12,6 +12,7 @@ namespace CO2_Interface
         private Controls.Alarme AlarmePage;
         private Controls.Graphique GraphiquePage;
         private Controls.Users UsersPage;
+        private Controls.UsersConfig UsersConfigPage;
         private Controls.AlarmSettings AlarmSettingsPage;
         private Controls.MesureConfig MesureConfigPage;
         private Timer timer;
@@ -26,12 +27,14 @@ namespace CO2_Interface
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
             initTables();
+            initUserAccess();
 
             //j'instancie l'ampoulepage et le thermopage
             this.MesurePage = new Controls.Mesure();
             this.AlarmePage = new Controls.Alarme();
             this.GraphiquePage = new Controls.Graphique();
             this.UsersPage = new Controls.Users();
+            this.UsersConfigPage = new Controls.UsersConfig();
             this.AlarmSettingsPage = new Controls.AlarmSettings();
             this.MesureConfigPage = new Controls.MesureConfig();
 
@@ -134,6 +137,59 @@ namespace CO2_Interface
             Data.Tables.DataFromSensor.Columns.Add(Data.Tables.ColumnsDataFromSensor.CheckSum);
 
         }
+        private void initUserAccess()
+        {
+            //UserTable
+            Data.Tables.UserTable.TableName = "Users";
+            Data.Tables.ColumnsUserTable.ID.Unique = true;
+            Data.Tables.ColumnsUserTable.ID.AutoIncrement = true;
+            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.ID);
+
+            Data.Tables.ColumnsUserTable.Username.Unique = true;
+            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.Username);
+
+            Data.Tables.ColumnsUserTable.UserPassword.Unique = false;
+            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.UserPassword);
+
+            Data.Tables.ColumnsUserTable.Access_ID.Unique = false;
+            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.Access_ID);
+
+            /* AccessTable */
+            Data.Tables.AccessTable.TableName = "Access";
+            Data.Tables.ColumnsAccessTable.ID.Unique = true;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.ID);
+
+            Data.Tables.ColumnsAccessTable.Name.Unique = true;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.Name);
+
+            Data.Tables.ColumnsAccessTable.AllowCreateID.Unique = false;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.AllowCreateID);
+
+            Data.Tables.ColumnsAccessTable.AllowDestroyID.Unique = false;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.AllowDestroyID);
+
+            Data.Tables.ColumnsAccessTable.AllowConfigAlarm.Unique = false;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.AllowConfigAlarm);
+
+            Data.Tables.ColumnsAccessTable.UserCreation.Unique = false;
+            Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.UserCreation);
+
+            Data.Collections.UserAccess.Tables.Add(Data.Tables.UserTable);
+            Data.Collections.UserAccess.Tables.Add(Data.Tables.AccessTable);
+
+            DataColumn ParentColumn = Data.Collections.UserAccess.Tables["Access"].Columns["ID"];
+            DataColumn ChildColumn = Data.Collections.UserAccess.Tables["Users"].Columns["Access type"];
+
+            DataRelation relation = new DataRelation("Access2User",ParentColumn, ChildColumn);
+
+            Data.Collections.UserAccess.Tables["Users"].ParentRelations.Add(relation);
+
+            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 0, "AdminRights", true, true, true, true });
+            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 1, "MasterRights", true, true, true, false });
+            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 2, "NoRights", false, false, false, false });
+
+
+        }
 
         /*
         private void btMesureInside_Click(object sender, EventArgs e)
@@ -178,6 +234,7 @@ namespace CO2_Interface
             MyConfigContainer.Controls.Clear();
 
             MyContainer.Controls.Add(UsersPage);
+            MyConfigContainer.Controls.Add(UsersConfigPage);
         }
 
         private void btSettings_Click(object sender, EventArgs e)

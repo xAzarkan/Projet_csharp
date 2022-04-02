@@ -40,12 +40,12 @@
             this.btAlarme = new System.Windows.Forms.ToolStripButton();
             this.btGraphics = new System.Windows.Forms.ToolStripButton();
             this.btUsers = new System.Windows.Forms.ToolStripButton();
+            this.btSettings = new System.Windows.Forms.ToolStripButton();
             this.MyContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.StopDataTreatment_Button = new System.Windows.Forms.Button();
             this.CLOSE_COM_Button = new System.Windows.Forms.Button();
             this.MyConfigContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.btSettings = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.MyContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,10 +60,10 @@
             // 
             this.COM_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COM_Button.ForeColor = System.Drawing.Color.Black;
-            this.COM_Button.Location = new System.Drawing.Point(36, 164);
-            this.COM_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.COM_Button.Location = new System.Drawing.Point(20, 89);
+            this.COM_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.COM_Button.Name = "COM_Button";
-            this.COM_Button.Size = new System.Drawing.Size(248, 75);
+            this.COM_Button.Size = new System.Drawing.Size(135, 41);
             this.COM_Button.TabIndex = 0;
             this.COM_Button.Text = "OPEN PORT COM 2";
             this.COM_Button.UseVisualStyleBackColor = true;
@@ -73,10 +73,10 @@
             // 
             this.DataTreatmen_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DataTreatmen_Button.ForeColor = System.Drawing.Color.Black;
-            this.DataTreatmen_Button.Location = new System.Drawing.Point(45, 433);
-            this.DataTreatmen_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DataTreatmen_Button.Location = new System.Drawing.Point(25, 235);
+            this.DataTreatmen_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DataTreatmen_Button.Name = "DataTreatmen_Button";
-            this.DataTreatmen_Button.Size = new System.Drawing.Size(226, 75);
+            this.DataTreatmen_Button.Size = new System.Drawing.Size(123, 41);
             this.DataTreatmen_Button.TabIndex = 1;
             this.DataTreatmen_Button.Text = "START";
             this.DataTreatmen_Button.UseVisualStyleBackColor = true;
@@ -86,8 +86,8 @@
             // 
             this.Connexion_Label.AutoSize = true;
             this.Connexion_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Connexion_Label.Location = new System.Drawing.Point(31, 783);
-            this.Connexion_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Connexion_Label.Location = new System.Drawing.Point(17, 424);
+            this.Connexion_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Connexion_Label.Name = "Connexion_Label";
             this.Connexion_Label.Size = new System.Drawing.Size(114, 13);
             this.Connexion_Label.TabIndex = 3;
@@ -98,8 +98,8 @@
             this.ConnexionStatus_Label.AutoSize = true;
             this.ConnexionStatus_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
-            this.ConnexionStatus_Label.Location = new System.Drawing.Point(225, 783);
-            this.ConnexionStatus_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ConnexionStatus_Label.Location = new System.Drawing.Point(123, 424);
+            this.ConnexionStatus_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ConnexionStatus_Label.Name = "ConnexionStatus_Label";
             this.ConnexionStatus_Label.Size = new System.Drawing.Size(47, 13);
             this.ConnexionStatus_Label.TabIndex = 4;
@@ -116,7 +116,7 @@
             this.btGraphics,
             this.btUsers,
             this.btSettings});
-            this.toolStrip1.Location = new System.Drawing.Point(36, 9);
+            this.toolStrip1.Location = new System.Drawing.Point(20, 5);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(232, 47);
             this.toolStrip1.TabIndex = 5;
@@ -162,57 +162,6 @@
             this.btUsers.Text = "Users";
             this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
             // 
-            // MyContainer
-            // 
-            this.MyContainer.BackColor = System.Drawing.Color.Transparent;
-            this.MyContainer.Controls.Add(this.splitContainer1);
-            this.MyContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MyContainer.Location = new System.Drawing.Point(339, 146);
-            this.MyContainer.Name = "MyContainer";
-            this.MyContainer.Size = new System.Drawing.Size(1314, 856);
-            this.MyContainer.TabIndex = 6;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(150, 0);
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // StopDataTreatment_Button
-            // 
-            this.StopDataTreatment_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StopDataTreatment_Button.ForeColor = System.Drawing.Color.Black;
-            this.StopDataTreatment_Button.Location = new System.Drawing.Point(45, 527);
-            this.StopDataTreatment_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.StopDataTreatment_Button.Name = "StopDataTreatment_Button";
-            this.StopDataTreatment_Button.Size = new System.Drawing.Size(226, 75);
-            this.StopDataTreatment_Button.TabIndex = 7;
-            this.StopDataTreatment_Button.Text = "STOP";
-            this.StopDataTreatment_Button.UseVisualStyleBackColor = true;
-            this.StopDataTreatment_Button.Click += new System.EventHandler(this.StopDataTreatment_Button_Click);
-            // 
-            // CLOSE_COM_Button
-            // 
-            this.CLOSE_COM_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLOSE_COM_Button.ForeColor = System.Drawing.Color.Black;
-            this.CLOSE_COM_Button.Location = new System.Drawing.Point(36, 249);
-            this.CLOSE_COM_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.CLOSE_COM_Button.Name = "CLOSE_COM_Button";
-            this.CLOSE_COM_Button.Size = new System.Drawing.Size(248, 75);
-            this.CLOSE_COM_Button.TabIndex = 8;
-            this.CLOSE_COM_Button.Text = "CLOSE PORT COM 2";
-            this.CLOSE_COM_Button.UseVisualStyleBackColor = true;
-            this.CLOSE_COM_Button.Click += new System.EventHandler(this.CLOSE_COM_Button_Click);
-            // 
-            // MyConfigContainer
-            // 
-            this.MyConfigContainer.Location = new System.Drawing.Point(1659, 146);
-            this.MyConfigContainer.Name = "MyConfigContainer";
-            this.MyConfigContainer.Size = new System.Drawing.Size(500, 856);
-            this.MyConfigContainer.TabIndex = 13;
-            // 
             // btSettings
             // 
             this.btSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -223,12 +172,67 @@
             this.btSettings.Text = "Settings";
             this.btSettings.Click += new System.EventHandler(this.btSettings_Click);
             // 
+            // MyContainer
+            // 
+            this.MyContainer.BackColor = System.Drawing.Color.Transparent;
+            this.MyContainer.Controls.Add(this.splitContainer1);
+            this.MyContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyContainer.Location = new System.Drawing.Point(185, 79);
+            this.MyContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyContainer.Name = "MyContainer";
+            this.MyContainer.Size = new System.Drawing.Size(717, 464);
+            this.MyContainer.TabIndex = 6;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Size = new System.Drawing.Size(82, 0);
+            this.splitContainer1.SplitterWidth = 2;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // StopDataTreatment_Button
+            // 
+            this.StopDataTreatment_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopDataTreatment_Button.ForeColor = System.Drawing.Color.Black;
+            this.StopDataTreatment_Button.Location = new System.Drawing.Point(25, 285);
+            this.StopDataTreatment_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.StopDataTreatment_Button.Name = "StopDataTreatment_Button";
+            this.StopDataTreatment_Button.Size = new System.Drawing.Size(123, 41);
+            this.StopDataTreatment_Button.TabIndex = 7;
+            this.StopDataTreatment_Button.Text = "STOP";
+            this.StopDataTreatment_Button.UseVisualStyleBackColor = true;
+            this.StopDataTreatment_Button.Click += new System.EventHandler(this.StopDataTreatment_Button_Click);
+            // 
+            // CLOSE_COM_Button
+            // 
+            this.CLOSE_COM_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLOSE_COM_Button.ForeColor = System.Drawing.Color.Black;
+            this.CLOSE_COM_Button.Location = new System.Drawing.Point(20, 135);
+            this.CLOSE_COM_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.CLOSE_COM_Button.Name = "CLOSE_COM_Button";
+            this.CLOSE_COM_Button.Size = new System.Drawing.Size(135, 41);
+            this.CLOSE_COM_Button.TabIndex = 8;
+            this.CLOSE_COM_Button.Text = "CLOSE PORT COM 2";
+            this.CLOSE_COM_Button.UseVisualStyleBackColor = true;
+            this.CLOSE_COM_Button.Click += new System.EventHandler(this.CLOSE_COM_Button_Click);
+            // 
+            // MyConfigContainer
+            // 
+            this.MyConfigContainer.Location = new System.Drawing.Point(905, 79);
+            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyConfigContainer.Name = "MyConfigContainer";
+            this.MyConfigContainer.Size = new System.Drawing.Size(273, 464);
+            this.MyConfigContainer.TabIndex = 13;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(2171, 1043);
+            this.ClientSize = new System.Drawing.Size(1227, 477);
             this.Controls.Add(this.MyConfigContainer);
             this.Controls.Add(this.CLOSE_COM_Button);
             this.Controls.Add(this.StopDataTreatment_Button);
@@ -239,7 +243,7 @@
             this.Controls.Add(this.COM_Button);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "MainForm";
             this.Text = " CO2 interface";
             this.toolStrip1.ResumeLayout(false);

@@ -13,6 +13,8 @@ namespace CO2_Interface.Data
         internal static DataTable AlarmeDataFromSensor = new DataTable();
         internal static DataTable DataFromSensor = new DataTable();
 
+        internal static DataTable UserTable = new DataTable();
+        internal static DataTable AccessTable = new DataTable();
         internal class ColumnsDataFromSensor
         {
             internal static DataColumn Serial = new DataColumn("Serial Number");
@@ -42,6 +44,30 @@ namespace CO2_Interface.Data
             internal static DataColumn CriticalMax = new DataColumn("Critical Max");
             internal static DataColumn WarningMax = new DataColumn("Warning Max");
             internal static DataColumn Status = new DataColumn("Status");
+        }
+
+        internal class ColumnsUserTable
+        {
+            internal static DataColumn ID = new DataColumn("ID", System.Type.GetType("System.Int32"));
+            internal static DataColumn Username = new DataColumn("Name", System.Type.GetType("System.String"));
+            internal static DataColumn UserPassword = new DataColumn("Password", System.Type.GetType("System.String"));
+            internal static DataColumn Access_ID = new DataColumn("Access type", System.Type.GetType("System.Int32"));
+
+        }
+
+        internal class ColumnsAccessTable
+        {
+            internal static DataColumn ID = new DataColumn("ID", System.Type.GetType("System.Int32"));
+            internal static DataColumn Name = new DataColumn("Name", System.Type.GetType("System.String"));
+            internal static DataColumn AllowCreateID = new DataColumn("Allow Create ID", System.Type.GetType("System.Boolean"));
+            internal static DataColumn AllowDestroyID = new DataColumn("Allow Destroy ID", System.Type.GetType("System.Boolean"));
+            internal static DataColumn AllowConfigAlarm = new DataColumn("Allow Config Alarms", System.Type.GetType("System.Boolean"));
+            internal static DataColumn UserCreation = new DataColumn("User Creation", System.Type.GetType("System.Boolean"));
+        }
+
+        internal class ColumnsUserAccess
+        {
+           
         }
     }
    
