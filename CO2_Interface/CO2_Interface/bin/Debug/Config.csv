@@ -1,0 +1,14 @@
+MeteoStation_Configuration_file
+ID;LowLimit;HighLimit
+Start
+6;0;0;
+0;0;0;
+8;10;20;
+7;0;0;
+5;5;20;
+3;0;0;
+2;0;0;
+1;0;0;
+9;0;0;
+4;0;0;
+End

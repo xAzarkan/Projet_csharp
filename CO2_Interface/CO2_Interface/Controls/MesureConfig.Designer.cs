@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox_Config = new System.Windows.Forms.GroupBox();
+            this.loadConfig_Button = new System.Windows.Forms.Button();
             this.saveConfig_Button = new System.Windows.Forms.Button();
             this.HighLimit_textBox = new System.Windows.Forms.TextBox();
             this.LowLimit_textBox = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             // groupBox_Config
             // 
             this.groupBox_Config.BackColor = System.Drawing.Color.Gold;
+            this.groupBox_Config.Controls.Add(this.loadConfig_Button);
             this.groupBox_Config.Controls.Add(this.saveConfig_Button);
             this.groupBox_Config.Controls.Add(this.HighLimit_textBox);
             this.groupBox_Config.Controls.Add(this.LowLimit_textBox);
@@ -54,21 +56,36 @@
             this.groupBox_Config.Controls.Add(this.comboBox_ID);
             this.groupBox_Config.Controls.Add(this.label1);
             this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_Config.Location = new System.Drawing.Point(3, 0);
+            this.groupBox_Config.Location = new System.Drawing.Point(2, 0);
+            this.groupBox_Config.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_Config.Name = "groupBox_Config";
-            this.groupBox_Config.Size = new System.Drawing.Size(462, 890);
+            this.groupBox_Config.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox_Config.Size = new System.Drawing.Size(252, 482);
             this.groupBox_Config.TabIndex = 13;
             this.groupBox_Config.TabStop = false;
             this.groupBox_Config.Text = "Configuration";
+            // 
+            // loadConfig_Button
+            // 
+            this.loadConfig_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadConfig_Button.ForeColor = System.Drawing.Color.Black;
+            this.loadConfig_Button.Location = new System.Drawing.Point(140, 318);
+            this.loadConfig_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.loadConfig_Button.Name = "loadConfig_Button";
+            this.loadConfig_Button.Size = new System.Drawing.Size(95, 41);
+            this.loadConfig_Button.TabIndex = 19;
+            this.loadConfig_Button.Text = "LOAD";
+            this.loadConfig_Button.UseVisualStyleBackColor = true;
+            this.loadConfig_Button.Click += new System.EventHandler(this.loadConfig_Button_Click);
             // 
             // saveConfig_Button
             // 
             this.saveConfig_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveConfig_Button.ForeColor = System.Drawing.Color.Black;
-            this.saveConfig_Button.Location = new System.Drawing.Point(105, 658);
-            this.saveConfig_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.saveConfig_Button.Location = new System.Drawing.Point(13, 318);
+            this.saveConfig_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.saveConfig_Button.Name = "saveConfig_Button";
-            this.saveConfig_Button.Size = new System.Drawing.Size(248, 75);
+            this.saveConfig_Button.Size = new System.Drawing.Size(95, 41);
             this.saveConfig_Button.TabIndex = 18;
             this.saveConfig_Button.Text = "SAVE";
             this.saveConfig_Button.UseVisualStyleBackColor = true;
@@ -77,24 +94,27 @@
             // HighLimit_textBox
             // 
             this.HighLimit_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HighLimit_textBox.Location = new System.Drawing.Point(190, 375);
+            this.HighLimit_textBox.Location = new System.Drawing.Point(104, 203);
+            this.HighLimit_textBox.Margin = new System.Windows.Forms.Padding(2);
             this.HighLimit_textBox.Name = "HighLimit_textBox";
-            this.HighLimit_textBox.Size = new System.Drawing.Size(258, 26);
+            this.HighLimit_textBox.Size = new System.Drawing.Size(143, 26);
             this.HighLimit_textBox.TabIndex = 17;
             // 
             // LowLimit_textBox
             // 
             this.LowLimit_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LowLimit_textBox.Location = new System.Drawing.Point(190, 320);
+            this.LowLimit_textBox.Location = new System.Drawing.Point(104, 173);
+            this.LowLimit_textBox.Margin = new System.Windows.Forms.Padding(2);
             this.LowLimit_textBox.Name = "LowLimit_textBox";
-            this.LowLimit_textBox.Size = new System.Drawing.Size(258, 26);
+            this.LowLimit_textBox.Size = new System.Drawing.Size(143, 26);
             this.LowLimit_textBox.TabIndex = 16;
             // 
             // label_HighLimit
             // 
             this.label_HighLimit.AutoSize = true;
             this.label_HighLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_HighLimit.Location = new System.Drawing.Point(33, 381);
+            this.label_HighLimit.Location = new System.Drawing.Point(18, 206);
+            this.label_HighLimit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_HighLimit.Name = "label_HighLimit";
             this.label_HighLimit.Size = new System.Drawing.Size(90, 17);
             this.label_HighLimit.TabIndex = 15;
@@ -104,7 +124,8 @@
             // 
             this.label_lowlimit.AutoSize = true;
             this.label_lowlimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_lowlimit.Location = new System.Drawing.Point(32, 320);
+            this.label_lowlimit.Location = new System.Drawing.Point(17, 173);
+            this.label_lowlimit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_lowlimit.Name = "label_lowlimit";
             this.label_lowlimit.Size = new System.Drawing.Size(85, 17);
             this.label_lowlimit.TabIndex = 14;
@@ -114,7 +135,8 @@
             // 
             this.typeData_label.AutoSize = true;
             this.typeData_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeData_label.Location = new System.Drawing.Point(230, 187);
+            this.typeData_label.Location = new System.Drawing.Point(125, 101);
+            this.typeData_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.typeData_label.Name = "typeData_label";
             this.typeData_label.Size = new System.Drawing.Size(23, 17);
             this.typeData_label.TabIndex = 13;
@@ -124,7 +146,8 @@
             // 
             this.typeData_label1.AutoSize = true;
             this.typeData_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeData_label1.Location = new System.Drawing.Point(37, 187);
+            this.typeData_label1.Location = new System.Drawing.Point(20, 101);
+            this.typeData_label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.typeData_label1.Name = "typeData_label1";
             this.typeData_label1.Size = new System.Drawing.Size(59, 17);
             this.typeData_label1.TabIndex = 12;
@@ -133,9 +156,10 @@
             // comboBox_ID
             // 
             this.comboBox_ID.FormattingEnabled = true;
-            this.comboBox_ID.Location = new System.Drawing.Point(190, 89);
+            this.comboBox_ID.Location = new System.Drawing.Point(104, 48);
+            this.comboBox_ID.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox_ID.Name = "comboBox_ID";
-            this.comboBox_ID.Size = new System.Drawing.Size(258, 24);
+            this.comboBox_ID.Size = new System.Drawing.Size(143, 24);
             this.comboBox_ID.TabIndex = 11;
             this.comboBox_ID.SelectedIndexChanged += new System.EventHandler(this.comboBox_ID_SelectedIndexChanged);
             // 
@@ -143,7 +167,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 89);
+            this.label1.Location = new System.Drawing.Point(20, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 17);
             this.label1.TabIndex = 9;
@@ -151,12 +176,13 @@
             // 
             // MesureConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.groupBox_Config);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MesureConfig";
-            this.Size = new System.Drawing.Size(466, 891);
+            this.Size = new System.Drawing.Size(254, 483);
             this.groupBox_Config.ResumeLayout(false);
             this.groupBox_Config.PerformLayout();
             this.ResumeLayout(false);
@@ -175,5 +201,6 @@
         public System.Windows.Forms.ComboBox comboBox_ID;
         public System.Windows.Forms.TextBox HighLimit_textBox;
         public System.Windows.Forms.TextBox LowLimit_textBox;
+        private System.Windows.Forms.Button loadConfig_Button;
     }
 }
