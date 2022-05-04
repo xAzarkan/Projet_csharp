@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox_Config = new System.Windows.Forms.GroupBox();
+            this.Rights_comboBox = new System.Windows.Forms.ComboBox();
+            this.Password_box = new System.Windows.Forms.TextBox();
+            this.ID_box = new System.Windows.Forms.TextBox();
             this.Rights_label = new System.Windows.Forms.Label();
             this.AddUser_Button = new System.Windows.Forms.Button();
             this.typeData_label = new System.Windows.Forms.Label();
             this.Password_label = new System.Windows.Forms.Label();
             this.ID_label = new System.Windows.Forms.Label();
-            this.ID_box = new System.Windows.Forms.TextBox();
-            this.Password_box = new System.Windows.Forms.TextBox();
-            this.Rights_comboBox = new System.Windows.Forms.ComboBox();
             this.groupBox_Config.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,11 +61,33 @@
             this.groupBox_Config.TabStop = false;
             this.groupBox_Config.Text = "User Creation";
             // 
+            // Rights_comboBox
+            // 
+            this.Rights_comboBox.FormattingEnabled = true;
+            this.Rights_comboBox.Location = new System.Drawing.Point(142, 128);
+            this.Rights_comboBox.Name = "Rights_comboBox";
+            this.Rights_comboBox.Size = new System.Drawing.Size(100, 24);
+            this.Rights_comboBox.TabIndex = 23;
+            // 
+            // Password_box
+            // 
+            this.Password_box.Location = new System.Drawing.Point(142, 75);
+            this.Password_box.Name = "Password_box";
+            this.Password_box.Size = new System.Drawing.Size(100, 22);
+            this.Password_box.TabIndex = 22;
+            // 
+            // ID_box
+            // 
+            this.ID_box.Location = new System.Drawing.Point(142, 28);
+            this.ID_box.Name = "ID_box";
+            this.ID_box.Size = new System.Drawing.Size(100, 22);
+            this.ID_box.TabIndex = 21;
+            // 
             // Rights_label
             // 
             this.Rights_label.AutoSize = true;
             this.Rights_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Rights_label.Location = new System.Drawing.Point(4, 135);
+            this.Rights_label.Location = new System.Drawing.Point(9, 131);
             this.Rights_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Rights_label.Name = "Rights_label";
             this.Rights_label.Size = new System.Drawing.Size(69, 17);
@@ -99,7 +121,7 @@
             // 
             this.Password_label.AutoSize = true;
             this.Password_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password_label.Location = new System.Drawing.Point(4, 78);
+            this.Password_label.Location = new System.Drawing.Point(9, 78);
             this.Password_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Password_label.Name = "Password_label";
             this.Password_label.Size = new System.Drawing.Size(135, 17);
@@ -113,31 +135,9 @@
             this.ID_label.Location = new System.Drawing.Point(9, 31);
             this.ID_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ID_label.Name = "ID_label";
-            this.ID_label.Size = new System.Drawing.Size(76, 17);
+            this.ID_label.Size = new System.Drawing.Size(102, 17);
             this.ID_label.TabIndex = 9;
-            this.ID_label.Text = "Write ID :";
-            // 
-            // ID_box
-            // 
-            this.ID_box.Location = new System.Drawing.Point(142, 28);
-            this.ID_box.Name = "ID_box";
-            this.ID_box.Size = new System.Drawing.Size(100, 22);
-            this.ID_box.TabIndex = 21;
-            // 
-            // Password_box
-            // 
-            this.Password_box.Location = new System.Drawing.Point(142, 75);
-            this.Password_box.Name = "Password_box";
-            this.Password_box.Size = new System.Drawing.Size(100, 22);
-            this.Password_box.TabIndex = 22;
-            // 
-            // Rights_comboBox
-            // 
-            this.Rights_comboBox.FormattingEnabled = true;
-            this.Rights_comboBox.Location = new System.Drawing.Point(142, 128);
-            this.Rights_comboBox.Name = "Rights_comboBox";
-            this.Rights_comboBox.Size = new System.Drawing.Size(100, 24);
-            this.Rights_comboBox.TabIndex = 23;
+            this.ID_label.Text = "Write Name :";
             // 
             // UsersConfig
             // 
@@ -145,7 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox_Config);
             this.Name = "UsersConfig";
-            this.Size = new System.Drawing.Size(267, 493);
+            this.Size = new System.Drawing.Size(267, 484);
             this.groupBox_Config.ResumeLayout(false);
             this.groupBox_Config.PerformLayout();
             this.ResumeLayout(false);

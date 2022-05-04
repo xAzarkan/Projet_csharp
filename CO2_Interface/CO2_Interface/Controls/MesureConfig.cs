@@ -50,24 +50,33 @@ namespace CO2_Interface.Controls
         private void saveConfig_Button_Click(object sender, EventArgs e)
         {
 
-            if (!(comboBox_ID.Text == "" && LowLimit_textBox.Text == "" && HighLimit_textBox.Text == ""))
+            if (!(comboBox_ID.Text == "" || LowLimit_textBox.Text == "" || HighLimit_textBox.Text == ""))
             {
-                int posRow = 0;
-
-                foreach(Data.FromSensor.Measure obj in Data.Collections.ObjectList)
+                if(Int32.Parse(LowLimit_textBox.Text) > Int32.Parse(HighLimit_textBox.Text))
                 {
-                    if(obj.ID.ToString() == comboBox_ID.Text)
+                    MessageBox.Show("LowLimit doit être inférieur à HighLimit");
+                }
+                else
+                {
+                    int posRow = 0;
+
+                    foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
                     {
-                        
-                        obj.LowLimit = Int32.Parse(LowLimit_textBox.Text);
-                        obj.HighLimit = Int32.Parse(HighLimit_textBox.Text);
+                        if (obj.ID.ToString() == comboBox_ID.Text)
+                        {
 
-                        obj.ConfigStatus = "Done";
+                            obj.LowLimit = Int32.Parse(LowLimit_textBox.Text);
+                            obj.HighLimit = Int32.Parse(HighLimit_textBox.Text);
 
-                        Data.Tables.MesureDataFromSensor.Rows[posRow][configStatusColumn] = obj.ConfigStatus;
+                            obj.ConfigStatus = "Done";
+
+                            MainForm.AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID); //ajout de l'id dans le combobox Alarme
+
+                            Data.Tables.MesureDataFromSensor.Rows[posRow][configStatusColumn] = obj.ConfigStatus;
+                        }
+
+                        posRow += 1;
                     }
-
-                    posRow += 1;
                 }
             }
         }

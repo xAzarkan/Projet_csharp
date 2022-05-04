@@ -17,6 +17,7 @@ namespace CO2_Interface.Controls
         public Mesure() //changer le nom en "Mesure"
         {
             InitializeComponent();
+            
         }
 /*
         private void btMesureInside_Click(object sender, EventArgs e)

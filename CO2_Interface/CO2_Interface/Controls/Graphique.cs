@@ -44,7 +44,6 @@ namespace CO2_Interface.Controls
         {
             InitializeComponent();
                 
-
             GraphBuilder();
         }
 
@@ -142,6 +141,7 @@ namespace CO2_Interface.Controls
             criticalMinStrip.IntervalOffset = CriticalMin;
             warningMinStrip.IntervalOffset = WarningMin;
 
+            /*
             if(typeData == 1) //CO2
             {
                 Area.AxisY.Maximum = maxPPM;
@@ -156,9 +156,13 @@ namespace CO2_Interface.Controls
             {
                 Area.AxisY.Maximum = maxHum;
                 Area.AxisY.Minimum = minHum;
-            }
-            
+            } */
+        }
 
+        internal static void setLowHighLimits(Int32 lowLimit, Int32 highLimit)
+        {
+            Area.AxisY.Maximum = highLimit;
+            Area.AxisY.Minimum = lowLimit;
         }
     }
 }

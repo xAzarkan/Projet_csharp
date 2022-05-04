@@ -83,3 +83,4 @@ C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.MesureConfig.resources
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.AlarmSettings.resources
 D:\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.UsersConfig.resources
+C:\Users\Sofiane\Desktop\Projet_csharp\CO2_Interface\CO2_Interface\obj\Debug\CO2_Interface.Controls.UsersConfig.resources
