@@ -18,6 +18,10 @@ namespace CO2_Interface
         internal Timer timer;
         internal bool dataTreatmentStarted = false;
         internal bool comPortOpened = false;
+        internal bool AllowCreateID = true;
+        internal bool AllowDestroyID = true;
+        internal bool AllowConfigAlarms = true;
+        internal bool UserCreation = true;
 
         //TOUT CE QUI CONCERNE LA PARTIE GRAPHIQUE
         public MainForm()
