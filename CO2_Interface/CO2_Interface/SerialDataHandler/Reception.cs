@@ -4,6 +4,7 @@ using System.IO.Ports;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using CO2_Interface.Data;
 
 namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 {
@@ -137,6 +138,9 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             }
 
             dgv.ObjectsGrid.DataSource = dt;
+
+            //affichage des id dans l'ordre
+            dgv.ObjectsGrid.Sort(dgv.ObjectsGrid.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
 
             updateGraph(alarmComboBoxID);
         }

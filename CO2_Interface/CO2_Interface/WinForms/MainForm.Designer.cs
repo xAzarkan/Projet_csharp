@@ -104,7 +104,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(2147, 110);
+            this.toolStrip1.Size = new System.Drawing.Size(2105, 110);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -124,7 +124,7 @@
             this.btAlarme.Image = ((System.Drawing.Image)(resources.GetObject("btAlarme.Image")));
             this.btAlarme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btAlarme.Name = "btAlarme";
-            this.btAlarme.Size = new System.Drawing.Size(44, 44);
+            this.btAlarme.Size = new System.Drawing.Size(104, 104);
             this.btAlarme.Text = "Alarme";
             this.btAlarme.Click += new System.EventHandler(this.btAlarme_Click);
             // 
@@ -134,7 +134,7 @@
             this.btGraphics.Image = ((System.Drawing.Image)(resources.GetObject("btGraphics.Image")));
             this.btGraphics.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btGraphics.Name = "btGraphics";
-            this.btGraphics.Size = new System.Drawing.Size(44, 44);
+            this.btGraphics.Size = new System.Drawing.Size(104, 104);
             this.btGraphics.Text = "Graphics";
             this.btGraphics.Click += new System.EventHandler(this.btGraphics_Click);
             // 
@@ -144,7 +144,7 @@
             this.btUsers.Image = ((System.Drawing.Image)(resources.GetObject("btUsers.Image")));
             this.btUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btUsers.Name = "btUsers";
-            this.btUsers.Size = new System.Drawing.Size(44, 44);
+            this.btUsers.Size = new System.Drawing.Size(104, 104);
             this.btUsers.Text = "Users";
             this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
             // 
@@ -154,7 +154,7 @@
             this.btSettings.Image = ((System.Drawing.Image)(resources.GetObject("btSettings.Image")));
             this.btSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btSettings.Name = "btSettings";
-            this.btSettings.Size = new System.Drawing.Size(44, 44);
+            this.btSettings.Size = new System.Drawing.Size(104, 104);
             this.btSettings.Text = "Settings";
             this.btSettings.Click += new System.EventHandler(this.btSettings_Click);
             // 
@@ -164,7 +164,7 @@
             this.MyContainer.Controls.Add(this.splitContainer1);
             this.MyContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MyContainer.Location = new System.Drawing.Point(324, 138);
-            this.MyContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MyContainer.Margin = new System.Windows.Forms.Padding(4);
             this.MyContainer.Name = "MyContainer";
             this.MyContainer.Size = new System.Drawing.Size(1255, 812);
             this.MyContainer.TabIndex = 6;
@@ -173,7 +173,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Size = new System.Drawing.Size(144, 0);
             this.splitContainer1.TabIndex = 0;
@@ -181,7 +181,7 @@
             // MyConfigContainer
             // 
             this.MyConfigContainer.Location = new System.Drawing.Point(1584, 138);
-            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(4);
             this.MyConfigContainer.Name = "MyConfigContainer";
             this.MyConfigContainer.Size = new System.Drawing.Size(478, 812);
             this.MyConfigContainer.TabIndex = 13;
@@ -209,7 +209,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(2147, 1003);
+            this.ClientSize = new System.Drawing.Size(2105, 981);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lb_SelectComPort);
             this.Controls.Add(this.comPort_comboBox);

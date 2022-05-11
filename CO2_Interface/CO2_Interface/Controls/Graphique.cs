@@ -54,7 +54,6 @@ namespace CO2_Interface.Controls
             if (MyList.Count > 99) MyList.Dequeue();
             MyList.Enqueue(rnd.Next(0, 1000)); 
    
-            //GraphUpdate();
         }
 
         public void GraphBuilder()
