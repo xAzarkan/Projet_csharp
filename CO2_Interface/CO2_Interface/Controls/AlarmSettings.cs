@@ -20,6 +20,16 @@ namespace CO2_Interface.Controls
         public AlarmSettings()
         {
             InitializeComponent();
+            if(MainForm.AllowConfigAlarms)
+            {
+                MessageBox.Show("je suis true");
+                saveAlarmConfig_Button.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("je suis false");
+                saveAlarmConfig_Button.Enabled = false;
+            }
         }
 
         private void saveAlarmConfig_Button_Click(object sender, EventArgs e)

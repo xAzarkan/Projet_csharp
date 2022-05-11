@@ -143,10 +143,9 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
-            if(AllowCreateID)
-            {
-                MyConfigContainer.Controls.Add(MesureConfigPage);
-            }
+            
+            MyConfigContainer.Controls.Add(MesureConfigPage);
+            
             MyContainer.Controls.Add(MesurePage);
             
         }
@@ -156,10 +155,9 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
-            if(AllowCreateID)
-            {
-                MyConfigContainer.Controls.Add(AlarmSettingsPage);
-            }
+           
+            MyConfigContainer.Controls.Add(AlarmSettingsPage);
+            
             MyContainer.Controls.Add(AlarmePage);
             
 
@@ -255,7 +253,7 @@ namespace CO2_Interface
             {
                 MyContainer.Controls.Add(GraphiquePage);
                 MyConfigContainer.Controls.Add(AlarmSettingsPage);
-                AlarmSettingsPage.checkIfConfigured(AlarmSettingsPage.comboBox_ID);
+                checkIfConfigured(AlarmSettingsPage.comboBox_ID);
             }
 
         }
