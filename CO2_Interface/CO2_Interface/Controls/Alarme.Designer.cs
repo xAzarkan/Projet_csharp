@@ -35,7 +35,7 @@
             // ObjectsGrid
             // 
             this.ObjectsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ObjectsGrid.BackgroundColor = System.Drawing.Color.OldLace;
+            this.ObjectsGrid.BackgroundColor = System.Drawing.Color.LightSkyBlue;
             this.ObjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ObjectsGrid.Location = new System.Drawing.Point(0, 0);
             this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -54,7 +54,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.ObjectsGrid);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Alarme";
             this.Size = new System.Drawing.Size(1220, 887);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).EndInit();

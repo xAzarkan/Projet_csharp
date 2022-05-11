@@ -44,7 +44,7 @@
             // 
             // groupBox_Config
             // 
-            this.groupBox_Config.BackColor = System.Drawing.Color.Gold;
+            this.groupBox_Config.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox_Config.Controls.Add(this.loadConfig_Button);
             this.groupBox_Config.Controls.Add(this.saveConfig_Button);
             this.groupBox_Config.Controls.Add(this.HighLimit_textBox);
