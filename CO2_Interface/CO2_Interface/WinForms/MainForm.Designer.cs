@@ -250,11 +250,11 @@
         private System.Windows.Forms.ToolStripButton btAlarme;
         private System.Windows.Forms.FlowLayoutPanel MyContainer;
         private System.Windows.Forms.ToolStripButton btGraphics;
-        private System.Windows.Forms.ToolStripButton btUsers;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.FlowLayoutPanel MyConfigContainer;
         private System.Windows.Forms.ToolStripButton btSettings;
         private System.Windows.Forms.ComboBox comPort_comboBox;
         private System.Windows.Forms.Label lb_SelectComPort;
+        internal System.Windows.Forms.ToolStripButton btUsers;
     }
 }
