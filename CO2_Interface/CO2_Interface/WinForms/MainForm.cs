@@ -260,7 +260,7 @@ namespace CO2_Interface
             {
                 MyContainer.Controls.Add(GraphiquePage);
                 MyConfigContainer.Controls.Add(AlarmSettingsPage);
-                AlarmSettingsPage.checkIfConfigured(AlarmSettingsPage.comboBox_ID);
+                checkIfConfigured(AlarmSettingsPage.comboBox_ID);
             }
 
         }

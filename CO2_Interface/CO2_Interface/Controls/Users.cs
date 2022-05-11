@@ -20,6 +20,9 @@ namespace CO2_Interface.Controls
             UserTable_Grid.DataSource = Data.Collections.UserAccess.Tables[0];
             UserAccess_Grid.DataSource = Data.Collections.UserAccess.Tables[1];
 
+            UserTable_Grid.ClearSelection();
+            UserAccess_Grid.ClearSelection();
+
         }
     }
 }
