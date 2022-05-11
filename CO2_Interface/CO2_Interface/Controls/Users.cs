@@ -17,7 +17,8 @@ namespace CO2_Interface.Controls
         public Users()
         {
             InitializeComponent();
-            User_Grid.DataSource = Data.Collections.UserAccess.Tables[0];
+            UserTable_Grid.DataSource = Data.Collections.UserAccess.Tables[0];
+            UserAccess_Grid.DataSource = Data.Collections.UserAccess.Tables[1];
 
         }
     }
