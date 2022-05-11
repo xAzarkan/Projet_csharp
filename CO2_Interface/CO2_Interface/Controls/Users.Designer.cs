@@ -42,6 +42,7 @@
             this.UserTable_Grid.Location = new System.Drawing.Point(0, 0);
             this.UserTable_Grid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UserTable_Grid.Name = "UserTable_Grid";
+            this.UserTable_Grid.ReadOnly = true;
             this.UserTable_Grid.RowHeadersVisible = false;
             this.UserTable_Grid.RowHeadersWidth = 51;
             this.UserTable_Grid.RowTemplate.Height = 50;
@@ -57,6 +58,7 @@
             this.UserAccess_Grid.Location = new System.Drawing.Point(0, 452);
             this.UserAccess_Grid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UserAccess_Grid.Name = "UserAccess_Grid";
+            this.UserAccess_Grid.ReadOnly = true;
             this.UserAccess_Grid.RowHeadersVisible = false;
             this.UserAccess_Grid.RowHeadersWidth = 51;
             this.UserAccess_Grid.RowTemplate.Height = 50;

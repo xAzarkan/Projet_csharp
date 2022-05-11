@@ -20,6 +20,15 @@ namespace CO2_Interface.Controls
         public MesureConfig()
         {
             InitializeComponent();
+            if (MainForm.AllowCreateID)
+            {
+                //MessageBox.Show("je suis true");
+                saveConfig_Button.Enabled = true;
+            }
+            else
+            {
+                saveConfig_Button.Enabled = false;
+            }
         }
 
         private void comboBox_ID_SelectedIndexChanged(object sender, EventArgs e)
