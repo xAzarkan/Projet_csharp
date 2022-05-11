@@ -23,10 +23,10 @@ namespace CO2_Interface
         internal Timer timer;
         internal bool dataTreatmentStarted = false;
         internal bool comPortOpened = false;
-        internal bool AllowCreateID = true;
-        internal bool AllowDestroyID = true;
-        internal bool AllowConfigAlarms = true;
-        internal bool UserCreation = true;
+        internal static bool AllowCreateID = true;
+        internal static bool AllowDestroyID = true;
+        internal static bool AllowConfigAlarms = true;
+        internal static bool UserCreation = true;
 
         internal string dataUnit = "";
         internal string dataType = "";
@@ -148,8 +148,12 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
+            if(AllowCreateID)
+            {
+                MyConfigContainer.Controls.Add(MesureConfigPage);
+            }
             MyContainer.Controls.Add(MesurePage);
-            MyConfigContainer.Controls.Add(MesureConfigPage);
+            
         }
 
         private void btAlarme_Click(object sender, EventArgs e)
@@ -157,8 +161,12 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
+            if(AllowCreateID)
+            {
+                MyConfigContainer.Controls.Add(AlarmSettingsPage);
+            }
             MyContainer.Controls.Add(AlarmePage);
-            MyConfigContainer.Controls.Add(AlarmSettingsPage);
+            
 
             checkIfConfigured(AlarmSettingsPage.comboBox_ID);
         }
@@ -248,10 +256,13 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
-            MyContainer.Controls.Add(GraphiquePage);
-            MyConfigContainer.Controls.Add(AlarmSettingsPage);
+            if(AllowConfigAlarms)
+            {
+                MyContainer.Controls.Add(GraphiquePage);
+                MyConfigContainer.Controls.Add(AlarmSettingsPage);
+                AlarmSettingsPage.checkIfConfigured(AlarmSettingsPage.comboBox_ID);
+            }
 
-            checkIfConfigured(AlarmSettingsPage.comboBox_ID);
         }
 
         private void btUsers_Click(object sender, EventArgs e)
@@ -259,8 +270,17 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
-            MyContainer.Controls.Add(UsersPage);
+            if(UserCreation)
+            {
+                MyContainer.Controls.Add(UsersPage);
+            }
             MyConfigContainer.Controls.Add(UsersConfigPage);
+            
+            /* else
+             {
+                 MyConfigContainer.Controls.Add(UsersLoginPage);
+             }*/
+
         }
 
         private void btSettings_Click(object sender, EventArgs e)
