@@ -52,21 +52,30 @@ namespace CO2_Interface.Controls
                     accessType = row["Access type"].ToString();
                     userName_box.Text = "";
                     userPassword_box.Text = "";
+                    lbChangeUser.Text = name;
+                    lbChangeUser.ForeColor = Color.Green;
                 }
             }
             if (connexion == true)
             {
-                MessageBox.Show("Bonjour : " + name);
                 foreach (DataRow row in Data.Tables.AccessTable.Rows)
                 {
-                    if(accessType.Equals(row["ID"].ToString()))
+                   
+                    if (accessType.Equals(row["ID"].ToString()))
                     {
-                        
+                        MainForm.AllowCreateID = (bool)row["Allow Create ID"];
+                        MainForm.AllowDestroyID = (bool)row["Allow Destroy ID"];
+                        MainForm.AllowConfigAlarms = (bool)row["Allow Config Alarms"];
+                        MainForm.UserCreation = (bool)row["User Creation"];
                     }
-                    else
-                    {
-                        MessageBox.Show("Non");
-                    }
+                }
+                if(MainForm.UserCreation)
+                {
+                    groupBox_Config.Visible = true;
+                }
+                else
+                {
+                    groupBox_Config.Visible = false;
                 }
             }
             else

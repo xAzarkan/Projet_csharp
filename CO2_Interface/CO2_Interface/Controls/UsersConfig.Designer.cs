@@ -44,6 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbUser = new System.Windows.Forms.Label();
+            this.lbChangeUser = new System.Windows.Forms.Label();
             this.groupBox_Config.SuspendLayout();
             this.groupBox_Config2.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +62,7 @@
             this.groupBox_Config.Controls.Add(this.Password_label);
             this.groupBox_Config.Controls.Add(this.ID_label);
             this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_Config.Location = new System.Drawing.Point(2, 2);
+            this.groupBox_Config.Location = new System.Drawing.Point(2, 52);
             this.groupBox_Config.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_Config.Name = "groupBox_Config";
             this.groupBox_Config.Padding = new System.Windows.Forms.Padding(2);
@@ -157,11 +159,11 @@
             this.groupBox_Config2.Controls.Add(this.label3);
             this.groupBox_Config2.Controls.Add(this.label4);
             this.groupBox_Config2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_Config2.Location = new System.Drawing.Point(2, 234);
+            this.groupBox_Config2.Location = new System.Drawing.Point(2, 294);
             this.groupBox_Config2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_Config2.Name = "groupBox_Config2";
             this.groupBox_Config2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox_Config2.Size = new System.Drawing.Size(263, 240);
+            this.groupBox_Config2.Size = new System.Drawing.Size(263, 178);
             this.groupBox_Config2.TabIndex = 24;
             this.groupBox_Config2.TabStop = false;
             this.groupBox_Config2.Text = "User Login";
@@ -225,10 +227,32 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Write Name :";
             // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUser.Location = new System.Drawing.Point(3, 17);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(57, 20);
+            this.lbUser.TabIndex = 25;
+            this.lbUser.Text = "User: ";
+            // 
+            // lbChangeUser
+            // 
+            this.lbChangeUser.AutoSize = true;
+            this.lbChangeUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChangeUser.Location = new System.Drawing.Point(56, 17);
+            this.lbChangeUser.Name = "lbChangeUser";
+            this.lbChangeUser.Size = new System.Drawing.Size(24, 20);
+            this.lbChangeUser.TabIndex = 26;
+            this.lbChangeUser.Text = "...";
+            // 
             // UsersConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbChangeUser);
+            this.Controls.Add(this.lbUser);
             this.Controls.Add(this.groupBox_Config2);
             this.Controls.Add(this.groupBox_Config);
             this.Name = "UsersConfig";
@@ -238,6 +262,7 @@
             this.groupBox_Config2.ResumeLayout(false);
             this.groupBox_Config2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,5 +284,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbUser;
+        private System.Windows.Forms.Label lbChangeUser;
     }
 }

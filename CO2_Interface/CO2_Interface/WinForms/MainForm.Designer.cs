@@ -164,7 +164,7 @@
             this.MyContainer.Controls.Add(this.splitContainer1);
             this.MyContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MyContainer.Location = new System.Drawing.Point(185, 79);
-            this.MyContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyContainer.Margin = new System.Windows.Forms.Padding(2);
             this.MyContainer.Name = "MyContainer";
             this.MyContainer.Size = new System.Drawing.Size(717, 464);
             this.MyContainer.TabIndex = 6;
@@ -173,7 +173,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(2, 2);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Size = new System.Drawing.Size(82, 0);
             this.splitContainer1.SplitterWidth = 2;
@@ -182,7 +182,7 @@
             // MyConfigContainer
             // 
             this.MyConfigContainer.Location = new System.Drawing.Point(905, 79);
-            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(2);
             this.MyConfigContainer.Name = "MyConfigContainer";
             this.MyConfigContainer.Size = new System.Drawing.Size(273, 464);
             this.MyConfigContainer.TabIndex = 13;
@@ -191,7 +191,7 @@
             // 
             this.comPort_comboBox.FormattingEnabled = true;
             this.comPort_comboBox.Location = new System.Drawing.Point(25, 123);
-            this.comPort_comboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comPort_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.comPort_comboBox.Name = "comPort_comboBox";
             this.comPort_comboBox.Size = new System.Drawing.Size(135, 21);
             this.comPort_comboBox.TabIndex = 14;
@@ -212,7 +212,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(1278, 503);
+            this.ClientSize = new System.Drawing.Size(1278, 562);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lb_SelectComPort);
             this.Controls.Add(this.comPort_comboBox);
