@@ -70,8 +70,13 @@ namespace CO2_Interface
             ConnexionStatus_Label.Text = "CLOSE"; //sinon
             ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
 
-            comPort_comboBox.Items.Add("COM1");
-            comPort_comboBox.Items.Add("COM2");
+            string[] comPorts = SerialPort.GetPortNames();
+
+            for(int i = 0; i < comPorts.Length; i++)
+            {
+                comPort_comboBox.Items.Add(comPorts[i]);
+            }
+
         }
         
         private void button_COM_Click(object sender, EventArgs e)
@@ -378,12 +383,6 @@ namespace CO2_Interface
                                 obj.HighLimit = Int32.Parse(highLimit);
                                 obj.ConfigStatus = "Done";
 
-                                if (!(obj.LowLimit == defaultValue && obj.HighLimit == defaultValue))
-                                {
-                                    obj.AlarmIsSet = true;
-                                }
-
-
                                 saveInMesureDataTable(obj);
                             }
                         }
@@ -420,6 +419,10 @@ namespace CO2_Interface
                 DataRow row = Data.Tables.MesureDataFromSensor.Select("ID='" + obj.ID + "'").FirstOrDefault();
 
                 row["Config Status"] = obj.ConfigStatus;
+
+                if (!(AlarmSettingsPage.comboBox_ID.Items.Contains(obj.ID.ToString())))
+                    AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID.ToString());
+
                 //row["Warning Min"] = obj.WarningMin + typeOfData;
             }
         }
@@ -428,7 +431,7 @@ namespace CO2_Interface
         {
             Data.FromSensor.graphListSecond.Clear();
 
-            foreach (Data.FromSensor.Base obj in Data.Collections.ObjectList)
+            foreach (Data.FromSensor.Measure obj in Data.Collections.ObjectList)
             {
                 if (obj.ID.ToString() == MesureConfigPage.comboBox_ID.Text)
                 {
@@ -448,6 +451,9 @@ namespace CO2_Interface
                     {
                         MesureConfigPage.typeData_label.Text = "Humidité";
                     }
+
+                    MesureConfigPage.LowLimit_textBox.Text = obj.LowLimit.ToString();
+                    MesureConfigPage.HighLimit_textBox.Text = obj.HighLimit.ToString();
                 }
             }
         }
@@ -614,19 +620,18 @@ namespace CO2_Interface
                                 obj.CriticalMax = Int32.Parse(criticalMax);
                                 obj.ConfigStatus = status;
 
-                                if(obj.ConfigStatus == "Done")
-                                {
-                                    if(!(AlarmSettingsPage.comboBox_ID.Items.Contains(obj.ID.ToString())))
-                                        AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID.ToString());
-                                }
-                                    
-
                                 if (!(obj.WarningMin == defaultValue && obj.WarningMax == defaultValue && obj.CriticalMin == defaultValue && obj.CriticalMax == defaultValue))
                                 {
                                     obj.AlarmIsSet = true;
                                 }
 
-                                checkTypeOfData(obj.ID.ToString());
+                                if (obj.AlarmIsSet)
+                                {
+                                    if(!(AlarmSettingsPage.comboBox_ID.Items.Contains(obj.ID.ToString())))
+                                        AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID.ToString());
+                                }
+ 
+                                //checkTypeOfData(obj.ID.ToString());
 
                                 saveInAlarmDataTable(obj);
                             }
@@ -705,6 +710,23 @@ namespace CO2_Interface
 
         private void saveInAlarmDataTable(Data.FromSensor.Measure obj)
         {
+            
+            if (obj.Type == 1)
+            {
+                dataType = "CO²";
+                dataUnit = " PPM";
+            }
+            else if (obj.Type == 2)
+            {
+                dataType = "Température";
+                dataUnit = " °C";
+            }
+            else if (obj.Type == 3)
+            {
+                dataType = "Humidité";
+                dataUnit = " %";
+            }
+
             //Changement des infos dans la dgv alarme
             DataRow row = Data.Tables.MesureDataFromSensor.Select("ID='" + obj.ID + "'").FirstOrDefault();
             DataRow rowAlarmTable = Data.Tables.AlarmeDataFromSensor.Select("ID='" + obj.ID + "'").FirstOrDefault(); //pour mettre a jour la datatable Alarm
@@ -768,10 +790,20 @@ namespace CO2_Interface
             {
                 if(obj.ID.ToString() == AlarmSettingsPage.comboBox_ID.Text)
                 {
-                    AlarmSettingsPage.CriticalMin_textBox.Text = obj.CriticalMin.ToString();
-                    AlarmSettingsPage.CriticalMax_textBox.Text = obj.CriticalMax.ToString();
-                    AlarmSettingsPage.WarningMin_textBox.Text = obj.WarningMin.ToString();
-                    AlarmSettingsPage.WarningMax_textBox.Text = obj.WarningMax.ToString();
+                    if(obj.WarningMin == defaultValue && obj.WarningMax == defaultValue && obj.CriticalMin == defaultValue && obj.CriticalMax == defaultValue)
+                    {
+                        AlarmSettingsPage.CriticalMin_textBox.Text = "";
+                        AlarmSettingsPage.CriticalMax_textBox.Text = "";
+                        AlarmSettingsPage.WarningMin_textBox.Text = "";
+                        AlarmSettingsPage.WarningMax_textBox.Text = "";
+                    }
+                    else
+                    {
+                        AlarmSettingsPage.CriticalMin_textBox.Text = obj.CriticalMin.ToString();
+                        AlarmSettingsPage.CriticalMax_textBox.Text = obj.CriticalMax.ToString();
+                        AlarmSettingsPage.WarningMin_textBox.Text = obj.WarningMin.ToString();
+                        AlarmSettingsPage.WarningMax_textBox.Text = obj.WarningMax.ToString();
+                    }
                 }
             }
         }
