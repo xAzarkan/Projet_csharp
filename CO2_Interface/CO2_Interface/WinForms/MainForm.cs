@@ -293,7 +293,8 @@ namespace CO2_Interface
 
                             obj.ConfigStatus = "Done";
 
-                            MainForm.AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID); //ajout de l'id dans le combobox Alarme
+                           if (!(AlarmSettingsPage.comboBox_ID.Items.Contains(obj.ID.ToString())))
+                            AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID.ToString()); //ajout de l'id dans le combobox Alarme
 
                             Data.Tables.MesureDataFromSensor.Rows[posRow][configStatusColumn] = obj.ConfigStatus;
                         }
@@ -599,6 +600,7 @@ namespace CO2_Interface
                             {
                                 numColonne++;
                             }
+
                             i++;
                         }
 
@@ -612,9 +614,15 @@ namespace CO2_Interface
                                 obj.CriticalMax = Int32.Parse(criticalMax);
                                 obj.ConfigStatus = status;
 
+                                if(obj.ConfigStatus == "Done")
+                                {
+                                    if(!(AlarmSettingsPage.comboBox_ID.Items.Contains(obj.ID.ToString())))
+                                        AlarmSettingsPage.comboBox_ID.Items.Add(obj.ID.ToString());
+                                }
+                                    
+
                                 if (!(obj.WarningMin == defaultValue && obj.WarningMax == defaultValue && obj.CriticalMin == defaultValue && obj.CriticalMax == defaultValue))
                                 {
-                                    //MessageBox.Show("id:" + obj.ID + " --> alarme configurée");
                                     obj.AlarmIsSet = true;
                                 }
 
@@ -748,6 +756,7 @@ namespace CO2_Interface
             }
 
             AlarmePage.ObjectsGrid.Sort(AlarmePage.ObjectsGrid.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
+            AlarmePage.ObjectsGrid.ClearSelection();
         }
 
         private void AlarmSettings_comboBoxContent_Changed(object sender, EventArgs e)
@@ -755,6 +764,16 @@ namespace CO2_Interface
             checkTypeOfData(AlarmSettingsPage.comboBox_ID.Text);
             checkIfConfigured(AlarmSettingsPage.comboBox_ID);
 
+            foreach(Data.FromSensor.Measure obj in Data.Collections.ObjectList)
+            {
+                if(obj.ID.ToString() == AlarmSettingsPage.comboBox_ID.Text)
+                {
+                    AlarmSettingsPage.CriticalMin_textBox.Text = obj.CriticalMin.ToString();
+                    AlarmSettingsPage.CriticalMax_textBox.Text = obj.CriticalMax.ToString();
+                    AlarmSettingsPage.WarningMin_textBox.Text = obj.WarningMin.ToString();
+                    AlarmSettingsPage.WarningMax_textBox.Text = obj.WarningMax.ToString();
+                }
+            }
         }
 
         internal void checkIfConfigured(ComboBox comboBox)

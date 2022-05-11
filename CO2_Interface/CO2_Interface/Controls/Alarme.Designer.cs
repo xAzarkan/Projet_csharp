@@ -38,23 +38,25 @@
             this.ObjectsGrid.BackgroundColor = System.Drawing.Color.SpringGreen;
             this.ObjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ObjectsGrid.Location = new System.Drawing.Point(0, 0);
-            this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ObjectsGrid.Name = "ObjectsGrid";
             this.ObjectsGrid.RowHeadersVisible = false;
             this.ObjectsGrid.RowHeadersWidth = 51;
-            this.ObjectsGrid.RowTemplate.Height = 24;
-            this.ObjectsGrid.Size = new System.Drawing.Size(610, 461);
+            this.ObjectsGrid.RowTemplate.Height = 50;
+            this.ObjectsGrid.RowTemplate.ReadOnly = true;
+            this.ObjectsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ObjectsGrid.Size = new System.Drawing.Size(1220, 887);
             this.ObjectsGrid.TabIndex = 4;
             // 
             // Alarme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.ObjectsGrid);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Alarme";
-            this.Size = new System.Drawing.Size(610, 461);
+            this.Size = new System.Drawing.Size(1220, 887);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).EndInit();
             this.ResumeLayout(false);
 

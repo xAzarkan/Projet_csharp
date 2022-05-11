@@ -43,18 +43,20 @@
             this.ObjectsGrid.Name = "ObjectsGrid";
             this.ObjectsGrid.RowHeadersVisible = false;
             this.ObjectsGrid.RowHeadersWidth = 51;
-            this.ObjectsGrid.RowTemplate.Height = 24;
-            this.ObjectsGrid.Size = new System.Drawing.Size(1118, 851);
+            this.ObjectsGrid.RowTemplate.Height = 50;
+            this.ObjectsGrid.RowTemplate.ReadOnly = true;
+            this.ObjectsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ObjectsGrid.Size = new System.Drawing.Size(1220, 886);
             this.ObjectsGrid.TabIndex = 3;
             // 
             // Mesure
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.ObjectsGrid);
             this.Name = "Mesure";
-            this.Size = new System.Drawing.Size(1122, 856);
+            this.Size = new System.Drawing.Size(1224, 892);
             ((System.ComponentModel.ISupportInitialize)(this.ObjectsGrid)).EndInit();
             this.ResumeLayout(false);
 

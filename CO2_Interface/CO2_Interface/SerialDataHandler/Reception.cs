@@ -128,7 +128,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             }
             else //pas dans l'ObjectList
             {
-                measureComboBoxID.Items.Add(newObj.ID); //ajout de l'id dans le combobox Mesure
+                measureComboBoxID.Items.Add(newObj.ID.ToString()); //ajout de l'id dans le combobox Mesure
 
                 Data.Collections.ObjectList.Add(newObj);
 
@@ -141,7 +141,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
             //affichage des id dans l'ordre
             dgv.ObjectsGrid.Sort(dgv.ObjectsGrid.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
-
+            dgv.ObjectsGrid.ClearSelection();
             updateGraph(alarmComboBoxID);
         }
 
