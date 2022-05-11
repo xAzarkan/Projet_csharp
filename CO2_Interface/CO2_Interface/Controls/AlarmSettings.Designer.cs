@@ -37,6 +37,7 @@
             this.CriticalMin_Label = new System.Windows.Forms.Label();
             this.CriticalMin_textBox = new System.Windows.Forms.TextBox();
             this.groupBox_Config = new System.Windows.Forms.GroupBox();
+            this.btLoadSettings = new System.Windows.Forms.Button();
             this.configStatus_label = new System.Windows.Forms.Label();
             this.configStatus_label1 = new System.Windows.Forms.Label();
             this.saveAlarmConfig_Button = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.typeData_label1 = new System.Windows.Forms.Label();
             this.comboBox_ID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btLoadSettings = new System.Windows.Forms.Button();
             this.groupBox_Config.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,6 +159,19 @@
             this.groupBox_Config.TabStop = false;
             this.groupBox_Config.Text = "Alarm Configuration";
             // 
+            // btLoadSettings
+            // 
+            this.btLoadSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLoadSettings.ForeColor = System.Drawing.Color.Black;
+            this.btLoadSettings.Location = new System.Drawing.Point(105, 541);
+            this.btLoadSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btLoadSettings.Name = "btLoadSettings";
+            this.btLoadSettings.Size = new System.Drawing.Size(248, 75);
+            this.btLoadSettings.TabIndex = 21;
+            this.btLoadSettings.Text = "LOAD SETTINGS";
+            this.btLoadSettings.UseVisualStyleBackColor = true;
+            this.btLoadSettings.Click += new System.EventHandler(this.btLoadSettings_Click);
+            // 
             // configStatus_label
             // 
             this.configStatus_label.AutoSize = true;
@@ -218,6 +231,7 @@
             this.comboBox_ID.Location = new System.Drawing.Point(204, 57);
             this.comboBox_ID.Name = "comboBox_ID";
             this.comboBox_ID.Size = new System.Drawing.Size(258, 37);
+            this.comboBox_ID.Sorted = true;
             this.comboBox_ID.TabIndex = 11;
             this.comboBox_ID.SelectedIndexChanged += new System.EventHandler(this.comboBox_ID_SelectedIndexChanged);
             // 
@@ -230,19 +244,6 @@
             this.label1.Size = new System.Drawing.Size(133, 29);
             this.label1.TabIndex = 9;
             this.label1.Text = "Select ID :";
-            // 
-            // btLoadSettings
-            // 
-            this.btLoadSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLoadSettings.ForeColor = System.Drawing.Color.Black;
-            this.btLoadSettings.Location = new System.Drawing.Point(105, 541);
-            this.btLoadSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btLoadSettings.Name = "btLoadSettings";
-            this.btLoadSettings.Size = new System.Drawing.Size(248, 75);
-            this.btLoadSettings.TabIndex = 21;
-            this.btLoadSettings.Text = "LOAD SETTINGS";
-            this.btLoadSettings.UseVisualStyleBackColor = true;
-            this.btLoadSettings.Click += new System.EventHandler(this.btLoadSettings_Click);
             // 
             // AlarmSettings
             // 
@@ -259,22 +260,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox WarningMin_textBox;
         private System.Windows.Forms.Label WarningMin_Label;
         private System.Windows.Forms.Label WarningMax_Label;
-        private System.Windows.Forms.TextBox WarningMax_textBox;
         private System.Windows.Forms.Label CriticalMax_Label;
-        private System.Windows.Forms.TextBox CriticalMax_textBox;
         private System.Windows.Forms.Label CriticalMin_Label;
-        private System.Windows.Forms.TextBox CriticalMin_textBox;
         private System.Windows.Forms.GroupBox groupBox_Config;
         private System.Windows.Forms.Button saveAlarmConfig_Button;
-        private System.Windows.Forms.Label typeData_label;
         private System.Windows.Forms.Label typeData_label1;
         public System.Windows.Forms.ComboBox comboBox_ID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label configStatus_label;
         private System.Windows.Forms.Label configStatus_label1;
         private System.Windows.Forms.Button btLoadSettings;
+        public System.Windows.Forms.Label typeData_label;
+        public System.Windows.Forms.Label configStatus_label;
+        public System.Windows.Forms.TextBox WarningMin_textBox;
+        public System.Windows.Forms.TextBox WarningMax_textBox;
+        public System.Windows.Forms.TextBox CriticalMin_textBox;
+        public System.Windows.Forms.TextBox CriticalMax_textBox;
     }
 }

@@ -19,10 +19,5 @@ namespace CO2_Interface.Controls
             InitializeComponent();
             
         }
-/*
-        private void btMesureInside_Click(object sender, EventArgs e)
-        {
-            this.ButtonClick(this, e); //je donne en paramètre à l'eventhandler l'objet et l'eventargs
-        } */
     }
 }

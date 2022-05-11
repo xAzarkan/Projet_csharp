@@ -12,6 +12,7 @@ namespace CO2_Interface.Controls
 {
     public partial class UsersConfig : UserControl
     {
+        internal event EventHandler ButtonClick; //création d'un eventhandler
         public UsersConfig()
         {
             InitializeComponent();
