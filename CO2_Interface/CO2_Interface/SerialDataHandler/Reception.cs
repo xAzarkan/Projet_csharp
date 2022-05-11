@@ -120,8 +120,12 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                         else
                             obj.AlarmStatus = "OK";
 
-                        row["Alarm"] = obj.AlarmStatus;
-                        rowAlarmTable["Status"] = obj.AlarmStatus;
+                        if(obj.AlarmIsSet)
+                        {
+                            row["Alarm"] = obj.AlarmStatus;
+                            rowAlarmTable["Status"] = obj.AlarmStatus;
+                        }
+                        
                     }
                 }
 

@@ -35,7 +35,7 @@
             // ObjectsGrid
             // 
             this.ObjectsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ObjectsGrid.BackgroundColor = System.Drawing.Color.SpringGreen;
+            this.ObjectsGrid.BackgroundColor = System.Drawing.Color.OldLace;
             this.ObjectsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ObjectsGrid.Location = new System.Drawing.Point(0, 0);
             this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
