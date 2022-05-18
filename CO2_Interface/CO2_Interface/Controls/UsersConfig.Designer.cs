@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox_Config = new System.Windows.Forms.GroupBox();
+            this.groupBox_Creation = new System.Windows.Forms.GroupBox();
             this.Rights_comboBox = new System.Windows.Forms.ComboBox();
             this.Password_box = new System.Windows.Forms.TextBox();
             this.ID_box = new System.Windows.Forms.TextBox();
@@ -37,7 +37,7 @@
             this.typeData_label = new System.Windows.Forms.Label();
             this.Password_label = new System.Windows.Forms.Label();
             this.ID_label = new System.Windows.Forms.Label();
-            this.groupBox_Config2 = new System.Windows.Forms.GroupBox();
+            this.groupBox_Login = new System.Windows.Forms.GroupBox();
             this.userPassword_box = new System.Windows.Forms.TextBox();
             this.userName_box = new System.Windows.Forms.TextBox();
             this.Login_Button = new System.Windows.Forms.Button();
@@ -46,30 +46,30 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
             this.lbChangeUser = new System.Windows.Forms.Label();
-            this.groupBox_Config.SuspendLayout();
-            this.groupBox_Config2.SuspendLayout();
+            this.groupBox_Creation.SuspendLayout();
+            this.groupBox_Login.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox_Config
+            // groupBox_Creation
             // 
-            this.groupBox_Config.BackColor = System.Drawing.Color.OldLace;
-            this.groupBox_Config.Controls.Add(this.Rights_comboBox);
-            this.groupBox_Config.Controls.Add(this.Password_box);
-            this.groupBox_Config.Controls.Add(this.ID_box);
-            this.groupBox_Config.Controls.Add(this.Rights_label);
-            this.groupBox_Config.Controls.Add(this.AddUser_Button);
-            this.groupBox_Config.Controls.Add(this.typeData_label);
-            this.groupBox_Config.Controls.Add(this.Password_label);
-            this.groupBox_Config.Controls.Add(this.ID_label);
-            this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_Config.Location = new System.Drawing.Point(2, 52);
-            this.groupBox_Config.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox_Config.Name = "groupBox_Config";
-            this.groupBox_Config.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox_Config.Size = new System.Drawing.Size(263, 228);
-            this.groupBox_Config.TabIndex = 15;
-            this.groupBox_Config.TabStop = false;
-            this.groupBox_Config.Text = "User Creation";
+            this.groupBox_Creation.BackColor = System.Drawing.Color.OldLace;
+            this.groupBox_Creation.Controls.Add(this.Rights_comboBox);
+            this.groupBox_Creation.Controls.Add(this.Password_box);
+            this.groupBox_Creation.Controls.Add(this.ID_box);
+            this.groupBox_Creation.Controls.Add(this.Rights_label);
+            this.groupBox_Creation.Controls.Add(this.AddUser_Button);
+            this.groupBox_Creation.Controls.Add(this.typeData_label);
+            this.groupBox_Creation.Controls.Add(this.Password_label);
+            this.groupBox_Creation.Controls.Add(this.ID_label);
+            this.groupBox_Creation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_Creation.Location = new System.Drawing.Point(2, 52);
+            this.groupBox_Creation.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox_Creation.Name = "groupBox_Creation";
+            this.groupBox_Creation.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox_Creation.Size = new System.Drawing.Size(263, 228);
+            this.groupBox_Creation.TabIndex = 15;
+            this.groupBox_Creation.TabStop = false;
+            this.groupBox_Creation.Text = "User Creation";
             // 
             // Rights_comboBox
             // 
@@ -149,24 +149,24 @@
             this.ID_label.TabIndex = 9;
             this.ID_label.Text = "Write Name :";
             // 
-            // groupBox_Config2
+            // groupBox_Login
             // 
-            this.groupBox_Config2.BackColor = System.Drawing.Color.OldLace;
-            this.groupBox_Config2.Controls.Add(this.userPassword_box);
-            this.groupBox_Config2.Controls.Add(this.userName_box);
-            this.groupBox_Config2.Controls.Add(this.Login_Button);
-            this.groupBox_Config2.Controls.Add(this.label2);
-            this.groupBox_Config2.Controls.Add(this.label3);
-            this.groupBox_Config2.Controls.Add(this.label4);
-            this.groupBox_Config2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_Config2.Location = new System.Drawing.Point(2, 294);
-            this.groupBox_Config2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox_Config2.Name = "groupBox_Config2";
-            this.groupBox_Config2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox_Config2.Size = new System.Drawing.Size(263, 178);
-            this.groupBox_Config2.TabIndex = 24;
-            this.groupBox_Config2.TabStop = false;
-            this.groupBox_Config2.Text = "User Login";
+            this.groupBox_Login.BackColor = System.Drawing.Color.OldLace;
+            this.groupBox_Login.Controls.Add(this.userPassword_box);
+            this.groupBox_Login.Controls.Add(this.userName_box);
+            this.groupBox_Login.Controls.Add(this.Login_Button);
+            this.groupBox_Login.Controls.Add(this.label2);
+            this.groupBox_Login.Controls.Add(this.label3);
+            this.groupBox_Login.Controls.Add(this.label4);
+            this.groupBox_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_Login.Location = new System.Drawing.Point(2, 294);
+            this.groupBox_Login.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox_Login.Name = "groupBox_Login";
+            this.groupBox_Login.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox_Login.Size = new System.Drawing.Size(263, 178);
+            this.groupBox_Login.TabIndex = 24;
+            this.groupBox_Login.TabStop = false;
+            this.groupBox_Login.Text = "User Login";
             // 
             // userPassword_box
             // 
@@ -253,38 +253,37 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbChangeUser);
             this.Controls.Add(this.lbUser);
-            this.Controls.Add(this.groupBox_Config2);
-            this.Controls.Add(this.groupBox_Config);
+            this.Controls.Add(this.groupBox_Login);
+            this.Controls.Add(this.groupBox_Creation);
             this.Name = "UsersConfig";
             this.Size = new System.Drawing.Size(267, 484);
-            this.groupBox_Config.ResumeLayout(false);
-            this.groupBox_Config.PerformLayout();
-            this.groupBox_Config2.ResumeLayout(false);
-            this.groupBox_Config2.PerformLayout();
+            this.groupBox_Creation.ResumeLayout(false);
+            this.groupBox_Creation.PerformLayout();
+            this.groupBox_Login.ResumeLayout(false);
+            this.groupBox_Login.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox_Config;
         private System.Windows.Forms.Label Rights_label;
-        private System.Windows.Forms.Button AddUser_Button;
         private System.Windows.Forms.Label typeData_label;
         private System.Windows.Forms.Label Password_label;
         private System.Windows.Forms.Label ID_label;
-        private System.Windows.Forms.TextBox Password_box;
-        private System.Windows.Forms.TextBox ID_box;
-        private System.Windows.Forms.ComboBox Rights_comboBox;
-        private System.Windows.Forms.GroupBox groupBox_Config2;
-        private System.Windows.Forms.TextBox userPassword_box;
-        private System.Windows.Forms.TextBox userName_box;
+        private System.Windows.Forms.GroupBox groupBox_Login;
         private System.Windows.Forms.Button Login_Button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbUser;
-        private System.Windows.Forms.Label lbChangeUser;
+        internal System.Windows.Forms.Button AddUser_Button;
+        public System.Windows.Forms.ComboBox Rights_comboBox;
+        public System.Windows.Forms.TextBox Password_box;
+        public System.Windows.Forms.TextBox ID_box;
+        public System.Windows.Forms.TextBox userPassword_box;
+        public System.Windows.Forms.TextBox userName_box;
+        public System.Windows.Forms.Label lbChangeUser;
+        public System.Windows.Forms.GroupBox groupBox_Creation;
     }
 }
