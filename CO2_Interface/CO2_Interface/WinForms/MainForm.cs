@@ -37,6 +37,8 @@ namespace CO2_Interface
         {
             InitializeComponent(); //appelé au démaragge de l'interface graphique
 
+            current_time_timer.Start();
+
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
             initTables();
@@ -971,5 +973,10 @@ namespace CO2_Interface
             btUsers.PerformClick();
         }
 
+        private void current_time_timer_Tick(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            lb_current_time.Text = dateTime.ToString();
+        }
     }
 }

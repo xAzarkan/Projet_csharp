@@ -44,10 +44,14 @@
             this.MyConfigContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.comPort_comboBox = new System.Windows.Forms.ComboBox();
             this.lb_SelectComPort = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.current_time_timer = new System.Windows.Forms.Timer(this.components);
+            this.lb_current_time = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.MyContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SerialPort
@@ -57,12 +61,12 @@
             // COM_Button
             // 
             this.COM_Button.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.COM_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.COM_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.COM_Button.ForeColor = System.Drawing.Color.Black;
             this.COM_Button.Location = new System.Drawing.Point(799, 15);
             this.COM_Button.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.COM_Button.Name = "COM_Button";
-            this.COM_Button.Size = new System.Drawing.Size(223, 82);
+            this.COM_Button.Size = new System.Drawing.Size(253, 82);
             this.COM_Button.TabIndex = 0;
             this.COM_Button.Text = "Open COM port";
             this.COM_Button.UseVisualStyleBackColor = false;
@@ -71,23 +75,23 @@
             // Connexion_Label
             // 
             this.Connexion_Label.AutoSize = true;
-            this.Connexion_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Connexion_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Connexion_Label.Location = new System.Drawing.Point(1136, 43);
             this.Connexion_Label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Connexion_Label.Name = "Connexion_Label";
-            this.Connexion_Label.Size = new System.Drawing.Size(214, 26);
+            this.Connexion_Label.Size = new System.Drawing.Size(278, 33);
             this.Connexion_Label.TabIndex = 3;
             this.Connexion_Label.Text = "Connexion Status: ";
             // 
             // ConnexionStatus_Label
             // 
             this.ConnexionStatus_Label.AutoSize = true;
-            this.ConnexionStatus_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnexionStatus_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
-            this.ConnexionStatus_Label.Location = new System.Drawing.Point(1348, 43);
+            this.ConnexionStatus_Label.Location = new System.Drawing.Point(1412, 43);
             this.ConnexionStatus_Label.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.ConnexionStatus_Label.Name = "ConnexionStatus_Label";
-            this.ConnexionStatus_Label.Size = new System.Drawing.Size(92, 26);
+            this.ConnexionStatus_Label.Size = new System.Drawing.Size(118, 33);
             this.ConnexionStatus_Label.TabIndex = 4;
             this.ConnexionStatus_Label.Text = "CLOSE";
             // 
@@ -96,7 +100,9 @@
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(100, 100);
+            this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btMesure,
             this.btAlarme,
@@ -106,48 +112,52 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(152, 1121);
+            this.toolStrip1.Size = new System.Drawing.Size(156, 1121);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btMesure
             // 
-            this.btMesure.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btMesure.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btMesure.Image = ((System.Drawing.Image)(resources.GetObject("btMesure.Image")));
             this.btMesure.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btMesure.Name = "btMesure";
-            this.btMesure.Size = new System.Drawing.Size(146, 104);
-            this.btMesure.Text = "Mesure";
+            this.btMesure.Size = new System.Drawing.Size(150, 144);
+            this.btMesure.Text = "Measures";
+            this.btMesure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btMesure.Click += new System.EventHandler(this.btMesure_Click);
             // 
             // btAlarme
             // 
-            this.btAlarme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btAlarme.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btAlarme.Image = ((System.Drawing.Image)(resources.GetObject("btAlarme.Image")));
             this.btAlarme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btAlarme.Name = "btAlarme";
-            this.btAlarme.Size = new System.Drawing.Size(104, 104);
-            this.btAlarme.Text = "Alarme";
+            this.btAlarme.Size = new System.Drawing.Size(150, 144);
+            this.btAlarme.Text = "Alarms";
+            this.btAlarme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btAlarme.Click += new System.EventHandler(this.btAlarme_Click);
             // 
             // btGraphics
             // 
-            this.btGraphics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btGraphics.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btGraphics.Image = ((System.Drawing.Image)(resources.GetObject("btGraphics.Image")));
             this.btGraphics.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btGraphics.Name = "btGraphics";
-            this.btGraphics.Size = new System.Drawing.Size(104, 104);
+            this.btGraphics.Size = new System.Drawing.Size(150, 144);
             this.btGraphics.Text = "Graphics";
+            this.btGraphics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btGraphics.Click += new System.EventHandler(this.btGraphics_Click);
             // 
             // btUsers
             // 
-            this.btUsers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btUsers.Font = new System.Drawing.Font("Segoe UI", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btUsers.Image = ((System.Drawing.Image)(resources.GetObject("btUsers.Image")));
             this.btUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btUsers.Name = "btUsers";
-            this.btUsers.Size = new System.Drawing.Size(104, 104);
+            this.btUsers.Size = new System.Drawing.Size(150, 144);
             this.btUsers.Text = "Users";
+            this.btUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
             // 
             // MyContainer
@@ -181,21 +191,47 @@
             // 
             // comPort_comboBox
             // 
+            this.comPort_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comPort_comboBox.FormattingEnabled = true;
-            this.comPort_comboBox.Location = new System.Drawing.Point(421, 41);
+            this.comPort_comboBox.Location = new System.Drawing.Point(472, 43);
             this.comPort_comboBox.Name = "comPort_comboBox";
-            this.comPort_comboBox.Size = new System.Drawing.Size(267, 33);
+            this.comPort_comboBox.Size = new System.Drawing.Size(267, 41);
             this.comPort_comboBox.TabIndex = 14;
             // 
             // lb_SelectComPort
             // 
             this.lb_SelectComPort.AutoSize = true;
-            this.lb_SelectComPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SelectComPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_SelectComPort.Location = new System.Drawing.Point(203, 43);
             this.lb_SelectComPort.Name = "lb_SelectComPort";
-            this.lb_SelectComPort.Size = new System.Drawing.Size(202, 26);
+            this.lb_SelectComPort.Size = new System.Drawing.Size(263, 33);
             this.lb_SelectComPort.TabIndex = 15;
             this.lb_SelectComPort.Text = "Select COM port :";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(2055, 11);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(115, 112);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // current_time_timer
+            // 
+            this.current_time_timer.Tick += new System.EventHandler(this.current_time_timer_Tick);
+            // 
+            // lb_current_time
+            // 
+            this.lb_current_time.AutoSize = true;
+            this.lb_current_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_current_time.Location = new System.Drawing.Point(1678, 43);
+            this.lb_current_time.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lb_current_time.Name = "lb_current_time";
+            this.lb_current_time.Size = new System.Drawing.Size(188, 33);
+            this.lb_current_time.TabIndex = 17;
+            this.lb_current_time.Text = "Current time";
             // 
             // MainForm
             // 
@@ -203,7 +239,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(2212, 1121);
+            this.Controls.Add(this.lb_current_time);
             this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lb_SelectComPort);
             this.Controls.Add(this.comPort_comboBox);
             this.Controls.Add(this.MyConfigContainer);
@@ -221,6 +259,7 @@
             this.MyContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +281,8 @@
         private System.Windows.Forms.FlowLayoutPanel MyConfigContainer;
         private System.Windows.Forms.ComboBox comPort_comboBox;
         private System.Windows.Forms.Label lb_SelectComPort;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer current_time_timer;
+        private System.Windows.Forms.Label lb_current_time;
     }
 }
