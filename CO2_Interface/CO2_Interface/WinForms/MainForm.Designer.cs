@@ -106,48 +106,48 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(152, 1121);
+            this.toolStrip1.Size = new System.Drawing.Size(156, 1121);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btMesure
             // 
-            this.btMesure.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btMesure.Image = ((System.Drawing.Image)(resources.GetObject("btMesure.Image")));
             this.btMesure.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btMesure.Name = "btMesure";
-            this.btMesure.Size = new System.Drawing.Size(146, 104);
-            this.btMesure.Text = "Mesure";
+            this.btMesure.Size = new System.Drawing.Size(150, 136);
+            this.btMesure.Text = "Measures";
+            this.btMesure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btMesure.Click += new System.EventHandler(this.btMesure_Click);
             // 
             // btAlarme
             // 
-            this.btAlarme.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btAlarme.Image = ((System.Drawing.Image)(resources.GetObject("btAlarme.Image")));
             this.btAlarme.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btAlarme.Name = "btAlarme";
-            this.btAlarme.Size = new System.Drawing.Size(104, 104);
-            this.btAlarme.Text = "Alarme";
+            this.btAlarme.Size = new System.Drawing.Size(150, 136);
+            this.btAlarme.Text = "Alarms";
+            this.btAlarme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btAlarme.Click += new System.EventHandler(this.btAlarme_Click);
             // 
             // btGraphics
             // 
-            this.btGraphics.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btGraphics.Image = ((System.Drawing.Image)(resources.GetObject("btGraphics.Image")));
             this.btGraphics.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btGraphics.Name = "btGraphics";
-            this.btGraphics.Size = new System.Drawing.Size(104, 104);
+            this.btGraphics.Size = new System.Drawing.Size(150, 136);
             this.btGraphics.Text = "Graphics";
+            this.btGraphics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btGraphics.Click += new System.EventHandler(this.btGraphics_Click);
             // 
             // btUsers
             // 
-            this.btUsers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btUsers.Image = ((System.Drawing.Image)(resources.GetObject("btUsers.Image")));
             this.btUsers.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btUsers.Name = "btUsers";
-            this.btUsers.Size = new System.Drawing.Size(104, 104);
+            this.btUsers.Size = new System.Drawing.Size(150, 136);
             this.btUsers.Text = "Users";
+            this.btUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btUsers.Click += new System.EventHandler(this.btUsers_Click);
             // 
             // MyContainer
