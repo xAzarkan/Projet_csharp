@@ -51,7 +51,7 @@
             // WarningMin_textBox
             // 
             this.WarningMin_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningMin_textBox.Location = new System.Drawing.Point(223, 211);
+            this.WarningMin_textBox.Location = new System.Drawing.Point(239, 213);
             this.WarningMin_textBox.Name = "WarningMin_textBox";
             this.WarningMin_textBox.Size = new System.Drawing.Size(281, 44);
             this.WarningMin_textBox.TabIndex = 5;
@@ -60,31 +60,31 @@
             // WarningMin_Label
             // 
             this.WarningMin_Label.AutoSize = true;
-            this.WarningMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WarningMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMin_Label.ForeColor = System.Drawing.Color.Gold;
             this.WarningMin_Label.Location = new System.Drawing.Point(23, 218);
             this.WarningMin_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMin_Label.Name = "WarningMin_Label";
-            this.WarningMin_Label.Size = new System.Drawing.Size(185, 30);
+            this.WarningMin_Label.Size = new System.Drawing.Size(207, 33);
             this.WarningMin_Label.TabIndex = 6;
             this.WarningMin_Label.Text = "Warning Min :";
             // 
             // WarningMax_Label
             // 
             this.WarningMax_Label.AutoSize = true;
-            this.WarningMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WarningMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMax_Label.ForeColor = System.Drawing.Color.Gold;
             this.WarningMax_Label.Location = new System.Drawing.Point(23, 274);
             this.WarningMax_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMax_Label.Name = "WarningMax_Label";
-            this.WarningMax_Label.Size = new System.Drawing.Size(191, 30);
+            this.WarningMax_Label.Size = new System.Drawing.Size(215, 33);
             this.WarningMax_Label.TabIndex = 8;
             this.WarningMax_Label.Text = "Warning Max :";
             // 
             // WarningMax_textBox
             // 
             this.WarningMax_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningMax_textBox.Location = new System.Drawing.Point(223, 268);
+            this.WarningMax_textBox.Location = new System.Drawing.Point(239, 270);
             this.WarningMax_textBox.Name = "WarningMax_textBox";
             this.WarningMax_textBox.Size = new System.Drawing.Size(281, 44);
             this.WarningMax_textBox.TabIndex = 7;
@@ -93,19 +93,19 @@
             // CriticalMax_Label
             // 
             this.CriticalMax_Label.AutoSize = true;
-            this.CriticalMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CriticalMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMax_Label.ForeColor = System.Drawing.Color.Red;
             this.CriticalMax_Label.Location = new System.Drawing.Point(23, 423);
             this.CriticalMax_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CriticalMax_Label.Name = "CriticalMax_Label";
-            this.CriticalMax_Label.Size = new System.Drawing.Size(176, 30);
+            this.CriticalMax_Label.Size = new System.Drawing.Size(199, 33);
             this.CriticalMax_Label.TabIndex = 12;
             this.CriticalMax_Label.Text = "Critical Max :";
             // 
             // CriticalMax_textBox
             // 
             this.CriticalMax_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriticalMax_textBox.Location = new System.Drawing.Point(223, 417);
+            this.CriticalMax_textBox.Location = new System.Drawing.Point(239, 419);
             this.CriticalMax_textBox.Name = "CriticalMax_textBox";
             this.CriticalMax_textBox.Size = new System.Drawing.Size(281, 44);
             this.CriticalMax_textBox.TabIndex = 11;
@@ -114,19 +114,19 @@
             // CriticalMin_Label
             // 
             this.CriticalMin_Label.AutoSize = true;
-            this.CriticalMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CriticalMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMin_Label.ForeColor = System.Drawing.Color.Red;
             this.CriticalMin_Label.Location = new System.Drawing.Point(23, 367);
             this.CriticalMin_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CriticalMin_Label.Name = "CriticalMin_Label";
-            this.CriticalMin_Label.Size = new System.Drawing.Size(170, 30);
+            this.CriticalMin_Label.Size = new System.Drawing.Size(191, 33);
             this.CriticalMin_Label.TabIndex = 10;
             this.CriticalMin_Label.Text = "Critical Min :";
             // 
             // CriticalMin_textBox
             // 
             this.CriticalMin_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CriticalMin_textBox.Location = new System.Drawing.Point(223, 360);
+            this.CriticalMin_textBox.Location = new System.Drawing.Point(239, 362);
             this.CriticalMin_textBox.Name = "CriticalMin_textBox";
             this.CriticalMin_textBox.Size = new System.Drawing.Size(281, 44);
             this.CriticalMin_textBox.TabIndex = 9;
@@ -134,6 +134,7 @@
             // 
             // groupBox_Config
             // 
+            this.groupBox_Config.AutoSize = true;
             this.groupBox_Config.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox_Config.Controls.Add(this.btLoadSettings);
             this.groupBox_Config.Controls.Add(this.configStatus_label);
@@ -151,7 +152,7 @@
             this.groupBox_Config.Controls.Add(this.typeData_label1);
             this.groupBox_Config.Controls.Add(this.comboBox_ID);
             this.groupBox_Config.Controls.Add(this.label1);
-            this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Config.Location = new System.Drawing.Point(0, 0);
             this.groupBox_Config.Name = "groupBox_Config";
             this.groupBox_Config.Size = new System.Drawing.Size(526, 927);
@@ -161,7 +162,8 @@
             // 
             // btLoadSettings
             // 
-            this.btLoadSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLoadSettings.AutoSize = true;
+            this.btLoadSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLoadSettings.ForeColor = System.Drawing.Color.Black;
             this.btLoadSettings.Location = new System.Drawing.Point(115, 564);
             this.btLoadSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -175,26 +177,27 @@
             // configStatus_label
             // 
             this.configStatus_label.AutoSize = true;
-            this.configStatus_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configStatus_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.configStatus_label.Location = new System.Drawing.Point(277, 150);
             this.configStatus_label.Name = "configStatus_label";
-            this.configStatus_label.Size = new System.Drawing.Size(41, 31);
+            this.configStatus_label.Size = new System.Drawing.Size(42, 33);
             this.configStatus_label.TabIndex = 20;
             this.configStatus_label.Text = "...";
             // 
             // configStatus_label1
             // 
             this.configStatus_label1.AutoSize = true;
-            this.configStatus_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configStatus_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.configStatus_label1.Location = new System.Drawing.Point(23, 150);
             this.configStatus_label1.Name = "configStatus_label1";
-            this.configStatus_label1.Size = new System.Drawing.Size(216, 31);
+            this.configStatus_label1.Size = new System.Drawing.Size(229, 33);
             this.configStatus_label1.TabIndex = 19;
             this.configStatus_label1.Text = "Config Status : ";
             // 
             // saveAlarmConfig_Button
             // 
-            this.saveAlarmConfig_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveAlarmConfig_Button.AutoSize = true;
+            this.saveAlarmConfig_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveAlarmConfig_Button.ForeColor = System.Drawing.Color.Black;
             this.saveAlarmConfig_Button.Location = new System.Drawing.Point(115, 685);
             this.saveAlarmConfig_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -208,29 +211,29 @@
             // typeData_label
             // 
             this.typeData_label.AutoSize = true;
-            this.typeData_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeData_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeData_label.Location = new System.Drawing.Point(277, 116);
             this.typeData_label.Name = "typeData_label";
-            this.typeData_label.Size = new System.Drawing.Size(41, 31);
+            this.typeData_label.Size = new System.Drawing.Size(42, 33);
             this.typeData_label.TabIndex = 13;
             this.typeData_label.Text = "...";
             // 
             // typeData_label1
             // 
             this.typeData_label1.AutoSize = true;
-            this.typeData_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeData_label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typeData_label1.Location = new System.Drawing.Point(21, 116);
             this.typeData_label1.Name = "typeData_label1";
-            this.typeData_label1.Size = new System.Drawing.Size(104, 31);
+            this.typeData_label1.Size = new System.Drawing.Size(111, 33);
             this.typeData_label1.TabIndex = 12;
             this.typeData_label1.Text = "Type : ";
             // 
             // comboBox_ID
             // 
             this.comboBox_ID.FormattingEnabled = true;
-            this.comboBox_ID.Location = new System.Drawing.Point(223, 59);
+            this.comboBox_ID.Location = new System.Drawing.Point(239, 59);
             this.comboBox_ID.Name = "comboBox_ID";
-            this.comboBox_ID.Size = new System.Drawing.Size(281, 38);
+            this.comboBox_ID.Size = new System.Drawing.Size(281, 41);
             this.comboBox_ID.Sorted = true;
             this.comboBox_ID.TabIndex = 11;
             this.comboBox_ID.SelectedIndexChanged += new System.EventHandler(this.comboBox_ID_SelectedIndexChanged);
@@ -238,10 +241,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 31);
+            this.label1.Size = new System.Drawing.Size(160, 33);
             this.label1.TabIndex = 9;
             this.label1.Text = "Select ID :";
             // 
@@ -256,6 +259,7 @@
             this.groupBox_Config.ResumeLayout(false);
             this.groupBox_Config.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

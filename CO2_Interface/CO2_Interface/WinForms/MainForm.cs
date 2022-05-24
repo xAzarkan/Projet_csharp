@@ -79,6 +79,7 @@ namespace CO2_Interface
                 comPort_comboBox.Items.Add(comPorts[i]);
             }
 
+
         }
         
         private void button_COM_Click(object sender, EventArgs e)
@@ -111,24 +112,26 @@ namespace CO2_Interface
                     try
                     {
                         SerialPort.Open(); //ouverture du serial port
+
+                        ConnexionStatus_Label.Text = "OPEN"; //si le port est ouvert
+                        ConnexionStatus_Label.ForeColor = System.Drawing.Color.Green;
+
+                        comPortOpened = true;
+
+                        COM_Button.Text = "Close COM port";
+
+                        timer = new Timer();
+                        timer.Tick += new EventHandler(timer_Tick);
+
+                        timer.Interval = 1000;
+                        timer.Start();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
 
-                    ConnexionStatus_Label.Text = "OPEN"; //si le port est ouvert
-                    ConnexionStatus_Label.ForeColor = System.Drawing.Color.Green;
-
-                    comPortOpened = true;
-
-                    COM_Button.Text = "Close COM port";
-
-                    timer = new Timer();
-                    timer.Tick += new EventHandler(timer_Tick);
-
-                    timer.Interval = 1000;
-                    timer.Start();
+                   
                 }
             }
             

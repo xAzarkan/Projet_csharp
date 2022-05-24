@@ -40,9 +40,10 @@
             this.ObjectsGrid.Location = new System.Drawing.Point(0, 0);
             this.ObjectsGrid.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ObjectsGrid.Name = "ObjectsGrid";
+            this.ObjectsGrid.ReadOnly = true;
             this.ObjectsGrid.RowHeadersVisible = false;
             this.ObjectsGrid.RowHeadersWidth = 51;
-            this.ObjectsGrid.RowTemplate.Height = 50;
+            this.ObjectsGrid.RowTemplate.Height = 30;
             this.ObjectsGrid.RowTemplate.ReadOnly = true;
             this.ObjectsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ObjectsGrid.Size = new System.Drawing.Size(1220, 887);
