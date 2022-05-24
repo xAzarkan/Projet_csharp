@@ -69,6 +69,12 @@ namespace CO2_Interface
             this.MesureConfigPage.loadMesureButtonClick += new EventHandler(MesureConfig_loadMesureSettingsButton_Click);
             this.MesureConfigPage.comboBoxMesureSettingsChanged += new EventHandler(MesureConfig_comboBoxContent_Changed);
 
+            /* UsersConfig*/
+            this.UsersConfigPage.addUserButtonClick += new EventHandler(AddUser_Button_Click);
+            this.UsersConfigPage.loginButtonClick += new EventHandler(Login_Button_Click);
+            //this.UsersConfigPage. += new EventHandler(AddUser_Button_Click);
+
+
             ConnexionStatus_Label.Text = "CLOSE"; //sinon
             ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
 
@@ -259,12 +265,11 @@ namespace CO2_Interface
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
-            if(AllowConfigAlarms)
-            {
-                MyContainer.Controls.Add(GraphiquePage);
-                MyConfigContainer.Controls.Add(AlarmSettingsPage);
-                checkIfConfigured(AlarmSettingsPage.comboBox_ID);
-            }
+            
+            MyContainer.Controls.Add(GraphiquePage);
+            MyConfigContainer.Controls.Add(AlarmSettingsPage);
+            checkIfConfigured(AlarmSettingsPage.comboBox_ID);
+            
 
         }
 
@@ -907,6 +912,68 @@ namespace CO2_Interface
         private void MesureConfig_InsideButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddUser_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Data.Collections.UserAccess.Tables[0].Rows.Add(new object[] { null, UsersConfigPage.ID_box.Text, UsersConfigPage.Password_box.Text, UsersConfigPage.Rights_comboBox.SelectedIndex });
+
+                UsersConfigPage.ID_box.Text = "";
+                UsersConfigPage.Password_box.Text = "";
+                UsersConfigPage.Rights_comboBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Login_Button_Click(object sender, EventArgs e)
+        {
+            bool connexion = false;
+            String userId = "";
+            String name = "";
+            String accessType = "";
+            foreach (DataRow row in Data.Tables.UserTable.Rows)
+            {
+                if (UsersConfigPage.userName_box.Text.Equals(row["Name"]) && UsersConfigPage.userPassword_box.Text.Equals(row["Password"]))
+                {
+                    connexion = true;
+                    userId = row["ID"].ToString();
+                    name = UsersConfigPage.userName_box.Text;
+                    accessType = row["Access type"].ToString();
+                    UsersConfigPage.userName_box.Text = "";
+                    UsersConfigPage.userPassword_box.Text = "";
+                    UsersConfigPage.lbChangeUser.Text = name;
+                    UsersConfigPage.lbChangeUser.ForeColor = Color.Green;
+                }
+            }
+            if (connexion == true)
+            {
+                foreach (DataRow row in Data.Tables.AccessTable.Rows)
+                {
+
+                    if (accessType.Equals(row["ID"].ToString()))
+                    {
+                        AllowCreateID = (bool)row["Allow Create ID"];
+                        AllowDestroyID = (bool)row["Allow Destroy ID"];
+                        AllowConfigAlarms = (bool)row["Allow Config Alarms"];
+                        UserCreation = (bool)row["User Creation"];
+                    }
+                }
+
+               
+                UsersConfigPage.groupBox_Creation.Visible = UserCreation;
+                AlarmSettingsPage.groupBox_Config.Visible = AllowConfigAlarms;
+                MesureConfigPage.groupBox_Config.Visible= AllowCreateID;
+
+            }
+            else
+            {
+                MessageBox.Show("Compte inexistant");
+            }
+            btUsers.PerformClick();
         }
 
         private void current_time_timer_Tick(object sender, EventArgs e)

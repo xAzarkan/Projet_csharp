@@ -59,8 +59,8 @@
             this.groupBox_Config.Location = new System.Drawing.Point(4, 0);
             this.groupBox_Config.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox_Config.Name = "groupBox_Config";
-            this.groupBox_Config.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox_Config.Size = new System.Drawing.Size(504, 927);
+            this.groupBox_Config.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox_Config.Size = new System.Drawing.Size(252, 482);
             this.groupBox_Config.TabIndex = 13;
             this.groupBox_Config.TabStop = false;
             this.groupBox_Config.Text = "Configuration";
@@ -158,8 +158,8 @@
             // comboBox_ID
             // 
             this.comboBox_ID.FormattingEnabled = true;
-            this.comboBox_ID.Location = new System.Drawing.Point(208, 93);
-            this.comboBox_ID.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_ID.Location = new System.Drawing.Point(104, 48);
+            this.comboBox_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox_ID.Name = "comboBox_ID";
             this.comboBox_ID.Size = new System.Drawing.Size(282, 41);
             this.comboBox_ID.Sorted = true;
@@ -179,13 +179,13 @@
             // 
             // MesureConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.groupBox_Config);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MesureConfig";
-            this.Size = new System.Drawing.Size(508, 929);
+            this.Size = new System.Drawing.Size(254, 483);
             this.groupBox_Config.ResumeLayout(false);
             this.groupBox_Config.PerformLayout();
             this.ResumeLayout(false);
@@ -193,8 +193,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox_Config;
         private System.Windows.Forms.Button saveConfig_Button;
         private System.Windows.Forms.Label label_HighLimit;
         private System.Windows.Forms.Label label_lowlimit;
@@ -205,5 +203,6 @@
         public System.Windows.Forms.TextBox LowLimit_textBox;
         private System.Windows.Forms.Button loadConfig_Button;
         public System.Windows.Forms.Label typeData_label;
+        public System.Windows.Forms.GroupBox groupBox_Config;
     }
 }
