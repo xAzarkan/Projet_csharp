@@ -84,6 +84,8 @@ namespace CO2_Interface
             {
                 comPort_comboBox.Items.Add(comPorts[i]);
             }
+            DBAccess.Adapter.Config();
+            DBAccess.Adapter.Fill(Data.Collections.UserAccess, "Access", "AccessTable", UsersPage.UserAccess_Grid);
 
         }
         
