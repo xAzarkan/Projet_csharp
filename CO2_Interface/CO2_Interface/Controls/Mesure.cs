@@ -17,7 +17,6 @@ namespace CO2_Interface.Controls
         public Mesure() //changer le nom en "Mesure"
         {
             InitializeComponent();
-            
         }
     }
 }

@@ -219,7 +219,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     //Conversion de la data
 
                     valeurDataBrut = obj.Data;
-                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) - obj.LowLimit);
+                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) + obj.LowLimit);
                     valeurDataBrut = Math.Round(valeurDataBrut, 2);
                     valeurString = obj.ConvertedData.ToString() + " °C";
 
@@ -230,7 +230,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
                     dt.Rows[posRow][TypeColumn] = "Humidité";
 
                     valeurDataBrut = obj.Data;
-                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) - obj.LowLimit);
+                    obj.ConvertedData = (Int32)((valeurDataBrut / lengthOfBits) * (obj.HighLimit - obj.LowLimit) + obj.LowLimit);
                     valeurDataBrut = Math.Round(valeurDataBrut, 2);
                     valeurString = obj.ConvertedData.ToString() + " %";
 
