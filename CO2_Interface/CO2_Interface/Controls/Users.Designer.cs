@@ -37,7 +37,7 @@
             // UserTable_Grid
             // 
             this.UserTable_Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.UserTable_Grid.BackgroundColor = System.Drawing.Color.OldLace;
+            this.UserTable_Grid.BackgroundColor = System.Drawing.Color.White;
             this.UserTable_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserTable_Grid.Location = new System.Drawing.Point(0, 0);
             this.UserTable_Grid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -46,7 +46,8 @@
             this.UserTable_Grid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.UserTable_Grid.RowHeadersVisible = false;
             this.UserTable_Grid.RowHeadersWidth = 51;
-            this.UserTable_Grid.RowTemplate.Height = 50;
+            this.UserTable_Grid.RowTemplate.Height = 30;
+            this.UserTable_Grid.RowTemplate.ReadOnly = true;
             this.UserTable_Grid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.UserTable_Grid.Size = new System.Drawing.Size(610, 205);
             this.UserTable_Grid.TabIndex = 5;
@@ -54,7 +55,7 @@
             // UserAccess_Grid
             // 
             this.UserAccess_Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.UserAccess_Grid.BackgroundColor = System.Drawing.Color.OldLace;
+            this.UserAccess_Grid.BackgroundColor = System.Drawing.Color.White;
             this.UserAccess_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserAccess_Grid.Location = new System.Drawing.Point(0, 235);
             this.UserAccess_Grid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -62,7 +63,8 @@
             this.UserAccess_Grid.ReadOnly = true;
             this.UserAccess_Grid.RowHeadersVisible = false;
             this.UserAccess_Grid.RowHeadersWidth = 51;
-            this.UserAccess_Grid.RowTemplate.Height = 50;
+            this.UserAccess_Grid.RowTemplate.Height = 30;
+            this.UserAccess_Grid.RowTemplate.ReadOnly = true;
             this.UserAccess_Grid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.UserAccess_Grid.Size = new System.Drawing.Size(610, 205);
             this.UserAccess_Grid.TabIndex = 6;
@@ -71,9 +73,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.Controls.Add(this.UserAccess_Grid);
             this.Controls.Add(this.UserTable_Grid);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Users";
             this.Size = new System.Drawing.Size(610, 461);
             ((System.ComponentModel.ISupportInitialize)(this.UserTable_Grid)).EndInit();
