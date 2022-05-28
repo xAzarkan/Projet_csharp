@@ -52,7 +52,7 @@
             // 
             // groupBox_Creation
             // 
-            this.groupBox_Creation.BackColor = System.Drawing.Color.OldLace;
+            this.groupBox_Creation.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox_Creation.Controls.Add(this.Rights_comboBox);
             this.groupBox_Creation.Controls.Add(this.Password_box);
             this.groupBox_Creation.Controls.Add(this.ID_box);
@@ -151,7 +151,7 @@
             // 
             // groupBox_Login
             // 
-            this.groupBox_Login.BackColor = System.Drawing.Color.OldLace;
+            this.groupBox_Login.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox_Login.Controls.Add(this.userPassword_box);
             this.groupBox_Login.Controls.Add(this.userName_box);
             this.groupBox_Login.Controls.Add(this.Login_Button);
@@ -251,6 +251,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.Controls.Add(this.lbChangeUser);
             this.Controls.Add(this.lbUser);
             this.Controls.Add(this.groupBox_Login);
