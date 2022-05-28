@@ -43,17 +43,17 @@ namespace CO2_Interface.Controls
         public Graphique()
         {
             InitializeComponent();
-                
+
             GraphBuilder();
         }
 
         private void Timer_200ms_Tick(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            
+
             if (MyList.Count > 99) MyList.Dequeue();
-            MyList.Enqueue(rnd.Next(0, 1000)); 
-   
+            MyList.Enqueue(rnd.Next(0, 1000));
+
         }
 
         public void GraphBuilder()
@@ -85,7 +85,7 @@ namespace CO2_Interface.Controls
             criticalMaxStrip.StripWidth = 0.0;
             criticalMaxStrip.BorderColor = Color.FromArgb(100, Color.Red);
             criticalMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
-            criticalMaxStrip.BorderWidth = 3; 
+            criticalMaxStrip.BorderWidth = 3;
             Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMaxStrip);
 
             warningMaxStrip.Interval = 0;
@@ -93,7 +93,7 @@ namespace CO2_Interface.Controls
             warningMaxStrip.StripWidth = 0.0;
             warningMaxStrip.BorderColor = Color.FromArgb(100, Color.Orange);
             warningMaxStrip.BorderDashStyle = ChartDashStyle.Solid;
-            warningMaxStrip.BorderWidth = 3; 
+            warningMaxStrip.BorderWidth = 3;
             Chart.ChartAreas[0].AxisY.StripLines.Add(warningMaxStrip);
 
             warningMinStrip.Interval = 0;
@@ -101,7 +101,7 @@ namespace CO2_Interface.Controls
             warningMinStrip.StripWidth = 0.0;
             warningMinStrip.BorderColor = Color.FromArgb(100, Color.Orange);
             warningMinStrip.BorderDashStyle = ChartDashStyle.Solid;
-            warningMinStrip.BorderWidth = 3; 
+            warningMinStrip.BorderWidth = 3;
             Chart.ChartAreas[0].AxisY.StripLines.Add(warningMinStrip);
 
             criticalMinStrip.Interval = 0;
@@ -109,7 +109,7 @@ namespace CO2_Interface.Controls
             criticalMinStrip.StripWidth = 0.0;
             criticalMinStrip.BorderColor = Color.FromArgb(100, Color.Red);
             criticalMinStrip.BorderDashStyle = ChartDashStyle.Solid;
-            criticalMinStrip.BorderWidth = 3; 
+            criticalMinStrip.BorderWidth = 3;
             Chart.ChartAreas[0].AxisY.StripLines.Add(criticalMinStrip);
 
             Chart.Series.Add(GraphPoints);
@@ -117,7 +117,7 @@ namespace CO2_Interface.Controls
         internal static void GraphUpdate(int value)
         {
             GraphPoints.Points.Clear();
-            
+
             if (Data.FromSensor.graphListSecond.Count >= 60) Data.FromSensor.graphListSecond.Dequeue();
             Data.FromSensor.graphListSecond.Enqueue(value);
 
@@ -139,23 +139,6 @@ namespace CO2_Interface.Controls
             warningMaxStrip.IntervalOffset = WarningMax;
             criticalMinStrip.IntervalOffset = CriticalMin;
             warningMinStrip.IntervalOffset = WarningMin;
-
-            /*
-            if(typeData == 1) //CO2
-            {
-                Area.AxisY.Maximum = maxPPM;
-                Area.AxisY.Minimum = minPPM;
-            }
-            else if(typeData == 2) //température
-            {
-                Area.AxisY.Maximum = maxTemp;
-                Area.AxisY.Minimum = minTemp;
-            }
-            else if(typeData == 3) //humidité
-            {
-                Area.AxisY.Maximum = maxHum;
-                Area.AxisY.Minimum = minHum;
-            } */
         }
 
         internal static void setLowHighLimits(Int32 lowLimit, Int32 highLimit)

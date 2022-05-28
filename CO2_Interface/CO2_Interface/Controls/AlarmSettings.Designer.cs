@@ -1,4 +1,5 @@
-﻿namespace CO2_Interface.Controls
+﻿
+namespace CO2_Interface.Controls
 {
     partial class AlarmSettings
     {
@@ -53,7 +54,7 @@
             this.WarningMin_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMin_textBox.Location = new System.Drawing.Point(239, 213);
             this.WarningMin_textBox.Name = "WarningMin_textBox";
-            this.WarningMin_textBox.Size = new System.Drawing.Size(142, 26);
+            this.WarningMin_textBox.Size = new System.Drawing.Size(281, 44);
             this.WarningMin_textBox.TabIndex = 5;
             this.WarningMin_textBox.Text = "0";
             // 
@@ -62,8 +63,8 @@
             this.WarningMin_Label.AutoSize = true;
             this.WarningMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMin_Label.ForeColor = System.Drawing.Color.Gold;
-            this.WarningMin_Label.Location = new System.Drawing.Point(12, 113);
-            this.WarningMin_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.WarningMin_Label.Location = new System.Drawing.Point(23, 218);
+            this.WarningMin_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMin_Label.Name = "WarningMin_Label";
             this.WarningMin_Label.Size = new System.Drawing.Size(207, 33);
             this.WarningMin_Label.TabIndex = 6;
@@ -74,8 +75,8 @@
             this.WarningMax_Label.AutoSize = true;
             this.WarningMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMax_Label.ForeColor = System.Drawing.Color.Gold;
-            this.WarningMax_Label.Location = new System.Drawing.Point(12, 142);
-            this.WarningMax_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.WarningMax_Label.Location = new System.Drawing.Point(23, 274);
+            this.WarningMax_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WarningMax_Label.Name = "WarningMax_Label";
             this.WarningMax_Label.Size = new System.Drawing.Size(215, 33);
             this.WarningMax_Label.TabIndex = 8;
@@ -86,7 +87,7 @@
             this.WarningMax_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarningMax_textBox.Location = new System.Drawing.Point(239, 270);
             this.WarningMax_textBox.Name = "WarningMax_textBox";
-            this.WarningMax_textBox.Size = new System.Drawing.Size(142, 26);
+            this.WarningMax_textBox.Size = new System.Drawing.Size(281, 44);
             this.WarningMax_textBox.TabIndex = 7;
             this.WarningMax_textBox.Text = "0";
             // 
@@ -95,8 +96,8 @@
             this.CriticalMax_Label.AutoSize = true;
             this.CriticalMax_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMax_Label.ForeColor = System.Drawing.Color.Red;
-            this.CriticalMax_Label.Location = new System.Drawing.Point(12, 220);
-            this.CriticalMax_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CriticalMax_Label.Location = new System.Drawing.Point(23, 423);
+            this.CriticalMax_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CriticalMax_Label.Name = "CriticalMax_Label";
             this.CriticalMax_Label.Size = new System.Drawing.Size(199, 33);
             this.CriticalMax_Label.TabIndex = 12;
@@ -107,7 +108,7 @@
             this.CriticalMax_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMax_textBox.Location = new System.Drawing.Point(239, 419);
             this.CriticalMax_textBox.Name = "CriticalMax_textBox";
-            this.CriticalMax_textBox.Size = new System.Drawing.Size(142, 26);
+            this.CriticalMax_textBox.Size = new System.Drawing.Size(281, 44);
             this.CriticalMax_textBox.TabIndex = 11;
             this.CriticalMax_textBox.Text = "0";
             // 
@@ -116,8 +117,8 @@
             this.CriticalMin_Label.AutoSize = true;
             this.CriticalMin_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMin_Label.ForeColor = System.Drawing.Color.Red;
-            this.CriticalMin_Label.Location = new System.Drawing.Point(12, 191);
-            this.CriticalMin_Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.CriticalMin_Label.Location = new System.Drawing.Point(23, 367);
+            this.CriticalMin_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CriticalMin_Label.Name = "CriticalMin_Label";
             this.CriticalMin_Label.Size = new System.Drawing.Size(191, 33);
             this.CriticalMin_Label.TabIndex = 10;
@@ -128,7 +129,7 @@
             this.CriticalMin_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CriticalMin_textBox.Location = new System.Drawing.Point(239, 362);
             this.CriticalMin_textBox.Name = "CriticalMin_textBox";
-            this.CriticalMin_textBox.Size = new System.Drawing.Size(142, 26);
+            this.CriticalMin_textBox.Size = new System.Drawing.Size(281, 44);
             this.CriticalMin_textBox.TabIndex = 9;
             this.CriticalMin_textBox.Text = "0";
             // 
@@ -154,10 +155,8 @@
             this.groupBox_Config.Controls.Add(this.label1);
             this.groupBox_Config.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_Config.Location = new System.Drawing.Point(0, 0);
-            this.groupBox_Config.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox_Config.Name = "groupBox_Config";
-            this.groupBox_Config.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox_Config.Size = new System.Drawing.Size(263, 482);
+            this.groupBox_Config.Size = new System.Drawing.Size(526, 927);
             this.groupBox_Config.TabIndex = 14;
             this.groupBox_Config.TabStop = false;
             this.groupBox_Config.Text = "Alarm Configuration";
@@ -167,10 +166,10 @@
             this.btLoadSettings.AutoSize = true;
             this.btLoadSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLoadSettings.ForeColor = System.Drawing.Color.Black;
-            this.btLoadSettings.Location = new System.Drawing.Point(58, 293);
-            this.btLoadSettings.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btLoadSettings.Location = new System.Drawing.Point(115, 564);
+            this.btLoadSettings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btLoadSettings.Name = "btLoadSettings";
-            this.btLoadSettings.Size = new System.Drawing.Size(136, 41);
+            this.btLoadSettings.Size = new System.Drawing.Size(271, 78);
             this.btLoadSettings.TabIndex = 21;
             this.btLoadSettings.Text = "LOAD SETTINGS";
             this.btLoadSettings.UseVisualStyleBackColor = true;
@@ -201,10 +200,10 @@
             this.saveAlarmConfig_Button.AutoSize = true;
             this.saveAlarmConfig_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveAlarmConfig_Button.ForeColor = System.Drawing.Color.Black;
-            this.saveAlarmConfig_Button.Location = new System.Drawing.Point(58, 356);
-            this.saveAlarmConfig_Button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.saveAlarmConfig_Button.Location = new System.Drawing.Point(115, 685);
+            this.saveAlarmConfig_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.saveAlarmConfig_Button.Name = "saveAlarmConfig_Button";
-            this.saveAlarmConfig_Button.Size = new System.Drawing.Size(136, 41);
+            this.saveAlarmConfig_Button.Size = new System.Drawing.Size(271, 78);
             this.saveAlarmConfig_Button.TabIndex = 18;
             this.saveAlarmConfig_Button.Text = "SAVE";
             this.saveAlarmConfig_Button.UseVisualStyleBackColor = true;
@@ -252,13 +251,12 @@
             // 
             // AlarmSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.groupBox_Config);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AlarmSettings";
-            this.Size = new System.Drawing.Size(264, 482);
+            this.Size = new System.Drawing.Size(529, 927);
             this.groupBox_Config.ResumeLayout(false);
             this.groupBox_Config.PerformLayout();
             this.ResumeLayout(false);
@@ -267,22 +265,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label WarningMin_Label;
-        private System.Windows.Forms.Label WarningMax_Label;
-        private System.Windows.Forms.Label CriticalMax_Label;
-        private System.Windows.Forms.Label CriticalMin_Label;
-        private System.Windows.Forms.Button saveAlarmConfig_Button;
-        private System.Windows.Forms.Label typeData_label1;
+        public System.Windows.Forms.Label WarningMin_Label;
+        public System.Windows.Forms.Label WarningMax_Label;
+        public System.Windows.Forms.Label CriticalMax_Label;
+        public System.Windows.Forms.Label CriticalMin_Label;
+        public System.Windows.Forms.GroupBox groupBox_Config;
+        public System.Windows.Forms.Button saveAlarmConfig_Button;
+        public System.Windows.Forms.Label typeData_label1;
         public System.Windows.Forms.ComboBox comboBox_ID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label configStatus_label1;
-        private System.Windows.Forms.Button btLoadSettings;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label configStatus_label1;
+        public System.Windows.Forms.Button btLoadSettings;
         public System.Windows.Forms.Label typeData_label;
         public System.Windows.Forms.Label configStatus_label;
         public System.Windows.Forms.TextBox WarningMin_textBox;
         public System.Windows.Forms.TextBox WarningMax_textBox;
         public System.Windows.Forms.TextBox CriticalMin_textBox;
         public System.Windows.Forms.TextBox CriticalMax_textBox;
-        public System.Windows.Forms.GroupBox groupBox_Config;
     }
 }
