@@ -74,6 +74,8 @@ namespace CO2_Interface
             this.UsersConfigPage.loginButtonClick += new EventHandler(Login_Button_Click);
             //this.UsersConfigPage. += new EventHandler(AddUser_Button_Click);
 
+            /* Users */
+            this.UsersPage.updateDBDataButtonClick += new EventHandler(Update_Button_Click);
 
             ConnexionStatus_Label.Text = "CLOSE"; //sinon
             ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
@@ -84,10 +86,12 @@ namespace CO2_Interface
             {
                 comPort_comboBox.Items.Add(comPorts[i]);
             }
-            DBAccess.Adapter.Config();
-            DBAccess.Adapter.Fill(Data.Collections.UserAccess, "Access", "AccessTable", UsersPage.UserAccess_Grid);
 
+            DBAccess.Tools.Config();
 
+            current_user_label.Visible = false;
+            username_label.Visible = false;
+            accountType_label.Visible = false;
         }
         
         private void button_COM_Click(object sender, EventArgs e)
@@ -101,9 +105,6 @@ namespace CO2_Interface
                 ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
 
                 comPortOpened = false;
-
-                ConnexionStatus_Label.Text = "CLOSE"; //sinon
-                ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
 
                 COM_Button.Text = "Open COM port";
             }
@@ -211,7 +212,7 @@ namespace CO2_Interface
         private void initUserAccess()
         {
             //UserTable
-            Data.Tables.UserTable.TableName = "Users";
+            Data.Tables.UserTable.TableName = "User";
             Data.Tables.ColumnsUserTable.ID.Unique = true;
             Data.Tables.ColumnsUserTable.ID.AutoIncrement = true;
             Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.ID);
@@ -222,11 +223,11 @@ namespace CO2_Interface
             Data.Tables.ColumnsUserTable.UserPassword.Unique = false;
             Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.UserPassword);
 
-            Data.Tables.ColumnsUserTable.Access_ID.Unique = false;
-            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.Access_ID);
+            Data.Tables.ColumnsUserTable.AccountType.Unique = false;
+            Data.Tables.UserTable.Columns.Add(Data.Tables.ColumnsUserTable.AccountType);
 
             /* AccessTable */
-            Data.Tables.AccessTable.TableName = "Access";
+            Data.Tables.AccessTable.TableName = "Account";
             Data.Tables.ColumnsAccessTable.ID.Unique = true;
             Data.Tables.AccessTable.Columns.Add(Data.Tables.ColumnsAccessTable.ID);
 
@@ -248,12 +249,13 @@ namespace CO2_Interface
             Data.Collections.UserAccess.Tables.Add(Data.Tables.UserTable);
             Data.Collections.UserAccess.Tables.Add(Data.Tables.AccessTable);
 
-            DataColumn ParentColumn = Data.Collections.UserAccess.Tables["Access"].Columns["ID"];
-            DataColumn ChildColumn = Data.Collections.UserAccess.Tables["Users"].Columns["Access type"];
+            DataColumn ChildColumn = Data.Collections.UserAccess.Tables["User"].Columns["AccountType"];
+            DataColumn ParentColumn = Data.Collections.UserAccess.Tables["Account"].Columns["Id"];
+
 
             DataRelation relation = new DataRelation("Access2User",ParentColumn, ChildColumn);
 
-            Data.Collections.UserAccess.Tables["Users"].ParentRelations.Add(relation);
+            Data.Collections.UserAccess.Tables["User"].ParentRelations.Add(relation);
 
             Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 0, "AdminRights", true, true, true, true });
             Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 1, "MasterRights", true, true, true, false });
@@ -277,6 +279,8 @@ namespace CO2_Interface
 
         private void btUsers_Click(object sender, EventArgs e)
         {
+            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
+
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
 
@@ -920,7 +924,13 @@ namespace CO2_Interface
         {
             try
             {
-                Data.Collections.UserAccess.Tables[0].Rows.Add(new object[] { null, UsersConfigPage.ID_box.Text, UsersConfigPage.Password_box.Text, UsersConfigPage.Rights_comboBox.SelectedIndex });
+                string username = UsersConfigPage.ID_box.Text;
+                string password = UsersConfigPage.Password_box.Text;
+                string accountType = UsersConfigPage.Rights_comboBox.SelectedIndex.ToString();
+
+                //Data.Collections.UserAccess.Tables[0].Rows.Add(new object[] { null, username, password, accountType });
+
+                DBAccess.Adapter.Insert(username, password, accountType);
 
                 UsersConfigPage.ID_box.Text = "";
                 UsersConfigPage.Password_box.Text = "";
@@ -933,10 +943,14 @@ namespace CO2_Interface
         }
         private void Login_Button_Click(object sender, EventArgs e)
         {
+            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
+
             bool connexion = false;
-            String userId = "";
-            String name = "";
-            String accessType = "";
+            string userId = "";
+            string name = "";
+            string accountType = "";
+            string typeAccountForLabel = "";
+
             foreach (DataRow row in Data.Tables.UserTable.Rows)
             {
                 if (UsersConfigPage.userName_box.Text.Equals(row["Name"]) && UsersConfigPage.userPassword_box.Text.Equals(row["Password"]))
@@ -944,11 +958,17 @@ namespace CO2_Interface
                     connexion = true;
                     userId = row["ID"].ToString();
                     name = UsersConfigPage.userName_box.Text;
-                    accessType = row["Access type"].ToString();
+                    accountType = row["AccountType"].ToString();
+
+                    if (accountType.Equals("0"))
+                        typeAccountForLabel = "Admin rights";
+                    else if (accountType.Equals("1"))
+                        typeAccountForLabel = "Master rights";
+                    else if (accountType.Equals("2"))
+                        typeAccountForLabel = "No rights";
+
                     UsersConfigPage.userName_box.Text = "";
                     UsersConfigPage.userPassword_box.Text = "";
-                    UsersConfigPage.lbChangeUser.Text = name;
-                    UsersConfigPage.lbChangeUser.ForeColor = Color.Green;
                 }
             }
             if (connexion == true)
@@ -956,19 +976,27 @@ namespace CO2_Interface
                 foreach (DataRow row in Data.Tables.AccessTable.Rows)
                 {
 
-                    if (accessType.Equals(row["ID"].ToString()))
+                    if (accountType.Equals(row["Id"].ToString()))
                     {
-                        AllowCreateID = (bool)row["Allow Create ID"];
-                        AllowDestroyID = (bool)row["Allow Destroy ID"];
-                        AllowConfigAlarms = (bool)row["Allow Config Alarms"];
-                        UserCreation = (bool)row["User Creation"];
+                        AllowCreateID = (bool)row["AllowCreateID"];
+                        AllowDestroyID = (bool)row["AllowDestroyID"];
+                        AllowConfigAlarms = (bool)row["AllowConfigAlarms"];
+                        UserCreation = (bool)row["UserCreation"];
+                        
                     }
                 }
 
-               
+                current_user_label.Visible = true;
+                username_label.Text = name;
+                username_label.Visible = true;
+                username_label.ForeColor = Color.Green;
+                accountType_label.Visible = true;
+                accountType_label.Text = "(" + typeAccountForLabel + ")";
+
                 UsersConfigPage.groupBox_Creation.Visible = UserCreation;
                 AlarmSettingsPage.groupBox_Config.Visible = AllowConfigAlarms;
                 MesureConfigPage.groupBox_Config.Visible= AllowCreateID;
+                UsersPage.Visible = UserCreation;
 
             }
             else
@@ -976,6 +1004,11 @@ namespace CO2_Interface
                 MessageBox.Show("Compte inexistant");
             }
             btUsers.PerformClick();
+        }
+
+        private void Update_Button_Click(object sender, EventArgs e)
+        {
+            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
         }
 
         private void current_time_timer_Tick(object sender, EventArgs e)

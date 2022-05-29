@@ -13,7 +13,7 @@ namespace CO2_Interface.Controls
     public partial class Users : UserControl
     {
 
-        internal event EventHandler ButtonClick; //création d'un eventhandler
+        internal event EventHandler updateDBDataButtonClick; //création d'un eventhandler
         public Users()
         {
             InitializeComponent();
@@ -24,6 +24,10 @@ namespace CO2_Interface.Controls
             UserAccess_Grid.ClearSelection();
 
         }
-        
+
+        private void Update_Informations_Click(object sender, EventArgs e)
+        {
+            this.updateDBDataButtonClick(this, e);
+        }
     }
 }

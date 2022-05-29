@@ -95,7 +95,7 @@
     <Compile Include="Data\Collections.cs" />
     <Compile Include="DBAccess\Adapter.cs" />
     <Compile Include="DBAccess\Reader.cs" />
-    <Compile Include="SerialDataHandler\Treatment.cs" />
+    <Compile Include="DBAccess\Tools.cs" />
     <Compile Include="SerialDataHandler\Reception.cs" />
     <Compile Include="WinForms\MainForm.cs">
       <SubType>Form</SubType>

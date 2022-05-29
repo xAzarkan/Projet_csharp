@@ -48,21 +48,21 @@ namespace CO2_Interface.Data
 
         internal class ColumnsUserTable
         {
-            internal static DataColumn ID = new DataColumn("ID", System.Type.GetType("System.Int32"));
+            internal static DataColumn ID = new DataColumn("Id", System.Type.GetType("System.Int32"));
             internal static DataColumn Username = new DataColumn("Name", System.Type.GetType("System.String"));
             internal static DataColumn UserPassword = new DataColumn("Password", System.Type.GetType("System.String"));
-            internal static DataColumn Access_ID = new DataColumn("Access type", System.Type.GetType("System.Int32"));
+            internal static DataColumn AccountType = new DataColumn("AccountType", System.Type.GetType("System.Int32"));
 
         }
 
         internal class ColumnsAccessTable
         {
-            internal static DataColumn ID = new DataColumn("ID", System.Type.GetType("System.Int32"));
-            internal static DataColumn Name = new DataColumn("Name", System.Type.GetType("System.String"));
-            internal static DataColumn AllowCreateID = new DataColumn("Allow Create ID", System.Type.GetType("System.Boolean"));
-            internal static DataColumn AllowDestroyID = new DataColumn("Allow Destroy ID", System.Type.GetType("System.Boolean"));
-            internal static DataColumn AllowConfigAlarm = new DataColumn("Allow Config Alarms", System.Type.GetType("System.Boolean"));
-            internal static DataColumn UserCreation = new DataColumn("User Creation", System.Type.GetType("System.Boolean"));
+            internal static DataColumn ID = new DataColumn("Id", System.Type.GetType("System.Int32"));
+            internal static DataColumn Name = new DataColumn("AccessName", System.Type.GetType("System.String"));
+            internal static DataColumn AllowCreateID = new DataColumn("AllowCreateId", System.Type.GetType("System.Boolean"));
+            internal static DataColumn AllowDestroyID = new DataColumn("AllowDestroyId", System.Type.GetType("System.Boolean"));
+            internal static DataColumn AllowConfigAlarm = new DataColumn("AllowConfigAlarms", System.Type.GetType("System.Boolean"));
+            internal static DataColumn UserCreation = new DataColumn("UserCreation", System.Type.GetType("System.Boolean"));
         }
 
         internal class ColumnsUserAccess
