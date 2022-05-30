@@ -1068,7 +1068,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABUEAAAU2CAYAAAC7v3fZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAA9
-        fAAAPXwB8AhftQAA/7JJREFUeF7s/Qe4ZUd5oAv/o2G4Ho/Hl/Ew9njueDzz+4IiIIIlTBQmCxMsjAGD
+        ewAAPXsBokz5ygAA/7JJREFUeF7s/Qe4ZUd5oAv/o2G4Ho/Hl/Ew9njueDzz+4IiIIIlTBQmCxMsjAGD
         yCInIRBJCBEkQASBYqNuudvgABiMDRgTu0/nnHOfpJxTS+pw9l5r1a1au77aX9Wqdfp0q8MJ7/s871NV
         X31Va52Weq2q6nPO/v8ZYxARERFxGlgNzfrv1fC1Ty53Xfln5eAVZ1e7vvHBaudXP1vt/PJl1Y4vzim3
         ffafyq2f/nmx6ROLik3nry82nre52PCBoWL9e0eLte+4rbvmrXcWq8++r7vqtQ90V5y119lZemans/T5
@@ -7659,10 +7659,13 @@
 </value>
   </data>
   <metadata name="current_time_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>353, 0</value>
+    <value>474, 19</value>
+  </metadata>
+  <metadata name="timer_add_data_in_access.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>279, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>98</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

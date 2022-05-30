@@ -50,6 +50,7 @@
             this.current_user_label = new System.Windows.Forms.Label();
             this.username_label = new System.Windows.Forms.Label();
             this.accountType_label = new System.Windows.Forms.Label();
+            this.timer_add_data_in_access = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.MyContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -170,7 +171,7 @@
             this.MyContainer.Controls.Add(this.splitContainer1);
             this.MyContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.142858F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MyContainer.Location = new System.Drawing.Point(92, 69);
-            this.MyContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyContainer.Margin = new System.Windows.Forms.Padding(2);
             this.MyContainer.Name = "MyContainer";
             this.MyContainer.Size = new System.Drawing.Size(717, 483);
             this.MyContainer.TabIndex = 6;
@@ -179,7 +180,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(2, 2);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Size = new System.Drawing.Size(82, 0);
             this.splitContainer1.SplitterWidth = 2;
@@ -189,7 +190,7 @@
             // 
             this.MyConfigContainer.AutoSize = true;
             this.MyConfigContainer.Location = new System.Drawing.Point(812, 69);
-            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MyConfigContainer.Margin = new System.Windows.Forms.Padding(2);
             this.MyConfigContainer.Name = "MyConfigContainer";
             this.MyConfigContainer.Size = new System.Drawing.Size(273, 483);
             this.MyConfigContainer.TabIndex = 13;
@@ -199,7 +200,7 @@
             this.comPort_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comPort_comboBox.FormattingEnabled = true;
             this.comPort_comboBox.Location = new System.Drawing.Point(250, 23);
-            this.comPort_comboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comPort_comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.comPort_comboBox.Name = "comPort_comboBox";
             this.comPort_comboBox.Size = new System.Drawing.Size(136, 25);
             this.comPort_comboBox.TabIndex = 14;
@@ -219,7 +220,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1017, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(58, 58);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -273,6 +274,11 @@
             this.accountType_label.Size = new System.Drawing.Size(105, 18);
             this.accountType_label.TabIndex = 20;
             this.accountType_label.Text = "AccountType";
+            // 
+            // timer_add_data_in_access
+            // 
+            this.timer_add_data_in_access.Interval = 30000;
+            this.timer_add_data_in_access.Tick += new System.EventHandler(this.timer_add_data_in_access_Tick);
             // 
             // MainForm
             // 
@@ -333,5 +339,6 @@
         private System.Windows.Forms.Label current_user_label;
         private System.Windows.Forms.Label username_label;
         private System.Windows.Forms.Label accountType_label;
+        private System.Windows.Forms.Timer timer_add_data_in_access;
     }
 }

@@ -31,6 +31,8 @@ namespace CO2_Interface
         internal string dataUnit = "";
         internal string dataType = "";
         internal Int32 defaultValue = 10000;
+        internal string userTable = "UserTable";
+        internal string accountTable = "Account";
 
         //TOUT CE QUI CONCERNE LA PARTIE GRAPHIQUE
         public MainForm()
@@ -38,6 +40,7 @@ namespace CO2_Interface
             InitializeComponent(); //appelé au démaragge de l'interface graphique
 
             current_time_timer.Start();
+            timer_add_data_in_access.Start();
 
             SerialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataHandler.Reception.ReceptionHandler);
 
@@ -80,14 +83,17 @@ namespace CO2_Interface
             ConnexionStatus_Label.Text = "CLOSE"; //sinon
             ConnexionStatus_Label.ForeColor = System.Drawing.Color.Red;
 
-            string[] comPorts = SerialPort.GetPortNames();
+            string[] comPorts = SerialPort.GetPortNames(); //récupère tous les ports 
 
             for(int i = 0; i < comPorts.Length; i++)
             {
                 comPort_comboBox.Items.Add(comPorts[i]);
             }
 
-            DBAccess.Tools.Config();
+            //configuration de la usertable
+            DBAccess.Tools.ConfigUserTable();
+            //configuration de la table DataFromSensor
+            DBAccess.Tools.ConfigDataFromSensorTable();
 
             current_user_label.Visible = false;
             username_label.Visible = false;
@@ -252,16 +258,13 @@ namespace CO2_Interface
             DataColumn ChildColumn = Data.Collections.UserAccess.Tables["User"].Columns["AccountType"];
             DataColumn ParentColumn = Data.Collections.UserAccess.Tables["Account"].Columns["Id"];
 
+           // DataRelation relation = new DataRelation("Access2User",ParentColumn, ChildColumn);
 
-            DataRelation relation = new DataRelation("Access2User",ParentColumn, ChildColumn);
+           // Data.Collections.UserAccess.Tables["User"].ParentRelations.Add(relation);
 
-            Data.Collections.UserAccess.Tables["User"].ParentRelations.Add(relation);
-
-            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 0, "AdminRights", true, true, true, true });
+            /*Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 0, "AdminRights", true, true, true, true });
             Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 1, "MasterRights", true, true, true, false });
-            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 2, "NoRights", false, false, false, false });
-
-
+            Data.Collections.UserAccess.Tables[1].Rows.Add(new object[] { 2, "NoRights", false, false, false, false }); */
         }
 
         private void btGraphics_Click(object sender, EventArgs e)
@@ -279,7 +282,8 @@ namespace CO2_Interface
 
         private void btUsers_Click(object sender, EventArgs e)
         {
-            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
+            DBAccess.Reader.ReadUserTable(UsersPage.UserTable_Grid, userTable);
+            DBAccess.Reader.ReadAccountTable(UsersPage.UserAccess_Grid, accountTable);
 
             MyContainer.Controls.Clear();
             MyConfigContainer.Controls.Clear();
@@ -289,12 +293,6 @@ namespace CO2_Interface
                 MyContainer.Controls.Add(UsersPage);
             }
             MyConfigContainer.Controls.Add(UsersConfigPage);
-            
-            /* else
-             {
-                 MyConfigContainer.Controls.Add(UsersLoginPage);
-             }*/
-
         }
 
         private void btSettings_Click(object sender, EventArgs e)
@@ -930,7 +928,7 @@ namespace CO2_Interface
 
                 //Data.Collections.UserAccess.Tables[0].Rows.Add(new object[] { null, username, password, accountType });
 
-                DBAccess.Adapter.Insert(username, password, accountType);
+                DBAccess.Adapter.InsertUserTable(username, password, accountType);
 
                 UsersConfigPage.ID_box.Text = "";
                 UsersConfigPage.Password_box.Text = "";
@@ -943,7 +941,8 @@ namespace CO2_Interface
         }
         private void Login_Button_Click(object sender, EventArgs e)
         {
-            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
+            DBAccess.Reader.ReadUserTable(UsersPage.UserTable_Grid, userTable);
+            DBAccess.Reader.ReadAccountTable(UsersPage.UserAccess_Grid, accountTable);
 
             bool connexion = false;
             string userId = "";
@@ -1003,18 +1002,36 @@ namespace CO2_Interface
             {
                 MessageBox.Show("Compte inexistant");
             }
+
             btUsers.PerformClick();
         }
 
         private void Update_Button_Click(object sender, EventArgs e)
         {
-            DBAccess.Reader.Read(UsersPage.UserTable_Grid, "UserTable");
+            DBAccess.Reader.ReadUserTable(UsersPage.UserTable_Grid, userTable);
+            DBAccess.Reader.ReadAccountTable(UsersPage.UserAccess_Grid, accountTable);
         }
 
         private void current_time_timer_Tick(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
             lb_current_time.Text = dateTime.ToString();
+            
+        }
+
+        private void timer_add_data_in_access_Tick(object sender, EventArgs e)
+        {
+            //ajoute les mesures dans la base de données toutes les 5 minutes
+
+            foreach(Data.FromSensor.Measure newObj in Data.Collections.ObjectList)
+            {
+                if(newObj.ConfigStatus == "Done" && newObj.ConvertedData != 0)
+                {
+                    DBAccess.Adapter.InsertDataFromSensorTable(newObj.Serial.ToString(), newObj.Type.ToString(), newObj.ConvertedData.ToString(), "Unknown", lb_current_time.Text);
+                }
+                
+            }
+            
         }
     }
 }

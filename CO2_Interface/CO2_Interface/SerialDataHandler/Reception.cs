@@ -86,7 +86,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
             }
 
-            updateDataColumn(dt, lowLimit, highLimit);
+            updateDataColumn(dt, lowLimit.Text, highLimit.Text);
 
 
         }
@@ -146,6 +146,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
             //affichage des id dans l'ordre
             dgv.ObjectsGrid.Sort(dgv.ObjectsGrid.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
             dgv.ObjectsGrid.ClearSelection();
+
             updateGraph(alarmComboBoxID);
         }
 
@@ -184,7 +185,7 @@ namespace CO2_Interface.SerialDataHandler //namespace = CO2_Interface
 
         }
 
-        internal static void updateDataColumn(DataTable dt, TextBox lowLimit, TextBox highLimit)
+        internal static void updateDataColumn(DataTable dt, string lowLimit, string highLimit)
         {
             const int TypeColumn = 2;
             const int DataColumn = 3;

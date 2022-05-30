@@ -11,21 +11,21 @@ namespace CO2_Interface.DBAccess
 {
 	internal class Adapter
 	{
-		internal static void Insert(string username, string password, string accountType)
+		internal static void InsertUserTable(string username, string password, string accountType)
 		{
 			int passwordColumn = 0;
 			int usernameColumn = 1;
 			int accountTypeColumn = 2;
 
-			Tools.Adapter.InsertCommand.Parameters[passwordColumn].Value = password;
-			Tools.Adapter.InsertCommand.Parameters[usernameColumn].Value = username;
-			Tools.Adapter.InsertCommand.Parameters[accountTypeColumn].Value = accountType;
+			Tools.AdapterUserTable.InsertCommand.Parameters[passwordColumn].Value = password;
+			Tools.AdapterUserTable.InsertCommand.Parameters[usernameColumn].Value = username;
+			Tools.AdapterUserTable.InsertCommand.Parameters[accountTypeColumn].Value = accountType;
 
 			try
 			{
 				Tools.connexion.Open();
 
-				int buffer = Tools.Adapter.InsertCommand.ExecuteNonQuery();
+				int buffer = Tools.AdapterUserTable.InsertCommand.ExecuteNonQuery();
 
 				if (buffer != 0) MessageBox.Show("User successfully inserted");
 				else MessageBox.Show("User not inserted");
@@ -39,68 +39,39 @@ namespace CO2_Interface.DBAccess
 				Tools.connexion.Close();
 			}
 		}
-		internal static void Delete(String Name)
+
+		internal static void InsertDataFromSensorTable(string sensorNumber, string dataType, string value, string local, string sendedAt)
 		{
-			/*Adapter.DeleteCommand.Parameters[0].Value = Name;
+			int sensorNumberColumn = 0;
+			int dataTypeColumn = 1;
+			int valueColumn = 2;
+			int localColumn = 3;
+			int sendedAtColumn = 4;
 
-			try
-			{
-				connexion.Open();
-
-				int buffer = Adapter.DeleteCommand.ExecuteNonQuery();
-
-				if (buffer != 0) MessageBox.Show("User successfully deleted");
-				else MessageBox.Show("User not found");
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-			finally
-			{
-				connexion.Close();
-			}*/
-		}
-		internal static void Fill(DataSet dataset, string TableName, string DB_Table, DataGridView Grid)
-		{
-			dataset.Tables[TableName].Clear();
-
-			Tools.Adapter.SelectCommand = new OleDbCommand("SELECT * FROM " + DB_Table + ";", Tools.connexion);
+			Tools.AdapterDataFromSensorTable.InsertCommand.Parameters[sensorNumberColumn].Value = sensorNumber;
+			Tools.AdapterDataFromSensorTable.InsertCommand.Parameters[dataTypeColumn].Value = dataType;
+			Tools.AdapterDataFromSensorTable.InsertCommand.Parameters[valueColumn].Value = value;
+			Tools.AdapterDataFromSensorTable.InsertCommand.Parameters[localColumn].Value = local;
+			Tools.AdapterDataFromSensorTable.InsertCommand.Parameters[sendedAtColumn].Value = sendedAt;
 
 			try
 			{
 				Tools.connexion.Open();
+				int buffer = Tools.AdapterDataFromSensorTable.InsertCommand.ExecuteNonQuery();
 
-				Tools.Adapter.Fill(dataset.Tables[TableName]);
-
-				Grid.DataSource = dataset.Tables[TableName];
+				if (buffer != 0) Console.WriteLine("Data successfully inserted");
+				else Console.WriteLine("Data not inserted");
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				Console.WriteLine(ex.Message);
 			}
 			finally
 			{
 				Tools.connexion.Close();
 			}
 		}
-		internal static void Update(DataTable Table)
-		{
-			/*try
-			{
-				connexion.Open();
 
-				Adapter.Update(Table);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-			finally
-			{
-				connexion.Close();
-			}*/
-		}
 	}
 }
 
